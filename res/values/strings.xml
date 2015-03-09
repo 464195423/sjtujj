@@ -9,5 +9,10 @@
     <color name="white">#ffffff</color>
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_t1">家教订单</string>
+    <string name="title_activity_t2">我的订单</string>
+    <string name="title_activity_empty">EmptyActivity</string>
+    <string name="title_activity_t3">个人中心</string>
+    <string name="title_activity_t4">家教中心</string>
 
 </resources>

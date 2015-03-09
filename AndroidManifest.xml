@@ -18,15 +18,35 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>              
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login" >         
+        </activity>
+        <activity
+            android:name=".T1Activity"
+            android:label="@string/title_activity_t1" >
+        </activity>
+        <activity
+            android:name=".T2Activity"
+            android:label="@string/title_activity_t2" >
+        </activity>
+        <activity
+            android:name=".EmptyActivity"
+            android:label="@string/title_activity_empty" >
+        </activity>
+        <activity
+            android:name=".T3Activity"
+            android:label="@string/title_activity_t3" >
+        </activity>
+        <activity
+            android:name=".T4Activity"
+            android:label="@string/title_activity_t4" >
         </activity>
     </application>
 
