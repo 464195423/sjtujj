@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -114,8 +115,8 @@ private ImageView ivTab4;
 	});
 	
 	
- //点击tabhost中的tab时，要切换下面的viewPager
- tabHost.setOnTabChangedListener(new OnTabChangeListener() {
+	//点击tabhost中的tab时，要切换下面的viewPager
+	tabHost.setOnTabChangedListener(new OnTabChangeListener() {
         @Override
         public void onTabChanged(String tabId) {
         	
@@ -131,9 +132,12 @@ private ImageView ivTab4;
             if ("D".equals(tabId)) {
                 pager.setCurrentItem(3);
             } 
+            Log.v("tabID=",tabId);
         }
     });
 
+ 	
+ 
 }
 
 private View getView(String id, Intent intent) {

@@ -16,8 +16,7 @@
         android:paddingBottom="10dip"
         />
         
-
-	<com.example.sjtujj.MyListView  
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/lv"  
         android:layout_width="fill_parent"  
         android:layout_height="fill_parent"

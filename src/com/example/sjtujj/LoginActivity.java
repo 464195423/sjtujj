@@ -8,9 +8,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.List;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,8 +30,9 @@ import android.widget.EditText;
 public class LoginActivity extends Activity {
 private EditText user;
 private EditText passwd;
-private String result;
+private String result="";
 private Handler handler;
+private static Login_net Login_netItems;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,9 +64,20 @@ private Handler handler;
 		handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
-				if (result != null) {
-					Log.v("result = ", result);
-				}
+				parseJsonlogin_net(result);					
+				Log.v("DemandId",Login_netItems.getDemandId());
+				Log.v("group",Login_netItems.getGroup());
+				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("demandId", Login_netItems.getDemandId());
+				bundle.putString("group", Login_netItems.getGroup());
+				bundle.putString("school", Login_netItems.getSchool());
+				bundle.putString("sessionid", Login_netItems.getSessionid());
+				bundle.putString("tid", Login_netItems.getTid());
+				bundle.putString("tname", Login_netItems.getTname());
+				bundle.putString("tpicture", Login_netItems.getTpicture());
+				startActivity(intent);
+				finish();
 				super.handleMessage(msg);
 			}
 		};
@@ -83,13 +100,12 @@ private Handler handler;
 			//		"application/x-www-form-urlencoded"); // 设置内容类型
 			DataOutputStream out = new DataOutputStream(
 					urlConn.getOutputStream()); // 获取输出流
-			//String param = "name="
-			//		+ URLEncoder.encode(user.toString(), "utf-8")
-			//		+ "&pwd="
-			//		+ URLEncoder.encode(passwd.toString(), "utf-8");	//连接要提交的数据
-			String param = "name="+user.toString()+"&pwd"+passwd.toString();
-						
-
+			String param = "name="
+					+ URLEncoder.encode(user.getText().toString(), "utf-8")
+					+ "&pwd="
+					+ URLEncoder.encode(passwd.getText().toString(), "utf-8");	//连接要提交的数据
+			//String param = "name="+user.toString()+"&pwd"+passwd.toString();
+							
 			out.writeBytes(param);//将要传递的数据写入数据输出流
 			out.flush();	//输出缓存
 			out.close();	//关闭数据输出流
@@ -103,9 +119,9 @@ private Handler handler;
 					result += inputLine + "\n";
 				}
 				in.close();	//关闭字符输入流
-			}
+			}	
 			urlConn.disconnect();	//断开连接
-			Log.v("result = ", result);
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -113,5 +129,27 @@ private Handler handler;
 		}
 		
 	}
+
+	public static Login_net parseJsonlogin_net(String json) {
+		Login_netItems = null;
+		JSONObject jsonObject = JSONObject.parseObject(json);
+//		JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+		String code = jsonObject.getString("code");
+		if (code.equals("200")) {
+			/*
+			JSONArray dataArray = jsonObject.getJSONArray("data");
+			Log.v("a","a");
+			if (dataArray != null) {
+				Login_netItems = JSONArray.parseArray(dataArray.toString(),
+						Login_net.class);
+			}else{
+				return null;
+			}
+			*/
+			JSONObject data1 = jsonObject.getJSONObject("data");
+			Login_netItems = JSONObject.parseObject(data1.toString(), Login_net.class);		
+		}
+		return Login_netItems;
+	}	
 	
 }
