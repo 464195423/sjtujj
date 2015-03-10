@@ -1,12 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    android:orientation="vertical"
+	 >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="家教中心" />
-
-</RelativeLayout>
+        android:textColor="@color/white"
+        android:background="@color/background1"
+        android:text="家教中心"
+        android:gravity="center"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        />
+ 
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+		    <ImageView
+		        android:id="@+id/iv1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/zhongxingonggao"
+		        android:layout_centerHorizontal="true"
+		        android:layout_weight="1"
+		        >       
+		    </ImageView>
+		    <ImageView
+		        android:id="@+id/iv2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/aixinhuodong"
+		        android:layout_centerHorizontal="true"
+		        android:layout_weight="1"
+		        >       
+		    </ImageView>
+    </LinearLayout>
+    		    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal">
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="中心公告"
+		        android:gravity="center"
+		        android:layout_weight="1">
+		    </TextView>		    
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="爱心活动"
+		        android:gravity="center"
+		        android:layout_weight="1">
+		    </TextView>
+    </LinearLayout>
+</LinearLayout>
