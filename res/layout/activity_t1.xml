@@ -5,8 +5,22 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/t1_text"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="家教订单" />
+        android:textColor="@color/white"
+        android:background="@color/background1"
+        android:text="家教订单"
+        android:gravity="center"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        />
+        
 
+	<com.example.sjtujj.MyListView  
+        android:id="@+id/lv"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent"
+        android:layout_below="@id/t1_text"
+         /> 
 </RelativeLayout>
