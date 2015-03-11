@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:focusable="false"
 	 >
 
-
+	<!-- Title -->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -13,43 +14,241 @@
         android:background="@color/background1"
         android:text="个人中心"
         android:gravity="center"
-        android:paddingTop="10dip"
-        android:paddingBottom="10dip"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         />
-    
+  
+    <!-- image+username -->
     <LinearLayout 
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="vertical"
-	    android:layout_gravity="center">
+	    android:gravity="center"
+	    android:layout_weight="5"
+	    >
 	    <ImageView
+	        android:id="@+id/t3_pic"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:src="@drawable/accuser"
-	        android:layout_gravity="center">       
+	        android:src="@drawable/accuser">       
 	    </ImageView>
 	    <TextView
 	        android:id="@+id/t3_username"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
 	        android:text="default">
 	    </TextView>
 	</LinearLayout>
 	
+    <!-- 3 col -->
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_weight="2"
 		>
     
         <TextView 
             android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="123"
-	        android:textColor="#ffffff">
+	        android:textColor="#000000"
+	        android:background="@drawable/t3_bg"
+	        android:layout_weight="1">
         </TextView>
+        <TextView 
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="123"
+	        android:textColor="#000000"
+            android:background="@drawable/t3_bg"
+            android:layout_weight="1">
+        </TextView>
+        <TextView 
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="123"
+	        android:textColor="#000000"
+            android:background="@drawable/t3_bg"
+            android:layout_weight="1">
+        </TextView>        
+    </LinearLayout>
+    
+    
+    <!-- 5 image+text -->
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="5">
+        <!-- line1 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- list1 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView 
+                    android:id="@+id/t3_iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon5">                
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个人通知">            
+                </TextView>
+            </LinearLayout>
+            <!-- list2 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView 
+                    android:id="@+id/t3_iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon6">                    
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收入结算">            
+                </TextView>
+            </LinearLayout>    
+            <!-- list3 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView 
+                    android:id="@+id/t3_iv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon8">                    
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个人设置">            
+                </TextView>
+            </LinearLayout>            
+            <!-- list4 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView 
+                    android:id="@+id/t3_iv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon7">                   
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="退出登录">            
+                </TextView>
+            </LinearLayout>    
+            
+        </LinearLayout> 
+            
+        <!-- line2 -->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- list1 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center">
+                <ImageView 
+                    android:id="@+id/t3_iv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon2">                   
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="使用帮助">            
+                </TextView>
+            </LinearLayout>
+            <!-- list2 can add later-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="invisible">>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon6">              
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="收入结算">            
+                </TextView>
+            </LinearLayout>    
+            <!-- list3 can add later-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="invisible">
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon8">                    
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个人设置">            
+                </TextView>
+            </LinearLayout>            
+            <!-- list4 can add later-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="invisible">
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/accicon7">                   
+                </ImageView>
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="退出登录">            
+                </TextView>
+            </LinearLayout>                          
+   		</LinearLayout>
         
     </LinearLayout>
+    
     
 </LinearLayout>

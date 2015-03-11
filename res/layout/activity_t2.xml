@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-
-
     <RelativeLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -15,8 +13,8 @@
      	  	android:layout_height="wrap_content"
             android:background="@color/background1"
             android:gravity="center_vertical|center_horizontal"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
+            android:paddingTop="@dimen/padding"
+            android:paddingBottom="@dimen/padding"
             android:layout_centerInParent="true"/>        
         <TextView
             android:id="@+id/t2_shangke"
@@ -24,7 +22,7 @@
      	  	android:layout_height="wrap_content"
             android:text="上课订单"
             android:textColor="@color/unselect"
-            android:background="@color/background2"
+            android:background="@color/background3"            
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="30dip"
             android:paddingRight="30dip"
@@ -32,11 +30,11 @@
             android:paddingBottom="10dip"
             android:layout_centerInParent="true"/>"
         <TextView
-            android:id="@+id/t2_guoqi"
+            android:id="@+id/t2_quanbu"
      	  	android:layout_width="wrap_content"
      	  	android:layout_height="wrap_content"
             android:text="全部订单"
-            android:textColor="@color/unselect"
+            android:textColor="@color/select"
             android:background="@color/background2"
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="30dip"
@@ -45,12 +43,12 @@
             android:paddingBottom="10dip"
             android:layout_toLeftOf="@id/t2_shangke"/>        
         <TextView
-            android:id="@+id/t2_quanbu"
+            android:id="@+id/t2_guoqi"
      	  	android:layout_width="wrap_content"
      	  	android:layout_height="wrap_content"
             android:text="过期订单"
             android:textColor="@color/unselect"
-            android:background="@color/background2"
+            android:background="@color/background3"
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="30dip"
             android:paddingRight="30dip"
@@ -59,5 +57,5 @@
             android:layout_toRightOf="@id/t2_shangke"/>
         
     </RelativeLayout>
-    
+
 </RelativeLayout>

@@ -4,8 +4,8 @@
     <color name="background1">#00698c</color>
     <color name="unselect">#ffffff</color>
     <color name="select">#66ccff</color>
-    <color name="background2">#00698c</color>
-    <color name="background3">#ffffff</color>     
+    <color name="background2">#ffffff</color>
+    <color name="background3">#00698c</color>     
     
 	<color name="transparent">#ffffff</color>
 	<color name="gold">#ffffff</color>

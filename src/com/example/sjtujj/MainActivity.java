@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
@@ -42,6 +43,19 @@ private ImageView ivTab4;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		Intent intent1 = getIntent();
+		Bundle bundle = intent1.getExtras();
+		/*
+		String demandId = bundle.getString("demandId");
+		String group = bundle.getString("group");
+		String school = bundle.getString("school");
+		String sessionid = bundle.getString("sessionid");
+		String tid = bundle.getString("tid");
+		String tname = bundle.getString("tname");
+		String tpicture = bundle.getString("tpicture");
+		*/
+		
 	context = MainActivity.this;
 	
 	pager  = (ViewPager) findViewById(R.id.viewpager);
@@ -53,12 +67,16 @@ private ImageView ivTab4;
 	manager.dispatchCreate(savedInstanceState);
 	
 	Intent i1 = new Intent(context, T1Activity.class);
+	i1.putExtras(bundle);
 	listViews.add(getView("A", i1));
 	Intent i2 = new Intent(context, T2Activity.class);
+	i2.putExtras(bundle);
 	listViews.add(getView("B", i2));
 	Intent i3 = new Intent(context, T3Activity.class);
+	i3.putExtras(bundle);
 	listViews.add(getView("C", i3));
 	Intent i4 = new Intent(context, T4Activity.class);
+	i4.putExtras(bundle);
 	listViews.add(getView("D", i4));
 
 	tabHost = (TabHost) findViewById(R.id.tabhost);
@@ -119,7 +137,6 @@ private ImageView ivTab4;
 	tabHost.setOnTabChangedListener(new OnTabChangeListener() {
         @Override
         public void onTabChanged(String tabId) {
-        	
         	if ("A".equals(tabId)) {
                 pager.setCurrentItem(0);
             } 
@@ -131,13 +148,12 @@ private ImageView ivTab4;
             } 
             if ("D".equals(tabId)) {
                 pager.setCurrentItem(3);
-            } 
+            }       
+            pager.refreshDrawableState();
             Log.v("tabID=",tabId);
         }
     });
-
- 	
- 
+	
 }
 
 private View getView(String id, Intent intent) {

@@ -12,8 +12,8 @@
         android:background="@color/background1"
         android:text="家教订单"
         android:gravity="center"
-        android:paddingTop="10dip"
-        android:paddingBottom="10dip"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         />
         
 	<com.handmark.pulltorefresh.library.PullToRefreshListView
