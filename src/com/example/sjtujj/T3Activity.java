@@ -93,10 +93,6 @@ public class T3Activity extends Activity {
 				alert.setButton(DialogInterface.BUTTON_POSITIVE,"È·¶¨", new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-					//TODO
-					//MainActivity.this.finish();
-					//T1Activity.this.finish();
-					//finish();
 					Intent intent = new Intent(T3Activity.this, LoginActivity.class);
 					startActivity(intent);
 					}
