@@ -13,5 +13,8 @@
     <string name="title_activity_t4">家教中心</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_ddxx">DdxxActivity</string>
-
+    <string name="title_activity_t2_ddxq">订单详情</string>
+    <string name="title_activity_t2_kssk">开始授课</string>
+    <string name="t2_kssk_info">1，授课前请先确认去授课，激活授课状态。\n2，确认前请选择授课时长。</string>
+    
 </resources>

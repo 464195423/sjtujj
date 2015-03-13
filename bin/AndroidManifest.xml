@@ -46,6 +46,14 @@
         <activity
             android:name=".DdxxActivity"
             android:label="@string/title_activity_ddxx" >
+        </activity>
+        <activity
+            android:name=".T2_ddxqActivity"
+            android:label="@string/title_activity_t2_ddxq" >
+        </activity>
+        <activity
+            android:name=".T2_ksskActivity"
+            android:label="@string/title_activity_t2_kssk" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

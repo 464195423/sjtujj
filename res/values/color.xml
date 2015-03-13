@@ -7,7 +7,9 @@
     <color name="select">#66ccff</color>
     <color name="background2">#ffffff</color>
     <color name="background3">#00698c</color>     
-    
+    <color name="jieshou">#66ccff</color>     
+    <color name="jujue">#00698c</color>     
+       
 	<color name="transparent">#ffffff</color>
 	<color name="gold">#ffffff</color>
 </resources>
