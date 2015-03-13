@@ -9,7 +9,9 @@
     <color name="background3">#00698c</color>     
     <color name="jieshou">#66ccff</color>     
     <color name="jujue">#00698c</color>     
-       
+    <color name="touming">#00000000</color>
+    
+    
 	<color name="transparent">#ffffff</color>
 	<color name="gold">#ffffff</color>
 </resources>

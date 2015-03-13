@@ -17,6 +17,8 @@
         android:layout_height="wrap_content"  
         android:id="@+id/reg_usrname"
         android:inputType="text"
+        android:textColorHint="#AAAAAA"
+        android:hint="用户名"
         >
     </EditText>
     <EditText
@@ -24,6 +26,8 @@
         android:layout_height="wrap_content"  
         android:id="@+id/reg_passwd"
         android:inputType="textPassword"
+        android:textColorHint="#AAAAAA"
+        android:hint="密码"
         > 
     </EditText> 
     

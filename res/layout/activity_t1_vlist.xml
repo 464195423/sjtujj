@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="horizontal" >
+
+    <RelativeLayout 
+        android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+   		android:background="@color/white"
+   		android:layout_marginLeft="10dp"
+   		android:layout_marginRight="10dp"
+   		android:layout_marginTop="10dp">
+   		
+	    <LinearLayout 
+	        android:id="@+id/t1_vlist_ll"
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="vertical"
+	    	android:layout_gravity="left">
+	        <TextView 
+	            android:id="@+id/t1_vlist_l1"
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:textColor="@color/black"
+	    		android:text="五年级  女  数"/>
+	        <TextView 
+	            android:id="@+id/t1_vlist_l2"
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:textColor="@color/black"
+	    		android:text="地址：XXXXXXXXXXXXXXXX"/>
+	        <TextView 
+	            android:id="@+id/t1_vlist_l3"
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:textColor="#aaaaaa"
+	    		android:text="备注"/>
+	        <TextView 
+	            android:id="@+id/t1_vlist_l4"
+	            android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:textColor="#00ff00"
+	    		android:text="¥价格"/>
+	        
+	        
+	    </LinearLayout>
+	    
+	    
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:layout_centerVertical="true"
+	    	android:layout_marginRight="10dp"
+	    	android:layout_alignParentRight="true"
+	    	android:src="@drawable/t1_lst"/>
+	    
+	    
+	</RelativeLayout>
+</LinearLayout>

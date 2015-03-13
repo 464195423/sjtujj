@@ -9,14 +9,14 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:background="@color/background1"
-        android:text="开始授课"
+        android:text="试听授课中"
         android:gravity="center"
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"/>
 	<ImageView
 	    android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/appcancoursepic4"
+        android:src="@drawable/appcancoursepic2"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 	    
@@ -26,41 +26,9 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:gravity="center"
-        android:text="请确认授课时长"/>
-	<RelativeLayout 
-	    android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp">
-        <TextView 
-            android:id="@+id/t2_shoukeshichang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/t2_frame_bg"
-            android:text="2"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_centerInParent="true"/>
-        
-        <ImageView 
-            android:id="@+id/t2_plus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/plus"
-            android:layout_toLeftOf="@id/t2_shoukeshichang"
-            />
-        <ImageView 
-            android:id="@+id/t2_minus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/minus"
-            android:layout_toRightOf="@id/t2_shoukeshichang"
-            />	  
-	</RelativeLayout>
-    
+        android:text="授课进行中"/>
+
+    <!-- 授课进行中2个button -->
 	<Button 
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
@@ -68,11 +36,25 @@
 	    android:layout_marginRight="50dp"
 	    android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-	    android:text="去授课"
+	    android:text="取消授课"
 	    android:textColor="@color/white"
 	    android:gravity="center"
 	    android:padding="10dp"
 	    android:background="@drawable/t2_qushouke_bg"/>
+	
+	<Button 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+	    android:text="授课结束"
+	    android:textColor="@color/white"
+	    android:gravity="center"
+	    android:padding="10dp"
+	    android:background="@drawable/t2_qushouke_bg"/>	
+	    
 	
 	<LinearLayout 
 	    android:layout_width="fill_parent"
@@ -87,7 +69,7 @@
 		    android:layout_width="0dp"
 		    android:layout_weight="1"
 		    android:layout_height="wrap_content"
-		    android:text="终止订单"
+		    android:text="放弃订单"
 		    android:textColor="@color/white"
 		    android:gravity="center"
 		    android:background="@drawable/t2_kssk_bg"
@@ -112,6 +94,6 @@
 	    android:layout_marginRight="50dp"
 	    android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text="@string/t2_kssk_info"/>
+        android:text="@string/t2_stskz_info"/>
 	
 </LinearLayout>

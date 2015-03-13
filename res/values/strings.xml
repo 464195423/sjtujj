@@ -5,6 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="login">登录</string>
+    <string name="t2_kssk_info">1，授课前请先确认去授课，激活授课状态。\n2，确认前请选择授课时长。</string>
+    <string name="t2_stskz_info">1，试听前请先确认去授课，激活授课状态。\n2，放弃订单与取消授课请提前与家长沟通好，否则将取消家教资格。</string>
+    <string name="t2_stjs_info">1，请家长输入安全码结束试听授课。\n2，雇佣该家教请去sjtu.yousi.com进行进一步的操作。</string>
+    
+    
+    
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_t1">家教订单</string>
     <string name="title_activity_t2">我的订单</string>
@@ -15,6 +21,7 @@
     <string name="title_activity_ddxx">DdxxActivity</string>
     <string name="title_activity_t2_ddxq">订单详情</string>
     <string name="title_activity_t2_kssk">开始授课</string>
-    <string name="t2_kssk_info">1，授课前请先确认去授课，激活授课状态。\n2，确认前请选择授课时长。</string>
-    
+    <string name="title_activity_t2_stskz">试听授课中</string>
+    <string name="title_activity_t2_stjs">试听结算</string>
+
 </resources>

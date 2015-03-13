@@ -17,9 +17,10 @@
         />
         
 	<com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/lv"  
+        android:id="@+id/t1_lv"  
         android:layout_width="fill_parent"  
         android:layout_height="fill_parent"
         android:layout_below="@id/t1_text"
+        android:listSelector="#00000000"
          /> 
 </RelativeLayout>
