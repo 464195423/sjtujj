@@ -5,7 +5,7 @@
     tools:context="${relativePackage}.${activityClass}" >
  
     <TextView
-        android:id="@+id/t1_text"
+        android:id="@+id/t1_ddxx_text"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
