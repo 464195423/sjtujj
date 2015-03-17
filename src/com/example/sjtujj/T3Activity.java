@@ -37,13 +37,9 @@ public class T3Activity extends Activity {
 				// TODO Auto-generated method stub
 				ImageView pic = (ImageView)findViewById(R.id.t3_pic);
 				try {
-					Log.v("a","a");
 					URL picUrl = new URL(getIntent().getExtras().getString("tpicture"));
-					Log.v("a","aa");
 					Bitmap pngBM = BitmapFactory.decodeStream(picUrl.openStream());
-					Log.v("a","aaa");
 					pic.setImageBitmap(pngBM);
-					Log.v("a","aaaa");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -82,6 +78,17 @@ public class T3Activity extends Activity {
 			}
 		});
 
+		iv3.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(T3Activity.this, T3_grszActivity.class);
+				startActivity(intent);
+			}
+		});		
+		
+		
 		iv4.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

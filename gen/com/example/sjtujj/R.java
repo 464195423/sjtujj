@@ -756,6 +756,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int measureWithLargestChild=0x7f01009a;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarButtonStyle=0x7f0100bd;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int metaButtonBarStyle=0x7f0100bc;
         /**  The size of the middle bar when top and bottom bars merge into middle bar to form an arrow 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -1515,19 +1523,19 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f080003;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f09003d;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f09003e;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f09003e;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f09003f;
         public static final int abc_input_method_navigation_guard=0x7f090003;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f09003f;
-        public static final int abc_primary_text_disable_only_material_light=0x7f090040;
-        public static final int abc_primary_text_material_dark=0x7f090041;
-        public static final int abc_primary_text_material_light=0x7f090042;
-        public static final int abc_search_url_text=0x7f090043;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f090040;
+        public static final int abc_primary_text_disable_only_material_light=0x7f090041;
+        public static final int abc_primary_text_material_dark=0x7f090042;
+        public static final int abc_primary_text_material_light=0x7f090043;
+        public static final int abc_search_url_text=0x7f090044;
         public static final int abc_search_url_text_normal=0x7f090000;
         public static final int abc_search_url_text_pressed=0x7f090002;
         public static final int abc_search_url_text_selected=0x7f090001;
-        public static final int abc_secondary_text_material_dark=0x7f090044;
-        public static final int abc_secondary_text_material_light=0x7f090045;
+        public static final int abc_secondary_text_material_dark=0x7f090045;
+        public static final int abc_secondary_text_material_light=0x7f090046;
         public static final int accent_material_dark=0x7f09000f;
         public static final int accent_material_light=0x7f09000e;
         public static final int background1=0x7f090033;
@@ -1538,6 +1546,7 @@ containing a value of this type.
         public static final int background_material_dark=0x7f090004;
         public static final int background_material_light=0x7f090005;
         public static final int black=0x7f090032;
+        public static final int black_overlay=0x7f09003d;
         /**  White 50% 
          */
         public static final int bright_foreground_disabled_material_dark=0x7f090016;
@@ -1816,16 +1825,25 @@ containing a value of this type.
         public static final int logo=0x7f02004a;
         public static final int minus=0x7f02004b;
         public static final int plus=0x7f02004c;
-        public static final int t1_lst=0x7f02004d;
-        public static final int t1_vlist_bg=0x7f02004e;
-        public static final int t2_frame_bg=0x7f02004f;
-        public static final int t2_jiedan_bg=0x7f020050;
-        public static final int t2_jujue_bg=0x7f020051;
-        public static final int t2_kssk_bg=0x7f020052;
-        public static final int t2_qushouke_bg=0x7f020053;
-        public static final int t2_title_bg=0x7f020054;
-        public static final int t3_bg=0x7f020055;
-        public static final int zhongxingonggao=0x7f020056;
+        public static final int switch_bottom=0x7f02004d;
+        public static final int switch_btn_pressed=0x7f02004e;
+        public static final int switch_frame=0x7f02004f;
+        public static final int switch_mask=0x7f020050;
+        public static final int t1_lst=0x7f020051;
+        public static final int t1_vlist_bg=0x7f020052;
+        public static final int t2_frame_bg=0x7f020053;
+        public static final int t2_jiedan_bg=0x7f020054;
+        public static final int t2_jujue_bg=0x7f020055;
+        public static final int t2_kssk_bg=0x7f020056;
+        public static final int t2_qushouke_bg=0x7f020057;
+        public static final int t2_title_bg=0x7f020058;
+        public static final int t3_bg=0x7f020059;
+        public static final int t3_grsz=0x7f02005a;
+        public static final int t3_grsz1=0x7f02005b;
+        public static final int t3_grsz2=0x7f02005c;
+        public static final int t3_grsz3=0x7f02005d;
+        public static final int t3_yjfk_bg=0x7f02005e;
+        public static final int zhongxingonggao=0x7f02005f;
     }
     public static final class id {
         public static final int action_bar=0x7f06003f;
@@ -1841,7 +1859,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f06003c;
         public static final int action_mode_bar_stub=0x7f06003b;
         public static final int action_mode_close_button=0x7f06002e;
-        public static final int action_settings=0x7f060088;
+        public static final int action_settings=0x7f06008c;
         public static final int activity_chooser_view_content=0x7f06002f;
         public static final int always=0x7f060020;
         public static final int beginning=0x7f060027;
@@ -1852,20 +1870,20 @@ containing a value of this type.
         public static final int ddxq_fragment=0x7f060061;
         public static final int ddxq_jiedan=0x7f060062;
         public static final int ddxq_jujue=0x7f060063;
-        public static final int ddxx_drfd=0x7f060076;
+        public static final int ddxx_drfd=0x7f06007a;
         public static final int ddxx_fragment=0x7f06004e;
         public static final int ddxx_jieshou=0x7f060050;
-        public static final int ddxx_jj=0x7f060079;
-        public static final int ddxx_jjxb=0x7f060074;
-        public static final int ddxx_nj=0x7f060070;
-        public static final int ddxx_skdz=0x7f060073;
-        public static final int ddxx_tsxq=0x7f060075;
-        public static final int ddxx_tsxq1=0x7f060078;
-        public static final int ddxx_xb=0x7f060071;
-        public static final int ddxx_xxxq=0x7f060077;
-        public static final int ddxx_zfxk=0x7f060072;
-        public static final int ddxx_zfzt=0x7f06007b;
-        public static final int ddxx_zj=0x7f06007a;
+        public static final int ddxx_jj=0x7f06007d;
+        public static final int ddxx_jjxb=0x7f060078;
+        public static final int ddxx_nj=0x7f060074;
+        public static final int ddxx_skdz=0x7f060077;
+        public static final int ddxx_tsxq=0x7f060079;
+        public static final int ddxx_tsxq1=0x7f06007c;
+        public static final int ddxx_xb=0x7f060075;
+        public static final int ddxx_xxxq=0x7f06007b;
+        public static final int ddxx_zfxk=0x7f060076;
+        public static final int ddxx_zfzt=0x7f06007f;
+        public static final int ddxx_zj=0x7f06007e;
         public static final int decor_content_parent=0x7f06003d;
         public static final int default_activity_button=0x7f060032;
         public static final int dialog=0x7f060025;
@@ -1876,24 +1894,24 @@ containing a value of this type.
         public static final int end=0x7f060028;
         public static final int expand_activities_button=0x7f060030;
         public static final int expanded_menu=0x7f060036;
-        public static final int fl_inner=0x7f060081;
+        public static final int fl_inner=0x7f060085;
         public static final int flip=0x7f060013;
         public static final int gridview=0x7f060000;
-        public static final int head_contentLayout=0x7f06007c;
+        public static final int head_contentLayout=0x7f060080;
         public static final int home=0x7f060003;
         public static final int homeAsUp=0x7f06001a;
         public static final int icon=0x7f060034;
         public static final int ifRoom=0x7f060022;
         public static final int image=0x7f060031;
-        public static final int iv1=0x7f06006e;
-        public static final int iv2=0x7f06006f;
-        public static final int iv_mark=0x7f060086;
+        public static final int iv1=0x7f060072;
+        public static final int iv2=0x7f060073;
+        public static final int iv_mark=0x7f06008a;
         public static final int listMode=0x7f060016;
         public static final int list_item=0x7f060033;
-        public static final int lvHeaderArrowIv=0x7f06007d;
-        public static final int lvHeaderLastUpdatedTv=0x7f060080;
-        public static final int lvHeaderProgressBar=0x7f06007e;
-        public static final int lvHeaderTipsTv=0x7f06007f;
+        public static final int lvHeaderArrowIv=0x7f060081;
+        public static final int lvHeaderLastUpdatedTv=0x7f060084;
+        public static final int lvHeaderProgressBar=0x7f060082;
+        public static final int lvHeaderTipsTv=0x7f060083;
         public static final int manualOnly=0x7f06000e;
         public static final int middle=0x7f060029;
         public static final int never=0x7f060023;
@@ -1905,10 +1923,10 @@ containing a value of this type.
         public static final int pullFromEnd=0x7f060010;
         public static final int pullFromStart=0x7f060011;
         public static final int pullUpFromBottom=0x7f060012;
-        public static final int pull_to_refresh_image=0x7f060082;
-        public static final int pull_to_refresh_progress=0x7f060083;
-        public static final int pull_to_refresh_sub_text=0x7f060085;
-        public static final int pull_to_refresh_text=0x7f060084;
+        public static final int pull_to_refresh_image=0x7f060086;
+        public static final int pull_to_refresh_progress=0x7f060087;
+        public static final int pull_to_refresh_sub_text=0x7f060089;
+        public static final int pull_to_refresh_text=0x7f060088;
         public static final int radio=0x7f060039;
         public static final int reg_login=0x7f060053;
         public static final int reg_passwd=0x7f060052;
@@ -1947,6 +1965,9 @@ containing a value of this type.
         public static final int t2_rl=0x7f06005c;
         public static final int t2_shangke=0x7f06005d;
         public static final int t2_shoukeshichang=0x7f060064;
+        public static final int t3_grsz_b1=0x7f06006e;
+        public static final int t3_grsz_b2=0x7f06006f;
+        public static final int t3_grsz_l3=0x7f060070;
         public static final int t3_iv1=0x7f060069;
         public static final int t3_iv2=0x7f06006a;
         public static final int t3_iv3=0x7f06006b;
@@ -1954,11 +1975,12 @@ containing a value of this type.
         public static final int t3_iv5=0x7f06006d;
         public static final int t3_pic=0x7f060067;
         public static final int t3_username=0x7f060068;
+        public static final int t3_yjfk_submit=0x7f060071;
         public static final int tabMode=0x7f060018;
         public static final int tabhost=0x7f060054;
         public static final int title=0x7f060035;
         public static final int top=0x7f06002b;
-        public static final int tv_title=0x7f060087;
+        public static final int tv_title=0x7f06008b;
         public static final int up=0x7f060004;
         public static final int useLogo=0x7f06001f;
         public static final int viewpager=0x7f060055;
@@ -2027,13 +2049,15 @@ containing a value of this type.
         public static final int activity_t2_stjs=0x7f030020;
         public static final int activity_t2_stskz=0x7f030021;
         public static final int activity_t3=0x7f030022;
-        public static final int activity_t4=0x7f030023;
-        public static final int fragment_ddxx=0x7f030024;
-        public static final int lv_header=0x7f030025;
-        public static final int pull_to_refresh_header_horizontal=0x7f030026;
-        public static final int pull_to_refresh_header_vertical=0x7f030027;
-        public static final int support_simple_spinner_dropdown_item=0x7f030028;
-        public static final int tabwidget=0x7f030029;
+        public static final int activity_t3_grsz=0x7f030023;
+        public static final int activity_t3_yjfk=0x7f030024;
+        public static final int activity_t4=0x7f030025;
+        public static final int fragment_ddxx=0x7f030026;
+        public static final int lv_header=0x7f030027;
+        public static final int pull_to_refresh_header_horizontal=0x7f030028;
+        public static final int pull_to_refresh_header_vertical=0x7f030029;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002a;
+        public static final int tabwidget=0x7f03002b;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -2094,6 +2118,8 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f070013;
         public static final int action_settings=0x7f070017;
         public static final int app_name=0x7f070015;
+        public static final int dummy_button=0x7f07002a;
+        public static final int dummy_content=0x7f07002b;
         public static final int hello_blank_fragment=0x7f070022;
         public static final int hello_world=0x7f070016;
         public static final int login=0x7f070018;
@@ -2119,21 +2145,26 @@ containing a value of this type.
         public static final int title_activity_t2_stjs=0x7f070027;
         public static final int title_activity_t2_stskz=0x7f070026;
         public static final int title_activity_t3=0x7f070020;
+        public static final int title_activity_t3_grsz=0x7f070028;
+        public static final int title_activity_t3_yjfk=0x7f070029;
         public static final int title_activity_t4=0x7f070021;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
+
     
  API 11 theme customizations can go here. 
 
@@ -2292,6 +2323,10 @@ containing a value of this type.
     
          */
         public static final int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f0b0090;
+        public static final int ButtonBar=0x7f0b00ee;
+        public static final int ButtonBarButton=0x7f0b00ef;
+        public static final int FullscreenActionBarStyle=0x7f0b00f0;
+        public static final int FullscreenTheme=0x7f0b00ed;
         public static final int Platform_AppCompat=0x7f0b00c9;
         public static final int Platform_AppCompat_Dialog=0x7f0b00cb;
         public static final int Platform_AppCompat_Light=0x7f0b00ca;
@@ -3154,6 +3189,46 @@ containing a value of this type.
           @attr name com.example.sjtujj:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
+        /** 
+         Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels.
+    
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarButtonStyle com.example.sjtujj:metaButtonBarButtonStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ButtonBarContainerTheme_metaButtonBarStyle com.example.sjtujj:metaButtonBarStyle}</code></td><td></td></tr>
+           </table>
+           @see #ButtonBarContainerTheme_metaButtonBarButtonStyle
+           @see #ButtonBarContainerTheme_metaButtonBarStyle
+         */
+        public static final int[] ButtonBarContainerTheme = {
+            0x7f0100bc, 0x7f0100bd
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.example.sjtujj.R.attr#metaButtonBarButtonStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.sjtujj:metaButtonBarButtonStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.sjtujj.R.attr#metaButtonBarStyle}
+          attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.example.sjtujj:metaButtonBarStyle
+        */
+        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
         /** Attributes that can be used with a CompatTextView.
            <p>Includes the following attributes:</p>
            <table>

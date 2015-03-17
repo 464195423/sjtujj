@@ -33,6 +33,17 @@ private LvAdapter adapter;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t1);
+
+		Bundle bundle = getIntent().getExtras();
+		String demandId = bundle.getString("demandId");
+		String group = bundle.getString("group");
+		String school = bundle.getString("school");
+		String sessionid = bundle.getString("sessionid");
+		String tid = bundle.getString("tid");
+		String tname = bundle.getString("tname");
+		String tpicture = bundle.getString("tpicture");
+		Log.v("school",school);
+		
         lv = (PullToRefreshListView)findViewById(R.id.t1_lv);  
   
         lv.setMode(Mode.BOTH);

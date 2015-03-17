@@ -8,6 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
@@ -20,6 +21,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -65,8 +67,6 @@ private static Login_net Login_netItems;
 			@Override
 			public void handleMessage(Message msg) {
 				parseJsonlogin_net(result);					
-				Log.v("DemandId",Login_netItems.getDemandId());
-				Log.v("group",Login_netItems.getGroup());
 				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putCharSequence("demandId", Login_netItems.getDemandId());
@@ -84,7 +84,9 @@ private static Login_net Login_netItems;
 	}
 
 	
+	@SuppressWarnings("null")
 	public void login(){
+		/*
 		String target = "http://172.16.3.141:8802/TeacherCenterInterface/teacherlogin";
 		URL url;
 		try {
@@ -127,6 +129,12 @@ private static Login_net Login_netItems;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		*/
+		String target = Network_post.url + "/teacherlogin";
+		List<Pair<String, String>> lp = new ArrayList<Pair<String, String>>();
+		lp.add(new Pair<String, String>("name",user.getText().toString()));
+		lp.add(new Pair<String, String>("pwd",passwd.getText().toString()));
+		result = Network_post.Network_post(target, lp);
 		
 	}
 
