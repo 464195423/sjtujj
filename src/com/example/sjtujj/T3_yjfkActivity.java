@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class T3_yjfkActivity extends Activity {
 
@@ -15,6 +17,7 @@ public class T3_yjfkActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3_yjfk);
 		
+		//意见反馈（未完成）
 		Button bt = (Button)findViewById(R.id.t3_yjfk_submit);
 		bt.setOnClickListener(new OnClickListener() {
 			
@@ -24,5 +27,16 @@ public class T3_yjfkActivity extends Activity {
 				finish();
 			}
 		});
+		
+		//左上返回键
+		LinearLayout ll_up = (LinearLayout)findViewById(R.id.t3_yjfk_up);
+        ll_up.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});		
 	}
 }

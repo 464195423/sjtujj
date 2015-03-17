@@ -3,6 +3,9 @@ package com.example.sjtujj;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+
+import com.alibaba.fastjson.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,17 +21,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T3Activity extends Activity {
-
+private static T3_net T3_net_Items;
+private String sessionid;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3);
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
-
+		sessionid = bundle.getString("sessionid");
 		//Log.v("tpicture",bundle.getString("tpicture"));
+
+		GetData();
 		
 		//处理加载用户头像
 		Thread thread = new Thread(new Runnable(){
@@ -47,7 +54,7 @@ public class T3Activity extends Activity {
 			}
 			
 		});
-		thread.start();
+		thread.start();		
 		
 		TextView username = (TextView)findViewById(R.id.t3_username);
 		username.setText(bundle.getString("tname"));
@@ -112,7 +119,32 @@ public class T3Activity extends Activity {
 				});				
 				alert.show();				
 			}
-		});		
-		
+		});				
 	}
+	
+	private void GetData(){
+		MyHttpClient.postJson(MyPath.personal_info_path, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				Log.v("sessionid",sessionid);
+				Log.v("json",json);
+				JSONObject jsonObject = JSONObject.parseObject(json);
+//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					JSONObject data1 = jsonObject.getJSONObject("data");
+					T3_net_Items = JSONObject.parseObject(data1.toString(), T3_net.class);		
+				}
+				String desc = jsonObject.getString("desc");
+				Toast.makeText(T3Activity.this, desc, Toast.LENGTH_LONG).show();
+				
+
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, sessionid);
+	}	
+	
+	
 }

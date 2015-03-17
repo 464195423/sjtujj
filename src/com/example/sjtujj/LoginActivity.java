@@ -79,6 +79,7 @@ private static Login_net Login_netItems;
 				bundle.putCharSequence("tid", Login_netItems.getTid());
 				bundle.putCharSequence("tname", Login_netItems.getTname());
 				bundle.putCharSequence("tpicture", Login_netItems.getTpicture());
+				Log.v("sessionid",Login_netItems.getSessionid());
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}

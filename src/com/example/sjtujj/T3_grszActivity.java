@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class T3_grszActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3_grsz);
 		
+		//个人设置
 		SwitchButton sb1 = (SwitchButton) findViewById(R.id.t3_grsz_b1);  
         sb1.setOnChangeListener(new OnChangeListener() {  
               
@@ -51,5 +53,17 @@ public class T3_grszActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+        
+        //左上返回键
+        LinearLayout lv_up = (LinearLayout)findViewById(R.id.t3_grsz_up);
+        lv_up.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+        
 	}
 }
