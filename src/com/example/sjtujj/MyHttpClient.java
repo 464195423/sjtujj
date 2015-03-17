@@ -206,65 +206,6 @@ public class MyHttpClient {
 		}.start();
 	}
 
-	public static void doPost(final Context context,
-			final NetRespondPost netRespondPost, final String path,
-			final String pid) {
-		final Handler handler = new Handler();
-		new Thread() {
-			public void run() {
-				InputStream is = null;
-				ByteArrayOutputStream os = null;
-				HttpClient client = new DefaultHttpClient();
-				final HttpPost post = new HttpPost(path);
-				List<NameValuePair> params = new ArrayList<NameValuePair>();
-				params.add(new BasicNameValuePair("p_id", pid));
-				HttpEntity formEntity;
-				try {
-					formEntity = new UrlEncodedFormEntity(params);
-					post.setEntity(formEntity);
-					HttpResponse response = client.execute(post);
-					if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-						is = response.getEntity().getContent();
-						os = new ByteArrayOutputStream();
-						byte[] buffer = new byte[1024];
-						int len = is.read(buffer);
-						while (len != -1) {
-							os.write(buffer, 0, len);
-							len = is.read(buffer);
-						}
-						os.flush();
-						final String json = new String(os.toByteArray(), 0,
-								os.toByteArray().length);
-						handler.post(new Runnable() {
-
-							@Override
-							public void run() {
-								netRespondPost.netWorkOk(json);
-							}
-						});
-					}
-				} catch (UnsupportedEncodingException e) {
-					e.printStackTrace();
-				} catch (ClientProtocolException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						if (is != null) {
-							is.close();
-						}
-						if (os != null) {
-							os.close();
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-
-			};
-		}.start();
-	}
 
 	public static void doPost2(final Context context,
 			final NetRespondPost netRespondPost, final String path,
