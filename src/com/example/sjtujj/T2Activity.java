@@ -1,8 +1,11 @@
 package com.example.sjtujj;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
@@ -29,6 +32,7 @@ private TextView tv2;
 private TextView tv3;
 private int type = 1;
 private PullToRefreshListView lv; 
+private List<T2_net> T2_net_Items;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +121,9 @@ private PullToRefreshListView lv;
 		});
 		
 		
+		getDataResource("close");
+		
+		/*
 		List<String> list = new ArrayList<String>();  
         list.add("loonggg");  
         list.add("我们都是开发者");  
@@ -131,9 +138,58 @@ private PullToRefreshListView lv;
         list.add("我们都是开发者");  
         LvAdapter adapter = new LvAdapter(list, this);  
         lv.setAdapter(adapter);  
-        
+        */
 	}
 
+	private void getDataResource(String startus){
+		/*
+		MyHttpClient.PostJson(MyPath.T2_path, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				questionItems = FastJsonParser.parseJsonQuestionItem(json);
+				adapter = new QuestionListAdapter(getActivity(), questionItems);
+				mPullRefreshListView.setAdapter(adapter);
+				mPullRefreshListView.onRefreshComplete();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, SessionID);
+		*/
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("status", startus);
+		MyHttpClient.doPost2(null, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				//Log.v("json",json);
+
+				T2_net_Items = parseJsonT2_netItem(json);
+				T2_adapter adapter = new T2_adapter(T2Activity.this, T2_net_Items);
+				lv.setAdapter(adapter);
+				lv.onRefreshComplete();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.my_demand_path, map, MyPath.getSessionid());
+	}
+
+	public List<T2_net> parseJsonT2_netItem(String json) {
+		List<T2_net> T2_net_Items = null;
+		JSONObject jsonObject = JSONObject.parseObject(json);
+		String code = jsonObject.getString("code");
+		if (code.equals("200")) {
+			JSONArray dataArray = jsonObject.getJSONArray("data");
+			if (dataArray != null) {
+				T2_net_Items = JSONArray.parseArray(dataArray.toString(),
+						T2_net.class);
+			}else{
+				return null;
+			}
+		}
+		return T2_net_Items;
+	}	
+	
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// TODO Auto-generated method stub

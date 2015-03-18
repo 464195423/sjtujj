@@ -25,47 +25,71 @@ import android.widget.Toast;
 
 public class T3Activity extends Activity {
 private static T3_net T3_net_Items;
-private String sessionid;
+private String tid;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3);
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
-		sessionid = bundle.getString("sessionid");
+		tid = bundle.getString("tid");
 		//Log.v("tpicture",bundle.getString("tpicture"));
 
-		GetData();
-		
-		//处理加载用户头像
-		Thread thread = new Thread(new Runnable(){
+		GetData();			
+	}
+	
+	private void GetData(){
+		MyHttpClient.postJson(MyPath.personal_info_path, new NetRespondPost() {
 			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				ImageView pic = (ImageView)findViewById(R.id.t3_pic);
-				try {
-					URL picUrl = new URL(getIntent().getExtras().getString("tpicture"));
-					Bitmap pngBM = BitmapFactory.decodeStream(picUrl.openStream());
-					pic.setImageBitmap(pngBM);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}				
+			public void netWorkOk(String json) {
+				//Log.v("json",json);
+				JSONObject jsonObject = JSONObject.parseObject(json);
+//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					JSONObject data1 = jsonObject.getJSONObject("data");
+					T3_net_Items = JSONObject.parseObject(data1.toString(), T3_net.class);
+					SetData();
+				}
 			}
-			
-		});
-		thread.start();		
-		
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.getSessionid());
+
+		/* 
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("startus", "0");
+		MyHttpClient.doPost2(null, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				Log.v("json",json);
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.my_demand_path, map, MyPath.getSessionid());
+		*/
+	}
+
+	private void SetData(){
+		TextView tv1 = (TextView)findViewById(R.id.t3_col1);
+		TextView tv2 = (TextView)findViewById(R.id.t3_col2);
+		TextView tv3 = (TextView)findViewById(R.id.t3_col3);
+		tv1.setText(T3_net_Items.getTotalTeachHours());
+		tv2.setText(T3_net_Items.getTotalGold());
+		tv3.setText(T3_net_Items.getGold());
 		TextView username = (TextView)findViewById(R.id.t3_username);
-		username.setText(bundle.getString("tname"));
-		
+		username.setText(T3_net_Items.getName());
+		ImageView iv = (ImageView)findViewById(R.id.t3_pic);
+		LoadImage.setImageView(this, T3_net_Items.getPicture(), iv);
 		
 		ImageView iv1 = (ImageView)findViewById(R.id.t3_iv1);
 		ImageView iv2 = (ImageView)findViewById(R.id.t3_iv2);
 		ImageView iv3 = (ImageView)findViewById(R.id.t3_iv3);
 		ImageView iv4 = (ImageView)findViewById(R.id.t3_iv4);
 		ImageView iv5 = (ImageView)findViewById(R.id.t3_iv5);
-		
+			
 		iv2.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -91,6 +115,10 @@ private String sessionid;
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(T3Activity.this, T3_grszActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("tid", tid);
+				bundle.putCharSequence("is_search_show", T3_net_Items.getIs_search_show());
+				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 		});		
@@ -119,32 +147,7 @@ private String sessionid;
 				});				
 				alert.show();				
 			}
-		});				
+		});	
 	}
-	
-	private void GetData(){
-		MyHttpClient.postJson(MyPath.personal_info_path, new NetRespondPost() {
-			@Override
-			public void netWorkOk(String json) {
-				Log.v("sessionid",sessionid);
-				Log.v("json",json);
-				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
-				String code = jsonObject.getString("code");
-				if (code.equals("200")) {
-					JSONObject data1 = jsonObject.getJSONObject("data");
-					T3_net_Items = JSONObject.parseObject(data1.toString(), T3_net.class);		
-				}
-				String desc = jsonObject.getString("desc");
-				Toast.makeText(T3Activity.this, desc, Toast.LENGTH_LONG).show();
-				
-
-			}
-			@Override
-			public void netWorkError() {
-			}
-		}, sessionid);
-	}	
-	
 	
 }

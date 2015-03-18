@@ -4,17 +4,15 @@ public class Login_net {
 private String demandId;
 private String group;
 private String school;
-private String sessionid;
 private String tid;
 private String tname;
 private String tpicture;
 public Login_net(String demandId, String group, String school,
-		String sessionid, String tid, String tname, String tpicture) {
+		String tid, String tname, String tpicture) {
 	super();
 	this.demandId = demandId;
 	this.group = group;
 	this.school = school;
-	this.sessionid = sessionid;
 	this.tid = tid;
 	this.tname = tname;
 	this.tpicture = tpicture;
@@ -40,12 +38,7 @@ public String getSchool() {
 public void setSchool(String school) {
 	this.school = school;
 }
-public String getSessionid() {
-	return sessionid;
-}
-public void setSessionid(String sessionid) {
-	this.sessionid = sessionid;
-}
+
 public String getTid() {
 	return tid;
 }

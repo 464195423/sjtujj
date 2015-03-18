@@ -27,7 +27,10 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Handler;
+import android.preference.PreferenceActivity.Header;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -206,6 +209,96 @@ public class MyHttpClient {
 		}.start();
 	}
 
+	public static void doPost1(final Context context,
+			final NetRespondPost netRespondPost, final String path,
+			final HashMap<String, String> map) {
+		final Handler handler = new Handler();
+		new Thread() {
+			public void run() {
+				InputStream is = null;
+				ByteArrayOutputStream os = null;
+				HttpClient client = new DefaultHttpClient();
+				final HttpPost post = new HttpPost(path);
+				List<NameValuePair> params = new ArrayList<NameValuePair>();
+				for (String key : map.keySet()) {
+					params.add(new BasicNameValuePair(key, map.get(key)));
+				}
+				HttpEntity formEntity;
+				try {
+					formEntity = new UrlEncodedFormEntity(params);
+					post.setEntity(formEntity);
+					HttpResponse response = client.execute(post);
+					if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+
+						String sessionid = "";
+						org.apache.http.Header[] headers = response.getAllHeaders();
+						for (int i = 0; i < headers.length; i++) {
+							org.apache.http.Header header = headers[i];
+							if (header.getName().equals("Set-Cookie"))
+								sessionid += header.getValue() + "; ";// 获取服务器的sessionid
+						}
+						MyPath.setSessionid(sessionid);
+						/*
+						org.apache.http.Header[] hd = response.getHeaders("set-cookie");
+						String sessionid = "";
+						for (int i = 0; i < hd.length; i++)
+							sessionid += hd[i].getValue() + "; " ;
+						MyPath.setSessionid(sessionid);
+						*/
+						
+						/*
+						org.apache.http.Header hd = response.getLastHeader("set-cookie");
+						String cookieval = hd.getValue();
+						Log.v("cookieval",cookieval);
+						String sessionid = "";
+						if(cookieval != null) { 
+							sessionid = cookieval.substring(0, cookieval.indexOf(";")); 
+						}
+						MyPath.setSessionid(cookieval+";");
+						*/
+				
+						is = response.getEntity().getContent();
+						os = new ByteArrayOutputStream();
+						byte[] buffer = new byte[1024];
+						int len = is.read(buffer);
+						while (len != -1) {
+							os.write(buffer, 0, len);
+							len = is.read(buffer);
+						}
+						os.flush();
+						final String json = new String(os.toByteArray(), 0,
+								os.toByteArray().length);
+						handler.post(new Runnable() {
+
+							@Override
+							public void run() {
+								netRespondPost.netWorkOk(json);
+							}
+						});
+					}
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (is != null) {
+							is.close();
+						}
+						if (os != null) {
+							os.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+
+			};
+		}.start();
+	}
+	
 
 	public static void doPost2(final Context context,
 			final NetRespondPost netRespondPost, final String path,

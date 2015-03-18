@@ -38,7 +38,6 @@ private LvAdapter adapter;
 		String demandId = bundle.getString("demandId");
 		String group = bundle.getString("group");
 		String school = bundle.getString("school");
-		String sessionid = bundle.getString("sessionid");
 		String tid = bundle.getString("tid");
 		String tname = bundle.getString("tname");
 		String tpicture = bundle.getString("tpicture");

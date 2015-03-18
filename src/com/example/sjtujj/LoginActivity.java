@@ -60,7 +60,7 @@ private static Login_net Login_netItems;
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("name", user.getText().toString());
 		map.put("pwd", passwd.getText().toString());
-		MyHttpClient.doPost2(null, new NetRespondPost() {
+		MyHttpClient.doPost1(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
@@ -75,17 +75,17 @@ private static Login_net Login_netItems;
 				bundle.putCharSequence("demandId", Login_netItems.getDemandId());
 				bundle.putCharSequence("group", Login_netItems.getGroup());
 				bundle.putCharSequence("school", Login_netItems.getSchool());
-				bundle.putCharSequence("sessionid", Login_netItems.getSessionid());
+				//bundle.putCharSequence("sessionid", Login_netItems.getSessionid());
 				bundle.putCharSequence("tid", Login_netItems.getTid());
 				bundle.putCharSequence("tname", Login_netItems.getTname());
 				bundle.putCharSequence("tpicture", Login_netItems.getTpicture());
-				Log.v("sessionid",Login_netItems.getSessionid());
+				//Log.v("sessionid",Login_netItems.getSessionid());
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.login_path, map, null);
+		}, MyPath.login_path, map);
 	}	
 }
