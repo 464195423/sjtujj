@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+    
+	    <!-- title -->
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content">
+		    <TextView 
+		        android:id="@+id/t2_t7_title1"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="@drawable/t2_title"
+		        android:text="default"
+		        android:textColor="@color/dark_green"
+		        android:gravity="center"/>
+		    <TextView 
+		        android:id="@+id/t2_t7_title2"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="@drawable/t2_title"
+		        android:text="default"
+		        android:textColor="@color/black"
+		        android:gravity="center"/>
+		</LinearLayout>     
+		
+		<!-- content -->
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:background="@drawable/t2_content"
+	   		android:padding="@dimen/t2_content_padding">
+	   		
+		   <LinearLayout 
+		        android:id="@+id/t2_t7_ll"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical"
+		    	android:layout_gravity="left">
+		        <TextView 
+		            android:id="@+id/t2_t7_l1"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="default"/>
+		        <TextView 
+		            android:id="@+id/t2_t7_l2"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="default"/>
+		        <TextView 
+		            android:id="@+id/t2_t7_l3"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="default"/>     
+		    </LinearLayout>
+		    	    
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_centerVertical="true"
+		    	android:layout_marginRight="10dp"
+		    	android:layout_alignParentRight="true"
+		    	android:src="@drawable/t1_lst"/>
+	    </RelativeLayout>
+	
+	</LinearLayout>
+    
+</LinearLayout>

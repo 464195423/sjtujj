@@ -2,4 +2,6 @@
 <resources>
 	<dimen name = "padding">10dip</dimen>
 	<dimen name = "ddxx_padding">10dip</dimen>
+	<dimen name = "t2_content_padding">5dip</dimen>
+		
 </resources>

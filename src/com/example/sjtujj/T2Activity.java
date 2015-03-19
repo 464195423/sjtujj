@@ -33,6 +33,7 @@ private TextView tv3;
 private int type = 1;
 private PullToRefreshListView lv; 
 private List<T2_net> T2_net_Items;
+private T2_adapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ private List<T2_net> T2_net_Items;
 					tv3.setTextColor(getResources().getColor(R.color.unselect));
 					tv3.setBackgroundColor(getResources().getColor(R.color.background3));	
 					
-					//TODO network
+					getDataResource("0");
 				}
 			}		
 		});
@@ -76,7 +77,8 @@ private List<T2_net> T2_net_Items;
 					tv3.setTextColor(getResources().getColor(R.color.unselect));
 					tv3.setBackgroundColor(getResources().getColor(R.color.background3));	
 					
-					//TODO network
+					getDataResource("onclass");
+
 				}
 			}		
 		});	
@@ -94,7 +96,7 @@ private List<T2_net> T2_net_Items;
 					tv1.setTextColor(getResources().getColor(R.color.unselect));
 					tv1.setBackgroundColor(getResources().getColor(R.color.background3));	
 					
-					//TODO network
+					getDataResource("close");
 				}			
 			}		
 		});
@@ -120,51 +122,18 @@ private List<T2_net> T2_net_Items;
 
 		});
 		
-		
-		getDataResource("close");
-		
-		/*
-		List<String> list = new ArrayList<String>();  
-        list.add("loonggg");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        LvAdapter adapter = new LvAdapter(list, this);  
-        lv.setAdapter(adapter);  
-        */
+		getDataResource("0");
 	}
 
 	private void getDataResource(String startus){
-		/*
-		MyHttpClient.PostJson(MyPath.T2_path, new NetRespondPost() {
-			@Override
-			public void netWorkOk(String json) {
-				questionItems = FastJsonParser.parseJsonQuestionItem(json);
-				adapter = new QuestionListAdapter(getActivity(), questionItems);
-				mPullRefreshListView.setAdapter(adapter);
-				mPullRefreshListView.onRefreshComplete();
-			}
-			@Override
-			public void netWorkError() {
-			}
-		}, SessionID);
-		*/
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("status", startus);
 		MyHttpClient.doPost2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
-				//Log.v("json",json);
-
 				T2_net_Items = parseJsonT2_netItem(json);
-				T2_adapter adapter = new T2_adapter(T2Activity.this, T2_net_Items);
+				adapter = new T2_adapter(T2Activity.this, T2_net_Items);
+				//adapter.notifyDataSetChanged();
 				lv.setAdapter(adapter);
 				lv.onRefreshComplete();
 			}
@@ -193,7 +162,19 @@ private List<T2_net> T2_net_Items;
 	@Override
 	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// TODO Auto-generated method stub
-		lv.onRefreshComplete();
+		switch (type)
+		{
+			case 1:
+				getDataResource("0");
+				break;
+			case 2:
+				getDataResource("onclass");
+				break;
+			case 3:
+				getDataResource("close");
+				break;
+				
+		}
 	}
 
 	@Override
