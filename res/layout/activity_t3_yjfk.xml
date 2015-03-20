@@ -24,8 +24,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
 	        android:layout_centerHorizontal="true"
-	        android:paddingLeft="10dp"
-	        android:paddingRight="10dp"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
 	        android:paddingTop="@dimen/padding"
 		    android:paddingBottom="@dimen/padding"
 		    android:gravity="center">

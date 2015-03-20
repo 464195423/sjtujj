@@ -66,7 +66,14 @@
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
 		    		android:textColor="@color/black"
-		    		android:text="default"/>     
+		    		android:text="default"/> 
+				<TextView 
+		            android:id="@+id/t2_t8_l4"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/red"
+		    		android:visibility="gone"
+		    		android:text="注意：有效课时包已不足2小时，请确认满足授课需求"/> 
 		    </LinearLayout>
 		    	    
 		    <ImageView 

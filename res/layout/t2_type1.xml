@@ -3,79 +3,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <!-- title -->
+ 
 	<LinearLayout 
-	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content">
-	    <TextView 
-	        android:id="@+id/t2_t1_title1"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="default"
-	        android:gravity="center"/>
-	    <TextView 
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="default"
-	        android:gravity="center"/>
-	</LinearLayout>    
-
-	<!-- content -->
-    <RelativeLayout 
-        android:layout_width="match_parent"
-   		android:layout_height="wrap_content"
-   		android:background="@color/white"
-   		android:layout_marginLeft="10dp"
-   		android:layout_marginRight="10dp"
-   		android:layout_marginTop="10dp">
-   		
-	    <LinearLayout 
-	        android:id="@+id/t2_vlist_ll"
-	        android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:orientation="vertical"
-	    	android:layout_gravity="left">
-	        <TextView 
-	            android:id="@+id/t2_t1_l1"
-	            android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:textColor="@color/black"
-	    		android:text="五年级  女  数"/>
-	        <TextView 
-	            android:id="@+id/t2_t1_l2"
-	            android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:textColor="@color/black"
-	    		android:text="地址：XXXXXXXXXXXXXXXX"/>
-	        <TextView 
-	            android:id="@+id/t2_t1_l3"
-	            android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:textColor="#aaaaaa"
-	    		android:text="备注"/>
-	        <TextView 
-	            android:id="@+id/t2_t1_l4"
-	            android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:textColor="@color/dark_green"
-	    		android:text="¥价格"/>
-	        
-	        
-	    </LinearLayout>
-	    
-	    
-	    <ImageView 
-	        android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:layout_centerVertical="true"
-	    	android:layout_marginRight="10dp"
-	    	android:layout_alignParentRight="true"
-	    	android:src="@drawable/t1_lst"/>
-	    
-	    
-	</RelativeLayout>	
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+	    <!-- title -->
+		<LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content">
+		    <TextView 
+		        android:id="@+id/t2_t1_title1"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="@drawable/t2_title"
+		        android:textColor="#FF6100"
+		        android:text="default"
+		        android:gravity="center"/>
+		    <TextView 
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="@drawable/t2_title"
+		        android:text="default"
+		        android:textColor="@color/black"
+		        android:gravity="center"/>
+		</LinearLayout>    
+	
+		<!-- content -->
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:background="@drawable/t2_content"
+	   		android:padding="@dimen/t2_content_padding">
+	   		
+		    <LinearLayout 
+		        android:id="@+id/t2_t1_ll"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical"
+		    	android:layout_gravity="left">
+		        <TextView 
+		            android:id="@+id/t2_t1_l1"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="五年级  女  数"/>
+		        <TextView 
+		            android:id="@+id/t2_t1_l2"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="地址：XXXXXXXXXXXXXXXX"/>
+		        <TextView 
+		            android:id="@+id/t2_t1_l3"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="#aaaaaa"
+		    		android:text="备注"/>
+		        <TextView 
+		            android:id="@+id/t2_t1_l4"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/dark_green"
+		    		android:text="¥价格"/>
+		        
+		        
+		    </LinearLayout>
+		    
+		    
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_centerVertical="true"
+		    	android:layout_marginRight="10dp"
+		    	android:layout_alignParentRight="true"
+		    	android:src="@drawable/t1_lst"/>    
+		</RelativeLayout>	
+		
+	</LinearLayout>
 	
 </LinearLayout>

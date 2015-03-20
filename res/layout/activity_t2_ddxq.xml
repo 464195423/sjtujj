@@ -14,11 +14,19 @@
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"/>
 
+	<!-- 
     <fragment 
         android:id="@+id/ddxq_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:name="com.example.sjtujj.DdxxFragment"/>
+	 -->	 
+
+	<relativelayout 
+	     android:id="@+id/t2_ddxq_container" 
+	     android:layout_width="match_parent" 
+	     android:layout_height="wrap_content" >
+	</relativelayout>
 
 
     <LinearLayout 

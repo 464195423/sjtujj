@@ -238,24 +238,6 @@ public class MyHttpClient {
 								sessionid += header.getValue() + "; ";// 获取服务器的sessionid
 						}
 						MyPath.setSessionid(sessionid);
-						/*
-						org.apache.http.Header[] hd = response.getHeaders("set-cookie");
-						String sessionid = "";
-						for (int i = 0; i < hd.length; i++)
-							sessionid += hd[i].getValue() + "; " ;
-						MyPath.setSessionid(sessionid);
-						*/
-						
-						/*
-						org.apache.http.Header hd = response.getLastHeader("set-cookie");
-						String cookieval = hd.getValue();
-						Log.v("cookieval",cookieval);
-						String sessionid = "";
-						if(cookieval != null) { 
-							sessionid = cookieval.substring(0, cookieval.indexOf(";")); 
-						}
-						MyPath.setSessionid(cookieval+";");
-						*/
 				
 						is = response.getEntity().getContent();
 						os = new ByteArrayOutputStream();

@@ -61,6 +61,7 @@ class viewHolder8{
 	public TextView textViewl1;
 	public TextView textViewl2;
 	public TextView textViewl3;
+	public TextView textViewl4;
 }
 
 public class T2_adapter extends BaseAdapter {
@@ -212,6 +213,7 @@ final int TYPE_9 = 9;
 				holder8.textViewl1 = (TextView)convertView.findViewById(R.id.t2_t8_l1); 
 				holder8.textViewl2 = (TextView)convertView.findViewById(R.id.t2_t8_l2); 
 				holder8.textViewl3 = (TextView)convertView.findViewById(R.id.t2_t8_l3); 
+				holder8.textViewl4 = (TextView)convertView.findViewById(R.id.t2_t8_l4); 
 				convertView.setTag(holder8); 
 				break;
 			}
@@ -295,10 +297,14 @@ final int TYPE_9 = 9;
 			holder8.textViewl1.setText("小时单价 ： "+list.get(position).getOnehourprice()+"元");
 			holder8.textViewl2.setText("已授时长 ： "+list.get(position).getTeach_hours()+"小时");
 			holder8.textViewl3.setText("剩余有效课时包 ： "+list.get(position).getDiscount_hours()+"小时");
+			if (Integer.parseInt(list.get(position).getDiscount_hours()) < 2)
+				holder8.textViewl4.setVisibility(0);
 			break; 
 		}
 			
-			
+		if (type == TYPE_9)
+			return null;
+		
 		return convertView;
 	}
 

@@ -1,0 +1,129 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="授课中"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_skz_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+    
+    
+    <!-- content -->
+	<ImageView
+	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/appcancoursepic4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+	    
+	</ImageView>
+    <TextView
+        android:id="@+id/t2_skz_teachhours"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="您将要进行defualt小时的授课"/>
+
+    <!-- 授课进行中2个button -->
+	<Button 
+	    android:id="@+id/t2_skz_bt1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+	    android:text="取消授课"
+	    android:textColor="@color/white"
+	    android:gravity="center"
+	    android:padding="10dp"
+	    android:background="@drawable/t2_qushouke_bg"/>
+	
+	<Button 
+	    android:id="@+id/t2_skz_bt2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+	    android:text="授课结束"
+	    android:textColor="@color/white"
+	    android:gravity="center"
+	    android:padding="10dp"
+	    android:background="@drawable/t2_qushouke_bg"/>	
+	    
+	
+	<LinearLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+	    android:orientation="horizontal">
+       	    
+		<TextView 
+		    android:id="@+id/t2_skz_tv1"
+		    android:layout_width="0dp"
+		    android:layout_weight="1"
+		    android:layout_height="wrap_content"
+		    android:text="修改授课时长"
+		    android:textColor="@color/white"
+		    android:gravity="center"
+		    android:background="@drawable/t2_kssk_bg"
+		    android:layout_marginRight="10dp"
+		    /> 
+		<TextView 
+		    android:id="@+id/t2_skz_tv2"
+		    android:layout_width="0dp"
+		    android:layout_weight="1"
+		    android:layout_height="wrap_content"
+		    android:text="订单详情"
+		    android:textColor="@color/white"
+		    android:gravity="center"
+		    android:background="@drawable/t2_kssk_bg"
+		    android:layout_marginLeft="10dp"
+		    />		
+	</LinearLayout>
+	
+	<TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/t2_skz_info"/>
+	
+</LinearLayout>

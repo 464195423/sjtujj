@@ -14,7 +14,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter.LengthFilter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +27,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class T2Activity extends ListActivity implements OnRefreshListener2<ListView>{
 private TextView tv1;
@@ -117,7 +120,43 @@ private T2_adapter adapter;
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
+				position--;
+				//Log.v("position",position+"");
+				//Toast.makeText(T2Activity.this, T2_net_Items.get(position).getRid(), Toast.LENGTH_LONG).show();;
+				int type = getItemViewType(position);
+				Intent intent = null;
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("rid", T2_net_Items.get(position).getRid());
+				switch (type){
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					intent = new Intent(T2Activity.this, T2_stskzActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					intent = new Intent(T2Activity.this, T2_skzActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
+					break;
+				case 8:
+					intent = new Intent(T2Activity.this, T2_ksskActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
+					break;
+				case 9:
+					break;
 				
+				}
 			}
 
 		});
@@ -125,6 +164,29 @@ private T2_adapter adapter;
 		getDataResource("0");
 	}
 
+	public int getItemViewType(int position) {
+		// TODO Auto-generated method stub
+		if (T2_net_Items.get(position).getStatus().equals("0"))
+			return 1;
+		else if (T2_net_Items.get(position).getStatus().equals("1"))
+			return 2;
+		else if (T2_net_Items.get(position).getStatus().equals("2") && T2_net_Items.get(position).getHire().equals("0"))
+			return 3;
+		else if (T2_net_Items.get(position).getStatus().equals("2") && T2_net_Items.get(position).getHire().equals("1"))
+			return 4;
+		else if (T2_net_Items.get(position).getStatus().equals("3"))
+			return 5;
+		else if (T2_net_Items.get(position).getStatus().equals("4") && T2_net_Items.get(position).getHire().equals("0"))
+			return 8;
+		else if (T2_net_Items.get(position).getStatus().equals("4") && T2_net_Items.get(position).getHire().equals("1"))
+			return 7;
+		else if (T2_net_Items.get(position).getStatus().equals("5"))
+			return 6;
+		else
+			return 9;
+	}
+	
+	
 	private void getDataResource(String startus){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("status", startus);
