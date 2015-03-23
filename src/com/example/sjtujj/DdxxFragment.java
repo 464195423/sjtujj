@@ -1,12 +1,19 @@
 package com.example.sjtujj;
 
+import java.util.HashMap;
+
+import com.alibaba.fastjson.JSONObject;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView.FindListener;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass. Use the {@link DdxxFragment#newInstance}
@@ -16,14 +23,13 @@ import android.view.ViewGroup;
 public class DdxxFragment extends Fragment {
 	// TODO: Rename parameter arguments, choose names that match
 	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-	private static final String ARG_PARAM1 = "param1";
+	private static final String ARG_PARAM1 = "rid";
 	private static final String ARG_PARAM2 = "param2";
 
 	// TODO: Rename and change types of parameters
-	private String mParam1;
-	private String mParam2;
 
 	private String rid;
+	private T2_ddxx_net T2_ddxx_netItems;
 	
 	/**
 	 * Use this factory method to create a new instance of this fragment using
@@ -52,7 +58,7 @@ public class DdxxFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (getArguments() != null) {
-			mParam1 = getArguments().getString(ARG_PARAM1);
+			rid = getArguments().getString(ARG_PARAM1);
 		}
 	}
 
@@ -60,16 +66,93 @@ public class DdxxFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
+		getData();
 		return inflater.inflate(R.layout.fragment_ddxx, container, false);
 	}
 
 	@Override
 	public void onAttach(Activity activity) {
 		// TODO Auto-generated method stub
-		//Bundle bundle = getArguments();
-		//rid = bundle.getString("rid");
-		//Log.v("a","a");
 		super.onAttach(activity);
 	}
 
+	private void getData(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		//map.put("pwd", passwd.getText().toString());
+		MyHttpClient.doPost2(null, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					JSONObject data1 = jsonObject.getJSONObject("data");
+					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
+					setData();
+				}
+
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.ddxx_path, map, MyPath.getSessionid());
+	}	
+	
+	private void setData(){
+		TextView tv1 = (TextView)getView().findViewById(R.id.ddxx_nj);
+		TextView tv2 = (TextView)getView().findViewById(R.id.ddxx_xb);
+		TextView tv3 = (TextView)getView().findViewById(R.id.ddxx_zfxk);
+		TextView tv4 = (TextView)getView().findViewById(R.id.ddxx_skdz);
+		
+		TextView tv5 = (TextView)getView().findViewById(R.id.ddxx_jjxb);
+		TextView tv6 = (TextView)getView().findViewById(R.id.ddxx_tsxq);
+		TextView tv7 = (TextView)getView().findViewById(R.id.ddxx_drfd);
+		TextView tv8 = (TextView)getView().findViewById(R.id.ddxx_xxxq);
+		
+		TextView tv9 = (TextView)getView().findViewById(R.id.ddxx_tsxq1);
+		TextView tv10 = (TextView)getView().findViewById(R.id.ddxx_jj);
+		TextView tv11 = (TextView)getView().findViewById(R.id.ddxx_zj);
+		TextView tv12 = (TextView)getView().findViewById(R.id.ddxx_zfzt);
+		
+		tv1.setText(T2_ddxx_netItems.getS_gradename());
+		tv2.setText(T2_ddxx_netItems.getS_sexname());
+		tv3.setText(T2_ddxx_netItems.getR_weaksubjectname());
+		tv4.setText(T2_ddxx_netItems.getAddress());
+		
+		tv5.setText(T2_ddxx_netItems.getT_sexname());
+		if (!T2_ddxx_netItems.getAdditional_subject().equals(""))
+			tv6.setText(T2_ddxx_netItems.getAdditional_subject());
+		if (!T2_ddxx_netItems.getPeople_count().equals("1"))
+			tv7.setText(T2_ddxx_netItems.getPeople_count()+"人");
+		tv8.setText(T2_ddxx_netItems.getTeacher_qualification());
+		
+		boolean t = false;
+		String str = "";
+		if (T2_ddxx_netItems.getAdditional_price() == null)
+			t = false;
+		else
+		{
+		
+			if (!T2_ddxx_netItems.getAdditional_price().get外语授课().equals("")){
+				str += "外语授课("+T2_ddxx_netItems.getAdditional_price().get外语授课()+"元/时) ";
+				t = true;
+			}
+			if (!T2_ddxx_netItems.getAdditional_price().get竞赛辅导().equals("")){
+				str += "竞赛辅导("+T2_ddxx_netItems.getAdditional_price().get竞赛辅导()+"元/时) ";
+				t = true;
+			}
+			if (!T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课().equals("")){
+				str += "外语教材汉语授课("+T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课()+"元/时) ";
+				t = true;
+			}
+		}
+		if (t)
+			tv9.setText(str);
+		if (!T2_ddxx_netItems.getAdd_price().equals("0"))
+		tv10.setText(T2_ddxx_netItems.getAdd_price()+"元");
+		tv11.setText(T2_ddxx_netItems.getHalf_price()+"元/时");
+		tv12.setText(T2_ddxx_netItems.getPay_status());
+	}
+	
 }

@@ -86,7 +86,9 @@
             />	  
 	</RelativeLayout>
     
+	<!-- 去授课 -->
 	<Button 
+	    android:id="@+id/t2_kssk_qushouke"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="50dp"
@@ -99,6 +101,7 @@
 	    android:padding="10dp"
 	    android:background="@drawable/t2_qushouke_bg"/>
 	
+	<!-- 终止订单与订单详情 -->
 	<LinearLayout 
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"

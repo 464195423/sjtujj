@@ -22,11 +22,12 @@
         android:name="com.example.sjtujj.DdxxFragment"/>
 	 -->	 
 
-	<relativelayout 
-	     android:id="@+id/t2_ddxq_container" 
-	     android:layout_width="match_parent" 
-	     android:layout_height="wrap_content" >
-	</relativelayout>
+	<LinearLayout
+        android:id="@+id/t2_ddxq_container"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+    </LinearLayout>
 
 
     <LinearLayout 

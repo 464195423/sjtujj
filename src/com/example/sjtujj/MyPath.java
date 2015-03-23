@@ -15,5 +15,7 @@ public static String my_demand_path = url + "/teacherMyDemanded";
 public static String change_T_S_path = url + "/changeTeacherSearch";
 public static String T2_path = url + "/teacherMyDemanded";
 public static String T3_getTeachHours = url + "/getTeachHours";
+public static String ddxx_path = url + "/offlineOrderShow";
+public static String qushouke_path = url + "/beginToTeach";
 
 }

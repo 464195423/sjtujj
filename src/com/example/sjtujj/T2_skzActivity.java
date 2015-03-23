@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -93,10 +94,9 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(T2_skzActivity.this, T2_ddxqActivity.class);
+				Intent intent = new Intent(T2_skzActivity.this, T2_ddxxActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putCharSequence("rid", rid);
-
 				intent.putExtras(bundle);
 				startActivity(intent);	
 			}

@@ -211,7 +211,7 @@
       			android:paddingRight="@dimen/ddxx_padding"
         		android:paddingTop="@dimen/ddxx_padding"
         		android:paddingBottom="@dimen/ddxx_padding"
-		        android:text="特殊需求信息" />		            
+		        android:text="无" />		            
         </LinearLayout>
         
         <LinearLayout 
@@ -239,7 +239,7 @@
       			android:paddingRight="@dimen/ddxx_padding"
         		android:paddingTop="@dimen/ddxx_padding"
         		android:paddingBottom="@dimen/ddxx_padding"
-		        android:text="多人辅导信息" />		            
+		        android:text="无" />		            
         </LinearLayout> 
 
         <LinearLayout 
@@ -315,7 +315,7 @@
       			android:paddingRight="@dimen/ddxx_padding"
         		android:paddingTop="@dimen/ddxx_padding"
         		android:paddingBottom="@dimen/ddxx_padding"
-		        android:text="特殊需求信息" />		            
+		        android:text="无" />		            
         </LinearLayout>
                 
         <LinearLayout 
@@ -343,7 +343,7 @@
       			android:paddingRight="@dimen/ddxx_padding"
         		android:paddingTop="@dimen/ddxx_padding"
         		android:paddingBottom="@dimen/ddxx_padding"
-		        android:text="加价信息" />		            
+		        android:text="无" />		            
         </LinearLayout>
         
         <LinearLayout 
