@@ -51,18 +51,37 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
         <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="日期："/>
         <EditText 
             android:id="@+id/t2_stsj_et1"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/t2_edittext_bg"
+            />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="date"/>
-    </LinearLayout>
-	
+            android:text="时间："/>
+        <EditText 
+            android:id="@+id/t2_stsj_et2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/t2_edittext_bg"
+            />
+    </LinearLayout>	
     
 	<!-- 确定 -->
 	<Button 

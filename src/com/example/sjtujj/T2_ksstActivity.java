@@ -66,14 +66,13 @@ private String time = "";
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				/*
-				Intent intent = new Intent(T2_ksstActivity.this, T2_xgsjActivity.class);
+				Intent intent = new Intent(T2_ksstActivity.this, T2_stsjActivity.class);
 				Bundle bundle = new Bundle();
 				bundle.putCharSequence("rid", rid);
+				bundle.putCharSequence("time", time);
 				intent.putExtras(bundle);
 				startActivity(intent);	
 				finish();
-				*/
 			}
 		});
         
