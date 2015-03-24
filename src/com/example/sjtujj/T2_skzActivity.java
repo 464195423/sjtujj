@@ -57,13 +57,13 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
 				alert.setButton(DialogInterface.BUTTON_POSITIVE,"确认", new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-					//TODO
+						quxiaoshouke();
 					}
 				});
 				alert.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-					//TODO	
+					//do_nothing
 					}
 				});	
 				alert.show();
@@ -88,6 +88,21 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
         //修改授课时长和订单详情
         TextView tv1 = (TextView)findViewById(R.id.t2_skz_tv1);
         TextView tv2 = (TextView)findViewById(R.id.t2_skz_tv2);
+        
+        tv1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(T2_skzActivity.this, T2_xgsksjActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("rid", rid);
+				bundle.putCharSequence("hours", T2_t7_getTeachHours_netItems.getHours());
+				intent.putExtras(bundle);
+				startActivity(intent);	
+				finish();
+			}
+		});
         
         tv2.setOnClickListener(new View.OnClickListener() {
 			
@@ -126,5 +141,24 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
 		}, MyPath.T3_getTeachHours, map, MyPath.getSessionid());
 	}	
 	
-	
+	private void quxiaoshouke(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		MyHttpClient.doPost2(T2_skzActivity.this, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+					finish();
+				}
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.quxiaoshouke_path, map, MyPath.getSessionid());		
+		
+	}
 }

@@ -28,11 +28,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".T1Activity"
@@ -93,6 +89,27 @@
         <activity
             android:name=".T2_ddxxActivity"
             android:label="@string/title_activity_t2_ddxx" >
+        </activity>
+        <activity
+            android:name=".T2_xgsksjActivity"
+            android:label="@string/title_activity_t2_xgsksj" >
+        </activity>
+        <activity
+            android:name=".T2_stwcActivity"
+            android:label="@string/title_activity_t2_stwc" >
+        </activity>
+        <activity
+            android:name=".T2_ksstActivity"
+            android:label="@string/title_activity_t2_ksst" >
+        </activity>
+        <activity
+            android:name=".T2_stsjActivity"
+            android:label="@string/title_activity_t2_stsj" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -10,6 +10,9 @@
     <string name="t2_stjs_info">1，请家长输入安全码结束试听授课。\n2，雇佣该家教请去sjtu.yousi.com进行进一步的操作。</string>
     <string name="t2_skz_info">1，试听前请先确认去授课。\n2，修改授课时长前请与家长沟通好。</string>
     <string name="t2_skjs_info">1，授课时长请输入大于0的数字。\n2，授课时长单位为小时。\n3，家长若忘记安全码请去sjtu.yousi.com进行找回。</string>
+    <string name="t2_ksst_info">1，试听前请先确认去授课，激活授课状态。\n2，修改试听约定时间前请与家长联系好。</string>
+    <string name="t2_stsj_info">1，请确保与家长沟通后，再确定试教时间。\n2，日期格式为：2015-03-01。\n3，日期格式为：12:00。</string>
+    <string name="t2_xgsksj_info">修改授课时长前，请确保与家长沟通好。</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_t1">家教订单</string>
     <string name="title_activity_t2">我的订单</string>
@@ -29,5 +32,9 @@
     <string name="title_activity_t2_skz">授课中</string>
     <string name="title_activity_t2_skjs">授课结算</string>
     <string name="title_activity_t2_ddxx">订单信息</string>
+    <string name="title_activity_t2_xgsksj">修改授课时间</string>
+    <string name="title_activity_t2_stwc">试听完成</string>
+    <string name="title_activity_t2_ksst">开始试听</string>
+    <string name="title_activity_t2_stsj">试听时间</string>
 
 </resources>

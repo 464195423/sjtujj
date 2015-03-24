@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="试听完成"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_stwc_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+	
+	
+	<!-- content -->
+	<ImageView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:layout_marginTop="30dp"
+	    android:layout_marginBottom="30dp"
+	    android:src="@drawable/p2"/>
+	
+	<TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginBottom="20dp"
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+	    android:text="请等待家长是否聘用！"
+	    android:textColor="@color/black"
+	    android:textStyle="bold"/>
+	
+	<TextView 
+	    android:id="@+id/t2_stwc_phone"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:autoLink="phone"
+	    android:textStyle="bold"
+	    android:text="家长电话："
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+	    android:background="@drawable/t2_stwc_bg"
+	    android:layout_marginLeft="30dp"
+	    android:layout_marginRight="30dp"/>
+	
+	
+</LinearLayout>

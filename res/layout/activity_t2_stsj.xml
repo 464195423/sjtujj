@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="修改试听时间"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_stsj_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+    
+    <!-- content -->
+	<ImageView
+	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/appcancoursepic5"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+	    
+	</ImageView>
+	
+    <!-- 时间日期 -->
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="日期："/>
+        <EditText 
+            android:id="@+id/t2_stsj_et1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"/>
+    </LinearLayout>
+	
+    
+	<!-- 确定 -->
+	<Button 
+	    android:id="@+id/t2_stsj_queding"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+	    android:text="确定"
+	    android:textColor="@color/white"
+	    android:gravity="center"
+	    android:padding="10dp"
+	    android:background="@drawable/t2_qushouke_bg"/>
+	
+	<!-- info -->
+	<TextView 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="50dp"
+	    android:layout_marginRight="50dp"
+	    android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/t2_stsj_info"/>
+	
+</LinearLayout>

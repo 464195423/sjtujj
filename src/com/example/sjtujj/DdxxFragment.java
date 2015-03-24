@@ -91,7 +91,6 @@ public class DdxxFragment extends Fragment {
 					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
 					setData();
 				}
-
 			}
 			@Override
 			public void netWorkError() {

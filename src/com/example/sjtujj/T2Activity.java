@@ -133,6 +133,9 @@ private T2_adapter adapter;
 				case 2:
 					break;
 				case 3:
+					intent = new Intent(T2Activity.this, T2_ksstActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
 					break;
 				case 4:
 					intent = new Intent(T2Activity.this, T2_stskzActivity.class);
@@ -140,6 +143,9 @@ private T2_adapter adapter;
 					startActivity(intent);
 					break;
 				case 5:
+					intent = new Intent(T2Activity.this, T2_stwcActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
 					break;
 				case 6:
 					break;
@@ -245,4 +251,28 @@ private T2_adapter adapter;
 		lv.onRefreshComplete();
 		
 	}
+
+	/*
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		Log.i("aa","aaaaa");
+		switch (type)
+		{
+			case 1:
+				getDataResource("0");
+				break;
+			case 2:
+				getDataResource("onclass");
+				break;
+			case 3:
+				getDataResource("close");
+				break;
+				
+		}
+		Log.i("aa","aa");
+		//lv.refreshDrawableState();
+		super.onResume();
+	}
+	*/
 }

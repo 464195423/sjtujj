@@ -47,6 +47,12 @@
 	</ImageView>
 	
 	<!-- 授课时长 -->
+	<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:text="授课时长"/>
 	<RelativeLayout 
 	    android:layout_width="fill_parent"
         android:layout_height="wrap_content"

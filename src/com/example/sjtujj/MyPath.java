@@ -18,4 +18,15 @@ public static String T3_getTeachHours = url + "/getTeachHours";
 public static String ddxx_path = url + "/offlineOrderShow";
 public static String qushouke_path = url + "/beginToTeach";
 
+/*rid*/
+public static String quxiaoshouke_path = url + "/removeTeach";
+
+/*rid,hours*/
+public static String updateTeachHours_path = url + "/updateTeachHours";
+
+/*rid*/
+public static String getListenTime_path = url + "/getListenTime";
+
+/*rid,listentime*/
+public static String updateListentime_path = url + "/updateListentime";
 }

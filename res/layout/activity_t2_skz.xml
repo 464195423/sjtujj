@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:gravity="center"
-        android:text="您将要进行defualt小时的授课"/>
+        android:text="您将要进行2小时的授课"/>
 
     <!-- 授课进行中2个button -->
 	<Button 
@@ -83,7 +83,7 @@
 	    android:padding="10dp"
 	    android:background="@drawable/t2_qushouke_bg"/>	
 	    
-	
+	<!-- 最下2个按钮 -->
 	<LinearLayout 
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
