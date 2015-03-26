@@ -129,8 +129,14 @@ private T2_adapter adapter;
 				bundle.putCharSequence("rid", T2_net_Items.get(position).getRid());
 				switch (type){
 				case 1:
+					intent = new Intent(T2Activity.this, T2_ddxqActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
 					break;
 				case 2:
+					intent = new Intent(T2Activity.this, T2_yjddActivity.class);
+					intent.putExtras(bundle);
+					startActivity(intent);
 					break;
 				case 3:
 					intent = new Intent(T2Activity.this, T2_ksstActivity.class);

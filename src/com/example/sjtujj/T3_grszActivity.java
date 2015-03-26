@@ -48,6 +48,8 @@ private String is_search_show = "";
         				if (code.equals("200")) {
         					//do nothing
         				}
+        				else
+        					Toast.makeText(T3_grszActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
         			}
         			@Override
         			public void netWorkError() {

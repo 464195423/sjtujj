@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T2_skzActivity extends Activity {
 private String rid = "";
@@ -134,6 +135,8 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
 					TextView tv = (TextView)findViewById(R.id.t2_skz_teachhours);
 					tv.setText("您将要进行"+T2_t7_getTeachHours_netItems.getHours()+"小时的授课");
 				}
+				else
+					Toast.makeText(T2_skzActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

@@ -89,6 +89,7 @@ public class DdxxFragment extends Fragment {
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
 					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
+					//Log.v("data1",data1.get("additional_price").toString());
 					setData();
 				}
 			}
@@ -129,20 +130,27 @@ public class DdxxFragment extends Fragment {
 		boolean t = false;
 		String str = "";
 		if (T2_ddxx_netItems.getAdditional_price() == null)
+		{
 			t = false;
+			//Log.v("addprice","null");
+		}
 		else
 		{
-		
-			if (!T2_ddxx_netItems.getAdditional_price().get外语授课().equals("")){
+			//Log.v("debug",T2_ddxx_netItems.getAdditional_price().debug());
+			//Log.v("addprice","not null");
+			if (T2_ddxx_netItems.getAdditional_price().get外语授课() != null){
 				str += "外语授课("+T2_ddxx_netItems.getAdditional_price().get外语授课()+"元/时) ";
+				//Log.v("addprice","外语授课");
 				t = true;
 			}
-			if (!T2_ddxx_netItems.getAdditional_price().get竞赛辅导().equals("")){
+			if (T2_ddxx_netItems.getAdditional_price().get竞赛辅导() != null){
 				str += "竞赛辅导("+T2_ddxx_netItems.getAdditional_price().get竞赛辅导()+"元/时) ";
+				//Log.v("addprice","竞赛辅导");
 				t = true;
 			}
-			if (!T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课().equals("")){
+			if (T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课() != null){
 				str += "外语教材汉语授课("+T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课()+"元/时) ";
+				//Log.v("addprice","外语教材汉语授课");
 				t = true;
 			}
 		}

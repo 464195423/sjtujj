@@ -31,10 +31,11 @@ private String tid;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3);
 		Intent intent = getIntent();
-		Bundle bundle = intent.getExtras();
-		tid = bundle.getString("tid");
+		//Bundle bundle = intent.getExtras();
+		//tid = bundle.getString("tid");
 		//Log.v("tpicture",bundle.getString("tpicture"));
-
+		tid = MyPath.getTid();
+		
 		GetData();			
 	}
 	
@@ -51,6 +52,8 @@ private String tid;
 					T3_net_Items = JSONObject.parseObject(data1.toString(), T3_net.class);
 					SetData();
 				}
+				else
+					Toast.makeText(T3Activity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {
@@ -89,7 +92,17 @@ private String tid;
 		ImageView iv3 = (ImageView)findViewById(R.id.t3_iv3);
 		ImageView iv4 = (ImageView)findViewById(R.id.t3_iv4);
 		ImageView iv5 = (ImageView)findViewById(R.id.t3_iv5);
+
+		iv1.setOnClickListener(new View.OnClickListener() {
 			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(T3Activity.this, T3_grtzActivity.class);
+				startActivity(intent);
+			}
+		});		
+		
 		iv2.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

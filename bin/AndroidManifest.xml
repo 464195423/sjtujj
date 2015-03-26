@@ -110,6 +110,26 @@
             android:name=".T2_stsjActivity"
             android:label="@string/title_activity_t2_stsj" >
         </activity>
+        <activity
+            android:name=".T2_yjddActivity"
+            android:label="@string/title_activity_t2_yjdd" >
+        </activity>
+        <activity
+            android:name=".T2_qdstsjActivity"
+            android:label="@string/title_activity_t2_qdstsj" >
+        </activity>
+        <activity
+            android:name=".T2_stwcendActivity"
+            android:label="@string/title_activity_t2_stwcend" >
+        </activity>
+        <activity
+            android:name=".T2_skwcendActivity"
+            android:label="@string/title_activity_t2_skwcend" >
+        </activity>
+        <activity
+            android:name=".T3_grtzActivity"
+            android:label="@string/title_activity_t3_grtz" >
+        </activity>
     </application>
 
 </manifest>

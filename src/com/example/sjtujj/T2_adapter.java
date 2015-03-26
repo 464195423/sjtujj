@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -267,6 +269,7 @@ final int TYPE_9 = 9;
 			holder2.textViewl2.setText(list.get(position).getAddress());
 			holder2.textViewl3.setText(list.get(position).getQualification());
 			holder2.textViewl4.setText(list.get(position).getOnehourprice()+"元/小时");
+			//new Thread(new t2_thread()).start();
 			break;
 		case TYPE_3: 
 			holder3.textViewt1.setText("D"+list.get(position).getRid()+" 已联系，未试听");
@@ -308,8 +311,33 @@ final int TYPE_9 = 9;
 		return convertView;
 	}
 
-	
+	/*
+	public class t2_thread implements Runnable{      // thread  
+        @Override  
+        public void run(){  
+            while(true){  
+                try{  
+                    Thread.sleep(1000);     // sleep 1000ms  
+                    Message message = new Message();  
+                    message.what = 1;  
+                    handler.sendMessage(message);  
+                }catch (Exception e) {  
+                }  
+            }  
+        }  
+    } 
 
+	final Handler handler = new Handler(){          // handle  
+        public void handleMessage(Message msg){  
+            switch (msg.what) {  
+            case 1:  
+                recLen++;  
+                txtView.setText("" + recLen);  
+            }  
+            super.handleMessage(msg);  
+        }  
+    };  
+    */
 }
 
 

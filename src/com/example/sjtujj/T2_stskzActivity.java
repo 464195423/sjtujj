@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T2_stskzActivity extends Activity {
 private String rid;
@@ -127,6 +128,8 @@ private String rid;
 					//end this activity
 					finish();
 				}
+				else
+					Toast.makeText(T2_stskzActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class T2_stsjActivity extends Activity {
 private String rid = "";
@@ -179,6 +180,8 @@ private EditText et2;
 					//return
 					finish();
 				}
+				else
+					Toast.makeText(T2_stsjActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

@@ -4,24 +4,65 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:background="@color/background1"
-        android:text="订单详情"
-        android:gravity="center"
-        android:paddingTop="@dimen/padding"
-        android:paddingBottom="@dimen/padding"/>
+	<!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="订单详情"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_ddxq_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
 
-	<!-- 
-    <fragment 
-        android:id="@+id/ddxq_fragment"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:name="com.example.sjtujj.DdxxFragment"/>
-	 -->	 
+	<!-- 提示信息和倒计时 -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="10dp">
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="该家长希望聘请你为家教"
+	        android:textColor="@color/t2_blue"
+	        android:paddingLeft="10dp"
+	        android:textStyle="bold"
+	        android:layout_alignParentLeft="true"/>
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="倒计时"
+	        android:textColor="@color/t2_blue"
+	        android:paddingRight="10dp"
+	        android:textStyle="bold"
+	        android:layout_alignParentRight="true"/>
+	</RelativeLayout>
+	
 
+	<!-- 订单信息fragment -->
 	<LinearLayout
         android:id="@+id/t2_ddxq_container"
         android:layout_width="match_parent"
@@ -30,6 +71,7 @@
     </LinearLayout>
 
 
+	<!-- 接单拒绝 -->
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -39,7 +81,7 @@
         android:paddingLeft="@dimen/padding"
         android:paddingRight="@dimen/padding">
 	    <Button
-	        android:id="@+id/ddxq_jiedan"
+	        android:id="@+id/t2_ddxq_bt1"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/t2_jiedan_bg"
@@ -49,7 +91,7 @@
 	        android:layout_marginRight="@dimen/padding">
 	    </Button>
 	    <Button
-	        android:id="@+id/ddxq_jujue"
+	        android:id="@+id/t2_ddxq_bt2"
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/t2_jujue_bg"

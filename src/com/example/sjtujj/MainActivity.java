@@ -67,16 +67,16 @@ private ImageView ivTab4;
 	manager.dispatchCreate(savedInstanceState);
 	
 	Intent i1 = new Intent(context, T1Activity.class);
-	i1.putExtras(bundle);
+	//i1.putExtras(bundle);
 	listViews.add(getView("A", i1));
 	Intent i2 = new Intent(context, T2Activity.class);
-	i2.putExtras(bundle);
+	//i2.putExtras(bundle);
 	listViews.add(getView("B", i2));
 	Intent i3 = new Intent(context, T3Activity.class);
-	i3.putExtras(bundle);
+	//i3.putExtras(bundle);
 	listViews.add(getView("C", i3));
 	Intent i4 = new Intent(context, T4Activity.class);
-	i4.putExtras(bundle);
+	//i4.putExtras(bundle);
 	listViews.add(getView("D", i4));
 
 	tabHost = (TabHost) findViewById(R.id.tabhost);

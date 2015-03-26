@@ -101,6 +101,7 @@
 	        android:text="安全码："
 	        android:textColor="@color/black"/>
 	    <EditText 
+	        android:id="@+id/t2_skjs_et"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:singleLine="true"
@@ -124,6 +125,7 @@
 	
 	<!-- 确认完成 -->
 	<Button 
+	    android:id="@+id/t2_skjs_bt"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="50dp"

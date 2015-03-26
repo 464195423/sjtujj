@@ -35,6 +35,7 @@ private LvAdapter adapter;
 		setContentView(R.layout.activity_t1);
 
 		Bundle bundle = getIntent().getExtras();
+		/*
 		String demandId = bundle.getString("demandId");
 		String group = bundle.getString("group");
 		String school = bundle.getString("school");
@@ -42,6 +43,7 @@ private LvAdapter adapter;
 		String tname = bundle.getString("tname");
 		String tpicture = bundle.getString("tpicture");
 		Log.v("school",school);
+		*/
 		
         lv = (PullToRefreshListView)findViewById(R.id.t1_lv);  
   

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T2_stwcActivity extends Activity {
 private String rid;
@@ -59,6 +60,8 @@ private T2_ddxx_net T2_ddxx_netItems;
 					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
 					setData();
 				}
+				else
+					Toast.makeText(T2_stwcActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

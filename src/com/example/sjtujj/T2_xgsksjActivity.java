@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T2_xgsksjActivity extends Activity {
 private int shichang = 0;
@@ -112,6 +113,8 @@ private String rid = "";
 					//end this activity
 					finish();
 				}
+				else
+					Toast.makeText(T2_xgsksjActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

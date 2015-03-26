@@ -29,6 +29,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 private EditText user;
@@ -69,19 +70,27 @@ private static Login_net Login_netItems;
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
 					Login_netItems = JSONObject.parseObject(data1.toString(), Login_net.class);		
+					Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+					
+					MyPath.setGroup(Login_netItems.getGroup());
+					MyPath.setSchool(Login_netItems.getSchool());
+					MyPath.setTid(Login_netItems.getTid());
+					/*
+					Bundle bundle = new Bundle();
+					bundle.putCharSequence("demandId", Login_netItems.getDemandId());
+					bundle.putCharSequence("group", Login_netItems.getGroup());
+					bundle.putCharSequence("school", Login_netItems.getSchool());
+					//bundle.putCharSequence("sessionid", Login_netItems.getSessionid());
+					bundle.putCharSequence("tid", Login_netItems.getTid());
+					bundle.putCharSequence("tname", Login_netItems.getTname());
+					bundle.putCharSequence("tpicture", Login_netItems.getTpicture());
+					//Log.v("sessionid",Login_netItems.getSessionid());
+					intent.putExtras(bundle);
+					*/
+					startActivity(intent);
 				}
-				Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-				Bundle bundle = new Bundle();
-				bundle.putCharSequence("demandId", Login_netItems.getDemandId());
-				bundle.putCharSequence("group", Login_netItems.getGroup());
-				bundle.putCharSequence("school", Login_netItems.getSchool());
-				//bundle.putCharSequence("sessionid", Login_netItems.getSessionid());
-				bundle.putCharSequence("tid", Login_netItems.getTid());
-				bundle.putCharSequence("tname", Login_netItems.getTname());
-				bundle.putCharSequence("tpicture", Login_netItems.getTpicture());
-				//Log.v("sessionid",Login_netItems.getSessionid());
-				intent.putExtras(bundle);
-				startActivity(intent);
+				else
+					Toast.makeText(LoginActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {
