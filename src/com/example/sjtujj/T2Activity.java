@@ -34,7 +34,9 @@ private TextView tv1;
 private TextView tv2;
 private TextView tv3;
 private int type = 1;
-private PullToRefreshListView lv; 
+private PullToRefreshListView lv1; 
+private PullToRefreshListView lv2; 
+private PullToRefreshListView lv3; 
 private List<T2_net> T2_net_Items;
 private T2_adapter adapter;
 
@@ -58,11 +60,11 @@ private T2_adapter adapter;
 					tv1.setTextColor(getResources().getColor(R.color.select));
 					tv1.setBackgroundColor(getResources().getColor(R.color.background2));
 					tv2.setTextColor(getResources().getColor(R.color.unselect));
-					tv2.setBackgroundColor(getResources().getColor(R.color.background3));		
+					tv2.setBackgroundColor(getResources().getColor(R.color.background1));		
 					tv3.setTextColor(getResources().getColor(R.color.unselect));
-					tv3.setBackgroundColor(getResources().getColor(R.color.background3));	
+					tv3.setBackgroundColor(getResources().getColor(R.color.background1));	
 					
-					getDataResource("0");
+					show("0");
 				}
 			}		
 		});
@@ -76,11 +78,11 @@ private T2_adapter adapter;
 					tv2.setTextColor(getResources().getColor(R.color.select));
 					tv2.setBackgroundColor(getResources().getColor(R.color.background2));
 					tv1.setTextColor(getResources().getColor(R.color.unselect));
-					tv1.setBackgroundColor(getResources().getColor(R.color.background3));		
+					tv1.setBackgroundColor(getResources().getColor(R.color.background1));		
 					tv3.setTextColor(getResources().getColor(R.color.unselect));
-					tv3.setBackgroundColor(getResources().getColor(R.color.background3));	
+					tv3.setBackgroundColor(getResources().getColor(R.color.background1));	
 					
-					getDataResource("onclass");
+					show("onclass");
 
 				}
 			}		
@@ -95,34 +97,52 @@ private T2_adapter adapter;
 					tv3.setTextColor(getResources().getColor(R.color.select));
 					tv3.setBackgroundColor(getResources().getColor(R.color.background2));
 					tv2.setTextColor(getResources().getColor(R.color.unselect));
-					tv2.setBackgroundColor(getResources().getColor(R.color.background3));		
+					tv2.setBackgroundColor(getResources().getColor(R.color.background1));		
 					tv1.setTextColor(getResources().getColor(R.color.unselect));
-					tv1.setBackgroundColor(getResources().getColor(R.color.background3));	
+					tv1.setBackgroundColor(getResources().getColor(R.color.background1));	
 					
-					getDataResource("close");
+					show("close");
 				}			
 			}		
 		});
 		
-		lv = (PullToRefreshListView)findViewById(R.id.t2_lv);  
+		lv1 = (PullToRefreshListView)findViewById(R.id.t2_lv1);  
 		  
-        lv.setMode(Mode.PULL_DOWN_TO_REFRESH);
-		lv.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-		lv.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
-		lv.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
-		lv.setOnRefreshListener(this);
-		lv.setDividerPadding(10);
-		lv.getRefreshableView().setDividerHeight(0);
+        lv1.setMode(Mode.PULL_DOWN_TO_REFRESH);
+		lv1.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+		lv1.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
+		lv1.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+		lv1.setOnRefreshListener(this);
+		lv1.setDividerPadding(10);
+		lv1.getRefreshableView().setDividerHeight(0);
+
+		lv2 = (PullToRefreshListView)findViewById(R.id.t2_lv2);  
+		  
+        lv2.setMode(Mode.PULL_DOWN_TO_REFRESH);
+		lv2.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+		lv2.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
+		lv2.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+		lv2.setOnRefreshListener(this);
+		lv2.setDividerPadding(10);
+		lv2.getRefreshableView().setDividerHeight(0);
 		
-		lv.setOnItemClickListener(new OnItemClickListener() {
+		lv3 = (PullToRefreshListView)findViewById(R.id.t2_lv3);  
+		  
+        lv3.setMode(Mode.PULL_DOWN_TO_REFRESH);
+		lv3.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+		lv3.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
+		lv3.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+		lv3.setOnRefreshListener(this);
+		lv3.setDividerPadding(10);
+		lv3.getRefreshableView().setDividerHeight(0);
+
+		final AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
 				position--;
-				//Log.v("position",position+"");
-				//Toast.makeText(T2Activity.this, T2_net_Items.get(position).getRid(), Toast.LENGTH_LONG).show();;
 				int type = getItemViewType(position);
 				Intent intent = null;
 				Bundle bundle = new Bundle();
@@ -167,13 +187,16 @@ private T2_adapter adapter;
 					break;
 				case 9:
 					break;
-				
 				}
 			}
-
-		});
+		};
+		
+		lv1.setOnItemClickListener(listener);
+		lv2.setOnItemClickListener(listener);
+		lv3.setOnItemClickListener(listener);
 		
 		getDataResource("0");
+		
 	}
 
 	public int getItemViewType(int position) {
@@ -199,17 +222,33 @@ private T2_adapter adapter;
 	}
 	
 	
-	private void getDataResource(String startus){
+	private void getDataResource(final String status){
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("status", startus);
+		map.put("status", status);
 		MyHttpClient.doPost2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				T2_net_Items = parseJsonT2_netItem(json);
 				adapter = new T2_adapter(T2Activity.this, T2_net_Items);
 				//adapter.notifyDataSetChanged();
-				lv.setAdapter(adapter);
-				lv.onRefreshComplete();
+				
+				Log.v("status = ", "status = "+status);
+				
+				if (status.equals("0")){
+					lv1.setAdapter(adapter);
+					Log.v("lv1","set_adapter");
+				}
+				else if (status.equals("onclass")){
+					lv2.setAdapter(adapter);
+					Log.v("lv2","set_adapter");
+				}
+				else if (status.equals("close")){
+					lv3.setAdapter(adapter);
+					Log.v("lv3","set_adapter");
+				}
+				
+				show(status);
+				
 			}
 			@Override
 			public void netWorkError() {
@@ -217,6 +256,40 @@ private T2_adapter adapter;
 		}, MyPath.my_demand_path, map, MyPath.getSessionid());
 	}
 
+	private void show(String status){
+		if (status.equals("0")){
+			Log.v("show","type1");
+			Log.v("count1",lv1.getChildCount()+"");
+			if (lv1.getRefreshableView().getAdapter() == null)
+				getDataResource(status);
+			lv1.setVisibility(View.VISIBLE);
+			lv2.setVisibility(View.GONE);
+			lv3.setVisibility(View.GONE);
+			lv1.onRefreshComplete();
+		}
+		else if (status.equals("onclass")){
+			Log.v("show","type2");
+			Log.v("count2",lv2.getChildCount()+"");
+			if (lv2.getRefreshableView().getAdapter() == null)
+				getDataResource(status);
+			lv2.setVisibility(View.VISIBLE);
+			lv1.setVisibility(View.GONE);
+			lv3.setVisibility(View.GONE);
+			lv2.onRefreshComplete();
+		}
+		else if (status.equals("close")){
+			Log.v("show","type3");
+			Log.v("count3",lv3.getChildCount()+"");
+			if (lv3.getRefreshableView().getAdapter() == null)
+				getDataResource(status);
+			lv3.setVisibility(View.VISIBLE);
+			lv2.setVisibility(View.GONE);
+			lv1.setVisibility(View.GONE);
+			lv3.onRefreshComplete();
+		}		
+		
+	}
+	
 	public List<T2_net> parseJsonT2_netItem(String json) {
 		List<T2_net> T2_net_Items = null;
 		JSONObject jsonObject = JSONObject.parseObject(json);
@@ -254,7 +327,7 @@ private T2_adapter adapter;
 	@Override
 	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
 		// TODO Auto-generated method stub
-		lv.onRefreshComplete();
+		//lv.onRefreshComplete();
 		
 	}
 

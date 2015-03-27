@@ -45,78 +45,95 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="2"
-		>
+        android:layout_weight="2">
     
         <LinearLayout 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/t3_bg"
-            android:layout_weight="1"
-            android:gravity="center">
-	        <TextView 
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="已授课"
-		        android:textColor="#888888"
-		        android:layout_weight="1">
-	        </TextView>
-	        <TextView 
-	            android:id="@+id/t3_col1"
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="0"
-		        android:textColor="@color/t3_dig"
-		        android:layout_weight="1">
-	        </TextView>
-        </LinearLayout>
-        <LinearLayout 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/t3_bg"
-            android:layout_weight="1"
-            android:gravity="center">
-	        <TextView 
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="总收入"
-		        android:textColor="#888888"
-		        android:layout_weight="1">
-	        </TextView>
-	        <TextView 
-	            android:id="@+id/t3_col2"
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="0"
-		        android:textColor="@color/t3_dig"
-		        android:layout_weight="1">
-	        </TextView>
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:background="@drawable/frame"
+        	android:padding="1dp">
+	        <!-- ll1 -->
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:background="@drawable/t3_bg"
+	            android:layout_weight="1"
+	            android:gravity="center">
+		        <TextView 
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="已授课"
+			        android:textColor="#888888"
+			        android:layout_weight="1">
+		        </TextView>
+		        <TextView 
+		            android:id="@+id/t3_col1"
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="0"
+			        android:textColor="@color/t3_dig"
+			        android:layout_weight="1">
+		        </TextView>
+	        </LinearLayout>
+	        <View 
+				android:layout_width="1dp"
+				android:layout_height="fill_parent"
+				android:background="@drawable/divider"/>
+	        <!-- ll2 -->
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:background="@drawable/t3_bg"
+	            android:layout_weight="1"
+	            android:gravity="center">
+		        <TextView 
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="总收入"
+			        android:textColor="#888888"
+			        android:layout_weight="1">
+		        </TextView>
+		        <TextView 
+		            android:id="@+id/t3_col2"
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="0"
+			        android:textColor="@color/t3_dig"
+			        android:layout_weight="1">
+		        </TextView>
+	        </LinearLayout>  
+	        <View 
+				android:layout_width="1dp"
+				android:layout_height="fill_parent"
+				android:background="@drawable/divider"/>
+	        <!-- ll3 -->
+	        <LinearLayout 
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            android:background="@drawable/t3_bg"
+	            android:layout_weight="1"
+	            android:gravity="center">
+		        <TextView 
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="账户余额"
+			        android:textColor="#888888"
+			        android:layout_weight="1">
+		        </TextView>
+		        <TextView 
+		            android:id="@+id/t3_col3"
+		            android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="0"
+			        android:textColor="@color/t3_dig"
+			        android:layout_weight="1">
+		        </TextView>
+	        </LinearLayout>
         </LinearLayout>  
-                <LinearLayout 
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/t3_bg"
-            android:layout_weight="1"
-            android:gravity="center">
-	        <TextView 
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="账户余额"
-		        android:textColor="#888888"
-		        android:layout_weight="1">
-	        </TextView>
-	        <TextView 
-	            android:id="@+id/t3_col3"
-	            android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="0"
-		        android:textColor="@color/t3_dig"
-		        android:layout_weight="1">
-	        </TextView>
-        </LinearLayout>    
     </LinearLayout>
     
     
@@ -133,7 +150,7 @@
             android:orientation="horizontal">
             <!-- list1 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -152,7 +169,7 @@
             </LinearLayout>
             <!-- list2 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -171,7 +188,7 @@
             </LinearLayout>    
             <!-- list3 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -190,7 +207,7 @@
             </LinearLayout>            
             <!-- list4 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -217,7 +234,7 @@
             android:orientation="horizontal">
             <!-- list1 -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -236,10 +253,10 @@
             </LinearLayout>
             <!-- list2 can add later-->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:visibility="invisible">>
                 <ImageView 
@@ -253,44 +270,7 @@
                     android:text="收入结算">            
                 </TextView>
             </LinearLayout>    
-            <!-- list3 can add later-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:visibility="invisible">
-                <ImageView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/accicon8">                    
-                </ImageView>
-                <TextView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="个人设置">            
-                </TextView>
-            </LinearLayout>            
-            <!-- list4 can add later-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:visibility="invisible">
-                <ImageView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/accicon7">                   
-                </ImageView>
-                <TextView 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="退出登录">            
-                </TextView>
-            </LinearLayout>                          
+                         
    		</LinearLayout>
         
     </LinearLayout>

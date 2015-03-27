@@ -23,7 +23,7 @@
      	  	android:layout_height="wrap_content"
             android:text="上课订单"
             android:textColor="@color/unselect"
-            android:background="@color/background3"            
+            android:background="@color/background1"            
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="30dip"
             android:paddingRight="30dip"
@@ -49,7 +49,7 @@
      	  	android:layout_height="wrap_content"
             android:text="过期订单"
             android:textColor="@color/unselect"
-            android:background="@color/background3"
+            android:background="@color/background1"
             android:gravity="center_vertical|center_horizontal"
             android:paddingLeft="30dip"
             android:paddingRight="30dip"
@@ -60,11 +60,24 @@
     </RelativeLayout>
 
 	<com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/t2_lv"  
+        android:id="@+id/t2_lv1"  
         android:layout_width="fill_parent"  
         android:layout_height="fill_parent"
         android:layout_below="@id/t2_rl"
         android:listSelector="#00000000"
-         />     
-    
+         />
+ 	<com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/t2_lv2"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent"
+        android:layout_below="@id/t2_rl"
+        android:listSelector="#00000000"
+         />
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/t2_lv3"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent"
+        android:layout_below="@id/t2_rl"
+        android:listSelector="#00000000"
+         /> 	   
 </RelativeLayout>

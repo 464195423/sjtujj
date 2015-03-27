@@ -130,6 +130,14 @@
             android:name=".T3_grtzActivity"
             android:label="@string/title_activity_t3_grtz" >
         </activity>
+        <activity
+            android:name=".T4_zxggActivity"
+            android:label="@string/title_activity_t4_zxgg" >
+        </activity>
+        <activity
+            android:name=".T4_xxxqActivity"
+            android:label="@string/title_activity_t4_xxxq" >
+        </activity>
     </application>
 
 </manifest>

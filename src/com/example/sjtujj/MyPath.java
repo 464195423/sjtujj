@@ -80,4 +80,7 @@ public static String getNoticeList_path = url + "/getNoticeList";
 
 /*tid*/
 public static String getAnnouncementList_path = url + "/getAnnouncementList";
+
+/*id(message_id)*/
+public static String getMessageInfo_path = url + "/getMessageInfo";
 }

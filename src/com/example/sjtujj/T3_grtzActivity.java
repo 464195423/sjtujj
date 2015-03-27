@@ -8,11 +8,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -41,6 +44,8 @@ private ListView lv;
 				finish();
 			}
 		});
+        
+
 	}
 	
 	private void getData(){
@@ -54,6 +59,21 @@ private ListView lv;
 				//adapter.notifyDataSetChanged();
 				lv = (ListView)findViewById(R.id.t3_grtz_lv);
 				lv.setAdapter(adapter);
+				
+				//设置点击事件
+		        lv.setOnItemClickListener(new OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						// TODO Auto-generated method stub
+						Bundle bundle = new Bundle();
+						bundle.putCharSequence("id", Info_netitems.get(position).getId());
+						Intent intent = new Intent(T3_grtzActivity.this, T4_xxxqActivity.class);
+						intent.putExtras(bundle);
+						startActivity(intent);
+					}
+				});
 			}
 			@Override
 			public void netWorkError() {

@@ -3,37 +3,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
- 
+
 	<LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+		android:background="@drawable/frame"
+        android:padding="1dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
 	    <!-- title -->
 		<LinearLayout 
 		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content">
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/t2_title">
 		    <TextView 
 		        android:id="@+id/t2_t1_title1"
 		        android:layout_width="0dp"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:background="@drawable/t2_title"
 		        android:textColor="#FF6100"
 		        android:text="default"
 		        android:gravity="center"/>
+		    <View 
+		        android:layout_width="1dp"
+		        android:layout_height="fill_parent"
+		        android:background="@drawable/divider"/>
 		    <TextView 
 		        android:layout_width="0dp"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:background="@drawable/t2_title"
 		        android:text="default"
 		        android:textColor="@color/black"
 		        android:gravity="center"/>
 		</LinearLayout>    
 	
+		<View 
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@drawable/divider"/>
+		
 		<!-- content -->
 	    <RelativeLayout 
 	        android:layout_width="match_parent"
@@ -86,5 +96,5 @@
 		</RelativeLayout>	
 		
 	</LinearLayout>
-	
+
 </LinearLayout>

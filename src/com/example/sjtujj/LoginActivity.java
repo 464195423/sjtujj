@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSONObject;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -75,6 +76,7 @@ private static Login_net Login_netItems;
 					MyPath.setGroup(Login_netItems.getGroup());
 					MyPath.setSchool(Login_netItems.getSchool());
 					MyPath.setTid(Login_netItems.getTid());
+					WriteData();
 					/*
 					Bundle bundle = new Bundle();
 					bundle.putCharSequence("demandId", Login_netItems.getDemandId());
@@ -87,7 +89,9 @@ private static Login_net Login_netItems;
 					//Log.v("sessionid",Login_netItems.getSessionid());
 					intent.putExtras(bundle);
 					*/
+					//intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 					startActivity(intent);
+					finish();
 				}
 				else
 					Toast.makeText(LoginActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
@@ -97,4 +101,16 @@ private static Login_net Login_netItems;
 			}
 		}, MyPath.login_path, map);
 	}	
+	
+	public void WriteData() 
+	{ 
+		SharedPreferences mySharedPreferences = getSharedPreferences("data", 
+		Activity.MODE_PRIVATE); 
+		SharedPreferences.Editor editor = mySharedPreferences.edit(); 
+		editor.putString("sessionid", MyPath.getSessionid());
+		editor.putString("group", Login_netItems.getGroup()); 
+		editor.putString("school", Login_netItems.getSchool()); 
+		editor.putString("tid", Login_netItems.getTid()); 
+		editor.commit(); 
+	} 
 }
