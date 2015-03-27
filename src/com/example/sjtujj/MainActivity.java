@@ -115,6 +115,9 @@ private ImageView ivTab4;
 		ivTab4 = (ImageView)tabIndicator4.findViewById(R.id.iv_mark);
 		ivTab4.setImageResource(R.drawable.icon_tmp);
 		
+		//设置选中第一项
+		set_select(1);
+		
 		Intent intent = new Intent(context,EmptyActivity.class);
 		//注意这儿Intent中的activity不能是自身 比如“A”对应的是T1Activity，后面intent就new的T3Activity的。
 		tabHost.addTab(tabHost.newTabSpec("A").setIndicator(tabIndicator1).setContent(intent));
@@ -144,20 +147,20 @@ private ImageView ivTab4;
 	        @Override
 	        public void onTabChanged(String tabId) {
 	        	if ("A".equals(tabId)) {
+	        		set_select(1);
 	                pager.setCurrentItem(0);
-	                set_select(1);
 	            } 
 	            if ("B".equals(tabId)) {            	
-	                pager.setCurrentItem(1);
 	                set_select(2);
+	                pager.setCurrentItem(1);
 	            } 
 	            if ("C".equals(tabId)) {
-	                pager.setCurrentItem(2);
 	                set_select(3);
+	                pager.setCurrentItem(2);
 	            } 
 	            if ("D".equals(tabId)) {
-	                pager.setCurrentItem(3);
 	                set_select(4);
+	                pager.setCurrentItem(3);
 	            }       
 	            pager.refreshDrawableState();
 	        }
@@ -165,49 +168,48 @@ private ImageView ivTab4;
 
 	}
 
-	@SuppressLint("ResourceAsColor")
 	private void set_select(int n){
 		Log.v("n=",n+"");
 		switch (n){
 		case 1:
-			ivTab1.setBackgroundResource(R.color.tab_sel);
-			tvTab1.setTextColor(R.color.tab_sel);
-			ivTab2.setBackgroundResource(R.color.white);
-			tvTab2.setTextColor(R.color.white);
-			ivTab3.setBackgroundResource(R.color.white);
-			tvTab3.setTextColor(R.color.white);
-			ivTab4.setBackgroundResource(R.color.white);
-			tvTab4.setTextColor(R.color.white);
+			tvTab1.setTextColor(0xff59c2e6);
+			tvTab2.setTextColor(0xffffffff);
+			tvTab3.setTextColor(0xffffffff);
+			tvTab4.setTextColor(0xffffffff);
+			ivTab1.setColorFilter(0xff59c2e6);
+			ivTab2.setColorFilter(0xffffffff);
+			ivTab3.setColorFilter(0xffffffff);
+			ivTab4.setColorFilter(0xffffffff);
 			break;
 		case 2:
-			ivTab1.setBackgroundResource(R.color.white);
-			tvTab1.setTextColor(R.color.white);
-			ivTab2.setBackgroundResource(R.color.tab_sel);
-			tvTab2.setTextColor(R.color.tab_sel);
-			ivTab3.setBackgroundResource(R.color.white);
-			tvTab3.setTextColor(R.color.white);
-			ivTab4.setBackgroundResource(R.color.white);
-			tvTab4.setTextColor(R.color.white);
+			tvTab1.setTextColor(0xffffffff);
+			tvTab2.setTextColor(0xff59c2e6);
+			tvTab3.setTextColor(0xffffffff);
+			tvTab4.setTextColor(0xffffffff);
+			ivTab1.setColorFilter(0xffffffff);
+			ivTab2.setColorFilter(0xff59c2e6);
+			ivTab3.setColorFilter(0xffffffff);
+			ivTab4.setColorFilter(0xffffffff);
 			break;
 		case 3:
-			ivTab1.setBackgroundResource(R.color.white);
-			tvTab1.setTextColor(R.color.white);
-			ivTab2.setBackgroundResource(R.color.white);
-			tvTab2.setTextColor(R.color.white);
-			ivTab3.setBackgroundResource(R.color.tab_sel);
-			tvTab3.setTextColor(R.color.tab_sel);
-			ivTab4.setBackgroundResource(R.color.white);
-			tvTab4.setTextColor(R.color.white);
+			tvTab1.setTextColor(0xffffffff);
+			tvTab2.setTextColor(0xffffffff);
+			tvTab3.setTextColor(0xff59c2e6);
+			tvTab4.setTextColor(0xffffffff);
+			ivTab1.setColorFilter(0xffffffff);
+			ivTab2.setColorFilter(0xffffffff);
+			ivTab3.setColorFilter(0xff59c2e6);
+			ivTab4.setColorFilter(0xffffffff);
 			break;
 		case 4:
-			ivTab1.setBackgroundResource(R.color.white);
-			tvTab1.setTextColor(R.color.white);
-			ivTab2.setBackgroundResource(R.color.white);
-			tvTab2.setTextColor(R.color.white);
-			ivTab3.setBackgroundResource(R.color.white);
-			tvTab3.setTextColor(R.color.white);
-			ivTab4.setBackgroundResource(R.color.tab_sel);
-			tvTab4.setTextColor(R.color.tab_sel);
+			tvTab1.setTextColor(0xffffffff);
+			tvTab2.setTextColor(0xffffffff);
+			tvTab3.setTextColor(0xffffffff);
+			tvTab4.setTextColor(0xff59c2e6);
+			ivTab1.setColorFilter(0xffffffff);
+			ivTab2.setColorFilter(0xffffffff);
+			ivTab3.setColorFilter(0xffffffff);
+			ivTab4.setColorFilter(0xff59c2e6);
 			break;
 		}
 			

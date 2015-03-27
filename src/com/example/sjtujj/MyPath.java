@@ -39,6 +39,10 @@ public static void setSchool(String school) {
 }
 
 public static String url = "http://172.16.3.141:8802/TeacherCenterInterface";
+
+/*GET*/
+public static String getGradeSubject_path = url + "/getGradeSubject";
+
 public static String login_path = url + "/teacherlogin";
 public static String personal_info_path = url + "/teacherPersonalInformation";
 public static String my_demand_path = url + "/teacherMyDemanded";
@@ -83,4 +87,5 @@ public static String getAnnouncementList_path = url + "/getAnnouncementList";
 
 /*id(message_id)*/
 public static String getMessageInfo_path = url + "/getMessageInfo";
+
 }
