@@ -88,4 +88,15 @@ public static String getAnnouncementList_path = url + "/getAnnouncementList";
 /*id(message_id)*/
 public static String getMessageInfo_path = url + "/getMessageInfo";
 
+/*id(message_id)*/
+public static String deleteMessage_path = url + "/deleteMessage";
+
+/*id, grade, subject, order*/
+public static String demand_path = url + "/demand";
+
+/*member, type, content*/
+public static String makeUserFeedback_path = url + "/makeUserFeedback";
+
+/*rid*/
+public static String teacherReseaseHireList_path = url + "/teacherReseaseHireList";
 }

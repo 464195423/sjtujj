@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/t1_ddxx_rl">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="订单信息"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t1_ddxx_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+
+	<!-- 订单信息fragment -->
+	<LinearLayout
+        android:id="@+id/t1_ddxx_container"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/t1_ddxx_rl">
+    </LinearLayout>
+
+
+	<!-- 接单 -->
+   	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+	    <Button
+	        android:id="@+id/t1_ddxx_bt"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="#66ccff"
+	        android:textColor="@color/white"
+	        android:text="接单">
+	    </Button>
+    </LinearLayout>
+
+</RelativeLayout>

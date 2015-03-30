@@ -157,6 +157,8 @@ private T2_t7_getTeachHours_net T2_t7_getTeachHours_netItems;
 					//end this activity
 					finish();
 				}
+				else
+					Toast.makeText(T2_skzActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
 			}
 			@Override
 			public void netWorkError() {

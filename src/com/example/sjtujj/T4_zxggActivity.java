@@ -7,7 +7,10 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +18,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class T4_zxggActivity extends Activity {
 private String tid = "";
@@ -71,6 +76,36 @@ private ListView lv;
 						startActivity(intent);
 					}
 				});
+		        
+		        //设置长按删除
+		        lv.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+					@Override
+					public boolean onItemLongClick(AdapterView<?> parent,
+							View view, final int position, long id) {
+						// TODO Auto-generated method stub
+						AlertDialog alert = new AlertDialog.Builder(T4_zxggActivity.this).create();
+						alert.setTitle("提示");
+						alert.setMessage("你将要删除此条消息，请确认！");
+						alert.setButton(DialogInterface.BUTTON_POSITIVE,"确定", new OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								PostData(Info_netitems.get(position).getId());
+								//刷新列表
+							}
+							
+						});
+						alert.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", new OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+							//do nothing
+							}
+						});				
+						alert.show();
+						
+						return false;
+					}
+				});
 			}
 			@Override
 			public void netWorkError() {
@@ -93,4 +128,28 @@ private ListView lv;
 		}
 		return Info_netItems;
 	}	
+	
+	private void PostData(String id){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		MyHttpClient.doPost2(T4_zxggActivity.this, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+					getData();
+					adapter.notifyDataSetChanged();
+				}
+				else
+					Toast.makeText(T4_zxggActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, MyPath.deleteMessage_path, map, MyPath.getSessionid());		
+		
+	}
 }

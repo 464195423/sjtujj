@@ -16,6 +16,16 @@
         android:paddingBottom="@dimen/padding"
         />
         
+    <TextView 
+        android:layout_below="@id/t1_text"
+        android:id="@+id/t1_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:text="暂无订单"
+        android:textColor="@color/black"/>
+    
 	<com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/t1_lv"  
         android:layout_width="fill_parent"  

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.example.sjtujj.MyListView.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
@@ -27,8 +31,8 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 public class T1Activity extends ListActivity implements OnRefreshListener2<ListView>{
 private List<String> list;  
 private PullToRefreshListView lv;  
-private LvAdapter adapter;  
-  
+private T1_adapter adapter;  
+private List<T1_demand_net> T1_demand_netItems;  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,90 +62,67 @@ private LvAdapter adapter;
 		lv.setDividerPadding(10);
 		lv.getRefreshableView().setDividerHeight(0);
 		
-		//getDataResource();
-        
-		/*
-		list = new ArrayList<String>();  
-        list.add("loonggg");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        list.add("我们都是开发者");  
-        adapter = new LvAdapter(list, this);  
-        lv.setAdapter(adapter);  
-        */
-		
-		SimpleAdapter adapter = new SimpleAdapter(this,getData(),R.layout.activity_t1_vlist,
-                new String[]{"l1","l2","l3","l4"},
-                new int[]{R.id.t1_vlist_l1,R.id.t1_vlist_l2,R.id.t1_vlist_l3,R.id.t1_vlist_l4});
-        setListAdapter(adapter);
-		
-    
         lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				
+				position--;
+				Intent intent = new Intent(T1Activity.this, T1_ddxxActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("rid", T1_demand_netItems.get(position).getR_id());
+				intent.putExtras(bundle);
+				startActivity(intent);
 			}
 
 		});
+        
+        TextView tv = (TextView)findViewById(R.id.t1_tv);
+        lv.setEmptyView(tv);
+        
+		getDataResource();
 	}
   
 	
-	private List<Map<String, Object>> getData(){
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("l1", "l1_1");
-        map.put("l2", "l2_1");
-        map.put("l3", "l3_1");
-        map.put("l4", "l4_1");
-        list.add(map);
- 
-        map = new HashMap<String, Object>();
-        map.put("l1", "l1_2");
-        map.put("l2", "l2_2");
-        map.put("l3", "l3_2");
-        map.put("l4", "l4_2");
-        list.add(map);
- 
-        map = new HashMap<String, Object>();
-        map.put("l1", "l1_3");
-        map.put("l2", "l2_3");
-        map.put("l3", "l3_3");
-        map.put("l4", "l4_3");
-        list.add(map);
-         
-        return list;		
-		
-		
-	}
-/*
+
 //    	加载数据源
     	private void getDataResource(){
-    		MyHttpClient.getJson(MyPath.QUESTIONLISTPATH, new NetRespondPost() {
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		map.put("id", "1");
+    		map.put("grade", "0");
+    		map.put("subject", "0");
+    		map.put("order", "0");
+    		MyHttpClient.doPost2(null, new NetRespondPost() {
     			@Override
     			public void netWorkOk(String json) {
-    				questionItems = FastJsonParser.parseJsonQuestionItem(json);
-    				adapter = new QuestionListAdapter(getActivity(), questionItems);
-    				mPullRefreshListView.setAdapter(adapter);
-    				mPullRefreshListView.onRefreshComplete();
+    				T1_demand_netItems = parseJsonT1_demand_netItem(json);
+    				adapter = new T1_adapter(T1Activity.this, T1_demand_netItems);
+    				//adapter.notifyDataSetChanged();
+    				lv.setAdapter(adapter);
+    				lv.onRefreshComplete();
     			}
     			@Override
     			public void netWorkError() {
     			}
-    		}, SessionID);
+    		}, MyPath.demand_path, map, MyPath.getSessionid());
     	}
-*/
-	
+
+    	public List<T1_demand_net> parseJsonT1_demand_netItem(String json) {
+    		List<T1_demand_net> T1_demand_netItems = null;
+    		JSONObject jsonObject = JSONObject.parseObject(json);
+    		String code = jsonObject.getString("code");
+    		if (code.equals("200")) {
+    			JSONArray dataArray = jsonObject.getJSONArray("data");
+    			if (dataArray != null) {
+    				T1_demand_netItems = JSONArray.parseArray(dataArray.toString(),
+    						T1_demand_net.class);
+    			}else{
+    				return null;
+    			}
+    		}
+    		return T1_demand_netItems;
+    	}	
 /*
 //    	更新数据源
     	private void updateDataResource(){
@@ -164,8 +145,7 @@ private LvAdapter adapter;
 //    	下拉刷新
 		@Override
     	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-    		//getDataResource();
-			lv.onRefreshComplete();
+    		getDataResource();
     	}
 //    	上拉加载
 		@Override

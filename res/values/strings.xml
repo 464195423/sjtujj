@@ -49,5 +49,6 @@
     <string name="title_activity_t3_grtz">个人通知</string>
     <string name="title_activity_t4_zxgg">中心公告</string>
     <string name="title_activity_t4_xxxq">消息详情</string>
+    <string name="title_activity_t1_ddxx">订单信息</string>
 
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+		android:background="@drawable/frame"
+        android:padding="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        
+    	<!-- content -->
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:background="@drawable/t2_content"
+	   		android:padding="@dimen/t2_content_padding">
+	   		
+		    <LinearLayout 
+		        android:id="@+id/t1_ll"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical"
+		    	android:layout_gravity="left">
+		        <TextView 
+		            android:id="@+id/t1_tv1"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="五年级  女  数"/>
+		        <TextView 
+		            android:id="@+id/t1_tv2"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="地址：XXXXXXXXXXXXXXXX"/>
+		        <TextView 
+		            android:id="@+id/t1_tv3"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="#aaaaaa"
+		    		android:text="备注"/>
+		        <TextView 
+		            android:id="@+id/t1_tv4"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/dark_green"
+		    		android:text="¥价格"/>
+		        
+		        
+		    </LinearLayout>
+		    
+		    
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_centerVertical="true"
+		    	android:layout_marginRight="10dp"
+		    	android:layout_alignParentRight="true"
+		    	android:src="@drawable/t1_lst"/>    
+		</RelativeLayout>	
+
+	</LinearLayout>
+</LinearLayout>
