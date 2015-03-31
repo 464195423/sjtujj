@@ -295,4 +295,12 @@ private ImageView ivTab4;
         }  
 		return super.onKeyDown(keyCode, event);
 	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		//Log.v("main","resume");
+		//T2Activity.
+		super.onResume();
+	}
 }

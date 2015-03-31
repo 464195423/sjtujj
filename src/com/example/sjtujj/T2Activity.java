@@ -232,19 +232,15 @@ private T2_adapter adapter;
 				adapter = new T2_adapter(T2Activity.this, T2_net_Items);
 				//adapter.notifyDataSetChanged();
 				
-				Log.v("status = ", "status = "+status);
-				
+		
 				if (status.equals("0")){
 					lv1.setAdapter(adapter);
-					Log.v("lv1","set_adapter");
 				}
 				else if (status.equals("onclass")){
 					lv2.setAdapter(adapter);
-					Log.v("lv2","set_adapter");
 				}
 				else if (status.equals("close")){
 					lv3.setAdapter(adapter);
-					Log.v("lv3","set_adapter");
 				}
 				
 				show(status);
@@ -258,8 +254,6 @@ private T2_adapter adapter;
 
 	private void show(String status){
 		if (status.equals("0")){
-			Log.v("show","type1");
-			Log.v("count1",lv1.getChildCount()+"");
 			if (lv1.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
@@ -268,8 +262,6 @@ private T2_adapter adapter;
 			lv1.onRefreshComplete();
 		}
 		else if (status.equals("onclass")){
-			Log.v("show","type2");
-			Log.v("count2",lv2.getChildCount()+"");
 			if (lv2.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);
@@ -278,8 +270,6 @@ private T2_adapter adapter;
 			lv2.onRefreshComplete();
 		}
 		else if (status.equals("close")){
-			Log.v("show","type3");
-			Log.v("count3",lv3.getChildCount()+"");
 			if (lv3.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv3.setVisibility(View.VISIBLE);
@@ -331,11 +321,12 @@ private T2_adapter adapter;
 		
 	}
 
-	/*
+	
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		Log.i("aa","aaaaa");
+		/*
 		switch (type)
 		{
 			case 1:
@@ -351,7 +342,8 @@ private T2_adapter adapter;
 		}
 		Log.i("aa","aa");
 		//lv.refreshDrawableState();
+		*/
 		super.onResume();
 	}
-	*/
+	
 }

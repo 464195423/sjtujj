@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="授课记录"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_skjl_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+	
+	
+	<!-- listview -->
+	<ListView 
+	    android:id="@+id/t2_skjl_lv"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:listSelector="@color/touming">    
+	</ListView>
+	
+	<TextView 
+        android:id="@+id/t2_skjl_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp"
+        android:gravity="top|left"
+        android:text="暂无授课记录"
+        android:textColor="@color/black"/>
+	
+</LinearLayout>	

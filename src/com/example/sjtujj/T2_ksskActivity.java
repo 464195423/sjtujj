@@ -135,6 +135,21 @@ private String rid = "";
 				finish();
 			}
 		});
+        
+        //ÓÒÉÏÊÚ¿Î¼ÇÂ¼
+        LinearLayout lv_up_right = (LinearLayout)findViewById(R.id.t2_kssk_up_right);
+        lv_up_right.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(T2_ksskActivity.this, T2_skjlActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("rid", rid);
+				intent.putExtras(bundle);
+				startActivity(intent);	
+			}
+		});
 	}
 	
 	private void getData(){

@@ -142,6 +142,10 @@
             android:name=".T1_ddxxActivity"
             android:label="@string/title_activity_t1_ddxx" >
         </activity>
+        <activity
+            android:name=".T2_skjlActivity"
+            android:label="@string/title_activity_t2_skjl" >
+        </activity>
     </application>
 
 </manifest>
