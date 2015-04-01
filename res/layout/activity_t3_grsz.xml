@@ -62,12 +62,12 @@
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical"
 		    android:layout_weight="1">
-			<com.example.sjtujj.SwitchButton
+			<com.yousi.sjtujj.SwitchButton
 			    android:id="@+id/t3_grsz_b1"
 			    android:layout_width="wrap_content"  
 	        	android:layout_height="wrap_content"
 	        	android:layout_gravity="right">	
-			</com.example.sjtujj.SwitchButton>	        		    
+			</com.yousi.sjtujj.SwitchButton>	        		    
 		</LinearLayout>
     </LinearLayout>
     
@@ -97,12 +97,12 @@
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical"
 		    android:layout_weight="1">
-			<com.example.sjtujj.SwitchButton
+			<com.yousi.sjtujj.SwitchButton
 			    android:id="@+id/t3_grsz_b2"
 			    android:layout_width="wrap_content"  
 	        	android:layout_height="wrap_content"
 	        	android:layout_gravity="right">	
-			</com.example.sjtujj.SwitchButton>	        		    
+			</com.yousi.sjtujj.SwitchButton>	        		    
 		</LinearLayout>
     </LinearLayout>    
     

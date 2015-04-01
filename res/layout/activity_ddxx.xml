@@ -20,7 +20,7 @@
         android:id="@+id/ddxx_fragment"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:name="com.example.sjtujj.DdxxFragment"
+        android:name="com.yousi.sjtujj.DdxxFragment"
         android:layout_below="@+id/t1_text"
         android:layout_above="@+id/ddxx_jieshou"/>
   

@@ -51,5 +51,6 @@
     <string name="title_activity_t4_xxxq">消息详情</string>
     <string name="title_activity_t1_ddxx">订单信息</string>
     <string name="title_activity_t2_skjl">授课记录</string>
+    <string name="title_activity_map">地图显示</string>
 
 </resources>
