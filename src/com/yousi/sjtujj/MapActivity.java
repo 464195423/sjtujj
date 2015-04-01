@@ -14,11 +14,13 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.GeocodeSearch.OnGeocodeSearchListener;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
+import com.yousi.map.*;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MapActivity extends Activity {
 private GeocodeSearch geocoderSearch;
@@ -28,14 +30,35 @@ private MapView mapView;
 private Marker geoMarker;
 private Marker regeoMarker;
 private LatLonPoint latLonPoint = new LatLonPoint(40.003662, 116.465271);
+private String place;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
 		
+		place = getIntent().getExtras().getString("place");
+		
 		mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 必须要写
         init();
+        //getLatlon("上海市普陀区新村路301号 我爱我家（新村店）");
+        getLatlon(place);
+        
+        TextView tv = (TextView)findViewById(R.id.map_title);
+        tv.setText(place);
+        
+        
+        
+        //左上返回键
+        LinearLayout lv_up = (LinearLayout)findViewById(R.id.map_up);
+        lv_up.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 	
 	/**
@@ -52,14 +75,72 @@ private LatLonPoint latLonPoint = new LatLonPoint(40.003662, 116.465271);
 							.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 		}
         geocoderSearch = new GeocodeSearch(this);
-		geocoderSearch.setOnGeocodeSearchListener(this);
+		geocoderSearch.setOnGeocodeSearchListener(new OnGeocodeSearchListener() {
+			
+			/**
+			 * 地理编码查询回调
+			 */
+			@Override
+			public void onGeocodeSearched(GeocodeResult result, int rCode) {
+				if (rCode == 0) {
+					if (result != null && result.getGeocodeAddressList() != null
+							&& result.getGeocodeAddressList().size() > 0) {
+						GeocodeAddress address = result.getGeocodeAddressList().get(0);
+						aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+								AMapUtil.convertToLatLng(address.getLatLonPoint()), 15));
+						geoMarker.setPosition(AMapUtil.convertToLatLng(address
+								.getLatLonPoint()));
+						addressName = "经纬度值:" + address.getLatLonPoint() + "\n位置描述:"
+								+ address.getFormatAddress();
+						//ToastUtil.show(GeocoderActivity.this, addressName);
+					} else {
+						//ToastUtil.show(GeocoderActivity.this, R.string.no_result);
+					}
+
+				} else if (rCode == 27) {
+					//ToastUtil.show(GeocoderActivity.this, R.string.error_network);
+				} else if (rCode == 32) {
+					//ToastUtil.show(GeocoderActivity.this, R.string.error_key);
+				} else {
+					//ToastUtil.show(GeocoderActivity.this,
+					//		getString(R.string.error_other) + rCode);
+				}
+			}
+
+			/**
+			 * 逆地理编码回调
+			 */
+			@Override
+			public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
+				if (rCode == 0) {
+					if (result != null && result.getRegeocodeAddress() != null
+							&& result.getRegeocodeAddress().getFormatAddress() != null) {
+						addressName = result.getRegeocodeAddress().getFormatAddress()
+								+ "附近";
+						aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+								AMapUtil.convertToLatLng(latLonPoint), 15));
+						regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
+						//ToastUtil.show(MapActivity.this, addressName);
+					} else {
+						//ToastUtil.show(MapActivity.this, R.string.no_result);
+					}
+				} else if (rCode == 27) {
+					//ToastUtil.show(MapActivity.this, R.string.error_network);
+				} else if (rCode == 32) {
+					//ToastUtil.show(MapActivity.this, R.string.error_key);
+				} else {
+					//ToastUtil.show(MapActivity.this,
+					//		getString(R.string.error_other) + rCode);
+				}
+			}
+		});
     }
  
     /**
 	 * 响应地理编码
 	 */
 	public void getLatlon(final String name) {
-		GeocodeQuery query = new GeocodeQuery(name, "010");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
+		GeocodeQuery query = new GeocodeQuery(name, "021");// 第一个参数表示地址，第二个参数表示查询城市，中文或者中文全拼，citycode、adcode，
 		geocoderSearch.getFromLocationNameAsyn(query);// 设置同步地理编码请求
 	}
 
@@ -72,62 +153,7 @@ private LatLonPoint latLonPoint = new LatLonPoint(40.003662, 116.465271);
 		geocoderSearch.getFromLocationAsyn(query);// 设置同步逆地理编码请求
 	}
 
-	/**
-	 * 地理编码查询回调
-	 */
-	@Override
-	public void onGeocodeSearched(GeocodeResult result, int rCode) {
-		if (rCode == 0) {
-			if (result != null && result.getGeocodeAddressList() != null
-					&& result.getGeocodeAddressList().size() > 0) {
-				GeocodeAddress address = result.getGeocodeAddressList().get(0);
-				aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-						AMapUtil.convertToLatLng(address.getLatLonPoint()), 15));
-				geoMarker.setPosition(AMapUtil.convertToLatLng(address
-						.getLatLonPoint()));
-				addressName = "经纬度值:" + address.getLatLonPoint() + "\n位置描述:"
-						+ address.getFormatAddress();
-				ToastUtil.show(GeocoderActivity.this, addressName);
-			} else {
-				ToastUtil.show(GeocoderActivity.this, R.string.no_result);
-			}
 
-		} else if (rCode == 27) {
-			ToastUtil.show(GeocoderActivity.this, R.string.error_network);
-		} else if (rCode == 32) {
-			ToastUtil.show(GeocoderActivity.this, R.string.error_key);
-		} else {
-			ToastUtil.show(GeocoderActivity.this,
-					getString(R.string.error_other) + rCode);
-		}
-	}
-
-	/**
-	 * 逆地理编码回调
-	 */
-	@Override
-	public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
-		if (rCode == 0) {
-			if (result != null && result.getRegeocodeAddress() != null
-					&& result.getRegeocodeAddress().getFormatAddress() != null) {
-				addressName = result.getRegeocodeAddress().getFormatAddress()
-						+ "附近";
-				aMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-						AMapUtil.convertToLatLng(latLonPoint), 15));
-				regeoMarker.setPosition(AMapUtil.convertToLatLng(latLonPoint));
-				ToastUtil.show(MapActivity.this, addressName);
-			} else {
-				ToastUtil.show(MapActivity.this, R.string.no_result);
-			}
-		} else if (rCode == 27) {
-			ToastUtil.show(MapActivity.this, R.string.error_network);
-		} else if (rCode == 32) {
-			ToastUtil.show(MapActivity.this, R.string.error_key);
-		} else {
-			ToastUtil.show(MapActivity.this,
-					getString(R.string.error_other) + rCode);
-		}
-	}
     
     /**
      * 方法必须重写

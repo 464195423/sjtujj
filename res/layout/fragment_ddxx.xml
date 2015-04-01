@@ -371,7 +371,8 @@
       			android:paddingRight="@dimen/ddxx_padding"
         		android:paddingTop="@dimen/ddxx_padding"
         		android:paddingBottom="@dimen/ddxx_padding"
-		        android:text="总价信息" />		            
+		        android:text="总价信息" 
+		        android:textStyle="bold"/>		            
         </LinearLayout> 
 
         <LinearLayout 

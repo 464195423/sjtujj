@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,7 +119,24 @@ public class DdxxFragment extends Fragment {
 		tv1.setText(T2_ddxx_netItems.getS_gradename());
 		tv2.setText(T2_ddxx_netItems.getS_sexname());
 		tv3.setText(T2_ddxx_netItems.getR_weaksubjectname());
-		tv4.setText(T2_ddxx_netItems.getAddress());
+		tv4.setText(Html.fromHtml("<font color=#66ccff>"
+						+T2_ddxx_netItems.getAddress()
+						+"</font>"
+						+"<font color=#AAAAAA>(点击可查看地图)</font>"));
+		
+		tv4.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getActivity(), MapActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putCharSequence("place", T2_ddxx_netItems.getAddress());
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
+		});
+		
 		
 		tv5.setText(T2_ddxx_netItems.getT_sexname());
 		if (!T2_ddxx_netItems.getAdditional_subject().equals(""))
