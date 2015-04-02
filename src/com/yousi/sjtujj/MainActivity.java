@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import android.R.color;
-import android.R.drawable;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LocalActivityManager;
@@ -14,7 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -23,14 +19,14 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.TabHost.OnTabChangeListener;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class MainActivity extends Activity {
 
@@ -63,7 +59,11 @@ private ImageView ivTab4;
 		String tname = bundle.getString("tname");
 		String tpicture = bundle.getString("tpicture");
 		*/
-			
+		
+		//Jpush
+        //JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+        //JPushInterface.init(this);     		// 初始化 JPush
+		
 		context = MainActivity.this;
 		
 		pager  = (ViewPager) findViewById(R.id.viewpager);
