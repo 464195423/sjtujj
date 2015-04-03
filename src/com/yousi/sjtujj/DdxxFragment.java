@@ -31,6 +31,8 @@ public class DdxxFragment extends Fragment {
 
 	private String rid;
 	private T2_ddxx_net T2_ddxx_netItems;
+	private String add_price;
+	
 	
 	/**
 	 * Use this factory method to create a new instance of this fragment using
@@ -85,12 +87,16 @@ public class DdxxFragment extends Fragment {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
+				Log.v("json", json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
 					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
 					//Log.v("data1",data1.get("additional_price").toString());
+					if (data1.get("additional_price") == null)
+						add_price = null;
+					else
+						add_price = data1.get("additional_price").toString();
 					setData();
 				}
 			}
@@ -147,13 +153,14 @@ public class DdxxFragment extends Fragment {
 		
 		boolean t = false;
 		String str = "";
-		if (T2_ddxx_netItems.getAdditional_price() == null)
+		if (add_price == null)
 		{
 			t = false;
 			//Log.v("addprice","null");
 		}
 		else
 		{
+			/*
 			//Log.v("debug",T2_ddxx_netItems.getAdditional_price().debug());
 			//Log.v("addprice","not null");
 			if (T2_ddxx_netItems.getAdditional_price().get外语授课() != null){
@@ -171,6 +178,29 @@ public class DdxxFragment extends Fragment {
 				//Log.v("addprice","外语教材汉语授课");
 				t = true;
 			}
+			
+			*/
+			JSONObject data2 = JSONObject.parseObject(add_price);
+			/*
+			T2_ddxx_tsxq_net T2_ddxx_tsxq_netItems = JSONObject.parseObject(data2.toString(), T2_ddxx_tsxq_net.class);	
+			//Log.v("data1",data1.get("additional_price").toString());
+			//add_price = data2.get("additional_price").toString();
+			Log.v("外语授课","+"+T2_ddxx_tsxq_netItems.get外语授课());
+			Log.v("外语教材汉语授课","+"+T2_ddxx_tsxq_netItems.get外语教材汉语授课());
+			Log.v("竞赛辅导","+"+T2_ddxx_tsxq_netItems.get竞赛辅导());
+			
+			Log.v("data","+"+data2.toString());
+			//Log.v("外语授课","+"+data2.get("外语授课").toString());
+			//Log.v("外语教材汉语授课","+"+data2.get("外语教材汉语授课").toString());
+			Log.v("竞赛辅导","+"+data2.get("竞赛辅导").toString());
+			*/
+			t = true;
+			if (data2.get("外语授课") != null)
+				str += "外语授课("+data2.get("外语授课").toString()+"元/时) ";
+			if (data2.get("外语教材汉语授课") != null)
+				str += "外语教材汉语授课("+data2.get("外语教材汉语授课").toString()+"元/时) ";
+			if (data2.get("竞赛辅导") != null)
+				str += "竞赛辅导("+data2.get("竞赛辅导").toString()+"元/时) ";
 		}
 		if (t)
 			tv9.setText(str);
