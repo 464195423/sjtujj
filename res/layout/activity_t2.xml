@@ -4,80 +4,72 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <RelativeLayout 
+    
+    <!-- Title -->
+	<RelativeLayout 
+	    android:id="@+id/t2_title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="我的订单"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	</RelativeLayout>
+	
+	<!-- 有效订单和失效订单 -->
+   <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/t2_rl"
-        >
+        android:layout_below="@id/t2_title"
+        android:id="@+id/t2_ll"
+        android:background="@drawable/frame"
+        android:orientation="horizontal">
         <TextView
-     	  	android:layout_width="fill_parent"
+            android:id="@+id/t2_tv1"
+     	  	android:layout_width="0dp"
      	  	android:layout_height="wrap_content"
-            android:background="@color/background1"
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingTop="@dimen/padding"
-            android:paddingBottom="@dimen/padding"
-            android:layout_centerInParent="true"/>        
+     	  	android:layout_weight="1"
+     	  	android:paddingTop="5dp"
+        	android:paddingBottom="5dp"
+     	  	android:text="有效订单"
+     	  	android:textColor="@color/black"
+            android:gravity="center"/>        
+        <View 
+		    android:layout_width="1dp"
+		    android:layout_height="fill_parent"
+		    android:background="@drawable/divider"/>
         <TextView
-            android:id="@+id/t2_shangke"
-     	  	android:layout_width="wrap_content"
+            android:id="@+id/t2_tv2"
+            android:layout_width="0dp"
      	  	android:layout_height="wrap_content"
-            android:text="上课订单"
-            android:textColor="@color/unselect"
-            android:background="@color/background1"            
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            android:layout_centerInParent="true"/>"
-        <TextView
-            android:id="@+id/t2_quanbu"
-     	  	android:layout_width="wrap_content"
-     	  	android:layout_height="wrap_content"
-            android:text="全部订单"
-            android:textColor="@color/select"
-            android:background="@color/background2"
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            android:layout_toLeftOf="@id/t2_shangke"/>        
-        <TextView
-            android:id="@+id/t2_guoqi"
-     	  	android:layout_width="wrap_content"
-     	  	android:layout_height="wrap_content"
-            android:text="过期订单"
-            android:textColor="@color/unselect"
-            android:background="@color/background1"
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            android:layout_toRightOf="@id/t2_shangke"/>
-        
-    </RelativeLayout>
+     	  	android:layout_weight="1"
+     	  	android:paddingTop="5dp"
+        	android:paddingBottom="5dp"
+            android:text="失效订单"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+    </LinearLayout >
 
+    
+    <!-- 有效订单和失效订单listview -->
 	<com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/t2_lv1"  
         android:layout_width="fill_parent"  
         android:layout_height="fill_parent"
-        android:layout_below="@id/t2_rl"
+        android:layout_below="@id/t2_ll"
         android:listSelector="#00000000"
          />
  	<com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/t2_lv2"  
         android:layout_width="fill_parent"  
         android:layout_height="fill_parent"
-        android:layout_below="@id/t2_rl"
+        android:layout_below="@id/t2_ll"
         android:listSelector="#00000000"
-         />
-	<com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/t2_lv3"  
-        android:layout_width="fill_parent"  
-        android:layout_height="fill_parent"
-        android:layout_below="@id/t2_rl"
-        android:listSelector="#00000000"
-         /> 	   
+         />	   
 </RelativeLayout>

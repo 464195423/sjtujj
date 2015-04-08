@@ -15,7 +15,14 @@
     <color name="red">#ff0000</color>
     <color name="t2_blue">#44aaff</color>    
     <color name="hint">#aaaaaa</color>     
-    <color name="tab_sel">#59c2e6</color> 
+    <color name="tab_sel">#59c2e6</color>
+    
+    <!-- 我的订单lv中title，绿色 -->
+    <color name="t2_lv_title">#008800</color>
+    <!-- 我的订单提示信息，淡蓝色 -->
+    <color name="t2_color1">#66ccff</color>  
+    
+    
     
 	<color name="transparent">#ffffff</color>
 	<color name="gold">#ffffff</color>

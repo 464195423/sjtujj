@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+		android:background="@drawable/frame"
+        android:padding="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+	    <!-- title -->
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/t2_title">
+		    <TextView 
+		        android:id="@+id/t2_t3_title1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="5dp"
+		        android:textColor="@color/t2_lv_title"
+		        android:text="已确认时间，待试教"/>
+		    <TextView 
+		        android:id="@+id/t2_t3_title2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="5dp" 
+		        android:text="D100"
+		        android:textColor="@color/black"
+		        android:gravity="center"
+		        android:layout_alignParentRight="true"/>
+		</RelativeLayout>    
+	
+		<View 
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@drawable/divider"/>
+		
+		<!-- content -->
+	    <RelativeLayout 
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:background="@drawable/t2_content"
+	   		android:paddingTop="@dimen/t2_content_padding"
+	   		android:paddingLeft="@dimen/t2_content_padding"
+	   		android:paddingBottom="@dimen/t2_content_padding">
+	   		
+		    <LinearLayout 
+		        android:id="@+id/t2_t3_ll"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:orientation="vertical"
+		    	android:layout_gravity="left">
+		        <TextView 
+		            android:id="@+id/t2_t3_l1"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="学生姓名：周星星"/>
+		        <TextView 
+		            android:id="@+id/t2_t3_l2"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="学生年级：一年级"/>
+		        <TextView 
+		            android:id="@+id/t2_t3_l3"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="辅导科目：数、英"/>
+		        <TextView 
+		            android:id="@+id/t2_t3_l4"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="小时单价：80元/时"/>
+		        <TextView 
+		            android:id="@+id/t2_t3_l5"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/t2_color1"
+		    		android:text="剩余联系时间：11:59:59"/>
+		        
+		    </LinearLayout>
+		    
+		    
+		    <LinearLayout 
+		        android:id="@+id/t2_t3_bt1"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_centerVertical="true"
+		    	android:orientation="vertical"
+		    	android:padding="5dp"
+		    	android:layout_marginRight="10dp"
+		    	android:layout_alignParentRight="true">
+		        <TextView 
+		            android:layout_width="@dimen/t2_button_width"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/white"
+		    		android:background="@drawable/t2_nbutton"
+		    		android:layout_gravity="center"
+		    		android:gravity="center"
+		    		android:text="去试教"/>
+		    </LinearLayout>
+		    
+		</RelativeLayout>	
+	    
+	    <View 
+			android:layout_width="fill_parent"
+			android:layout_height="1dp"
+			android:background="@drawable/divider"/>
+	    
+	    <!-- 家长电话 -->
+	    <RelativeLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingTop="5dp"
+	        android:paddingBottom="5dp"
+	        android:background="@color/white">
+	        <TextView 
+	            android:id="@+id/t2_t3_tv1"
+	            android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:paddingLeft="@dimen/t2_content_padding"
+	        	android:layout_centerVertical="true"
+	        	android:text="周家长"
+	        	android:textColor="@color/black"/>
+	        <TextView
+	            android:id="@+id/t2_t3_tv2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@+id/t2_t3_tv1"
+	            android:paddingLeft="@dimen/t2_content_padding"
+	            android:layout_centerVertical="true"
+	            android:text="13000000000"
+	            android:textColor="@color/black" />       
+
+	    </RelativeLayout>
+	    
+	</LinearLayout>
+
+</LinearLayout>

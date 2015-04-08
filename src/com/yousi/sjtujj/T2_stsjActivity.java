@@ -43,7 +43,7 @@ private EditText et2;
 		
 		
 		rid = getIntent().getExtras().getString("rid");
-		time = getIntent().getExtras().getString("time");
+		//time = getIntent().getExtras().getString("time");
 		
 			
 		SimpleDateFormat s1 = new SimpleDateFormat("yyyy-MM-dd");

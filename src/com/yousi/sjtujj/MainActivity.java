@@ -10,6 +10,8 @@ import java.util.Date;
 
 
 
+
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LocalActivityManager;
@@ -18,6 +20,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -51,6 +54,10 @@ private ImageView ivTab1;
 private ImageView ivTab2;
 private ImageView ivTab3;
 private ImageView ivTab4;
+private Fragment firstFragment;  
+private Fragment secondFragment;  
+private Fragment thirdFragment;   
+private Fragment fourthFragment;   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -98,10 +105,10 @@ private ImageView ivTab4;
 		set_select(0);
 		
 		fragmentList = new ArrayList<Fragment>();  
-        Fragment firstFragment= new T1Fragment();  
-        Fragment secondFragment = new T2Fragment();  
-        Fragment thirdFragment = new T3Fragment();   
-        Fragment fourthFragment = new T4Fragment();   
+        firstFragment= new T1Fragment();  
+        secondFragment = new T2Fragment();  
+        thirdFragment = new T3Fragment();   
+        fourthFragment = new T4Fragment();   
         fragmentList.add(firstFragment);  
         fragmentList.add(secondFragment);  
         fragmentList.add(thirdFragment);  

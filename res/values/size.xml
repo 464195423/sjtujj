@@ -6,4 +6,6 @@
 	<dimen name = "up_right_padding">30dip</dimen>
 	<dimen name = "up_left_padding">15dip</dimen>
 				
+	<!-- 按钮宽度 -->
+	<dimen name = "t2_button_width">100dp</dimen>
 </resources>

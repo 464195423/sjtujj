@@ -26,17 +26,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 public class T2Fragment extends Fragment implements OnRefreshListener2<ListView>{
 private TextView tv1;
 private TextView tv2;
-private TextView tv3;
 private int type = 1;
 private PullToRefreshListView lv1; 
 private PullToRefreshListView lv2; 
-private PullToRefreshListView lv3; 
 private List<T2_net> T2_net_Items1;
 private List<T2_net> T2_net_Items2;
-private List<T2_net> T2_net_Items3;
 private T2_adapter adapter1 = null;
 private T2_adapter adapter2 = null;
-private T2_adapter adapter3 = null;
 private static boolean flag = true;
 
 	@Override
@@ -44,9 +40,8 @@ private static boolean flag = true;
 	        Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_t2, container, false);
 			
-		tv1 = (TextView)rootView.findViewById(R.id.t2_quanbu);
-		tv2 = (TextView)rootView.findViewById(R.id.t2_shangke);
-		tv3 = (TextView)rootView.findViewById(R.id.t2_guoqi);
+		tv1 = (TextView)rootView.findViewById(R.id.t2_tv1);
+		tv2 = (TextView)rootView.findViewById(R.id.t2_tv2);
 
 		tv1.setOnClickListener(new OnClickListener(){
 
@@ -57,7 +52,6 @@ private static boolean flag = true;
 				{				
 					type = 1;
 
-					
 					if (adapter1 == null)
 						getDataResource();
 					show(type);
@@ -75,25 +69,10 @@ private static boolean flag = true;
 					if (adapter2 == null)
 						getDataResource();
 					show(type);
-
 				}
 			}		
 		});	
-		tv3.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if (type != 3)
-				{				
-					type = 3;
-				
-					if (adapter3 == null)
-						getDataResource();
-					show(type);
-				}			
-			}		
-		});
-		
+	
 		lv1 = (PullToRefreshListView)rootView.findViewById(R.id.t2_lv1);  
 		  
         lv1.setMode(Mode.PULL_DOWN_TO_REFRESH);
@@ -114,15 +93,6 @@ private static boolean flag = true;
 		lv2.setDividerPadding(10);
 		lv2.getRefreshableView().setDividerHeight(0);
 		
-		lv3 = (PullToRefreshListView)rootView.findViewById(R.id.t2_lv3);  
-		  
-        lv3.setMode(Mode.PULL_DOWN_TO_REFRESH);
-		lv3.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-		lv3.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
-		lv3.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
-		lv3.setOnRefreshListener(this);
-		lv3.setDividerPadding(10);
-		lv3.getRefreshableView().setDividerHeight(0);
 
 		final AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
 
@@ -141,9 +111,6 @@ private static boolean flag = true;
 					break;
 				case 2:
 					bundle.putCharSequence("rid", T2_net_Items2.get(position).getRid());
-					break;
-				case 3:
-					bundle.putCharSequence("rid", T2_net_Items3.get(position).getRid());
 					break;
 				}
 				
@@ -202,14 +169,11 @@ private static boolean flag = true;
 		
 		lv1.setOnItemClickListener(listener);
 		lv2.setOnItemClickListener(listener);
-		lv3.setOnItemClickListener(listener);
 		
 		if (adapter1 != null)
 			lv1.setAdapter(adapter1);
 		if (adapter2 != null)
 			lv2.setAdapter(adapter2);
-		if (adapter3 != null)
-			lv3.setAdapter(adapter3);
 
 	
 		if (flag){
@@ -217,21 +181,20 @@ private static boolean flag = true;
 			flag = false;
 		}
 			
-		switch (type) {
-		case (1):
-			show(1);
-			break;
-		case (2):
-			show(2);
-			break;
-		case (3):
-			show(3);
-			break;
-		}
+		show(type);
 		
 		return rootView; 
 	}
 
+	Send_message sm = new Send_message() {
+		
+		@Override
+		public void send_msg() {
+			// TODO Auto-generated method stub
+			getDataResource();
+		}
+	};
+	
 	public int getItemViewType(int position) {
 		// TODO Auto-generated method stub
 		List<T2_net> T2_net_Items = null;
@@ -241,9 +204,6 @@ private static boolean flag = true;
 			break;
 		case 2:
 			T2_net_Items = T2_net_Items2;
-			break;
-		case 3:
-			T2_net_Items = T2_net_Items3;
 			break;
 		}
 		
@@ -274,9 +234,6 @@ private static boolean flag = true;
     		getDataResource("0");
     		break;
     	case 2:
-    		getDataResource("onclass");
-    		break;
-    	case 3:
     		getDataResource("close");
     		break;
     	}
@@ -292,21 +249,15 @@ private static boolean flag = true;
 			public void netWorkOk(String json) {
 				if (status.equals("0")){
 					T2_net_Items1 = parseJsonT2_netItem(json);
-					adapter1 = new T2_adapter(getActivity(), T2_net_Items1);	
+					adapter1 = new T2_adapter(getActivity(), T2_net_Items1, sm);	
 					lv1.setAdapter(adapter1);
 					adapter1.notifyDataSetChanged();
 				}
-				else if (status.equals("onclass")){
+				else if (status.equals("close")){
 					T2_net_Items2 = parseJsonT2_netItem(json);
-					adapter2 = new T2_adapter(getActivity(), T2_net_Items2);	
+					adapter2 = new T2_adapter(getActivity(), T2_net_Items2, sm);	
 					lv2.setAdapter(adapter2);
 					adapter2.notifyDataSetChanged();
-				}
-				else if (status.equals("close")){
-					T2_net_Items3 = parseJsonT2_netItem(json);
-					adapter3 = new T2_adapter(getActivity(), T2_net_Items3);	
-					lv3.setAdapter(adapter3);
-					adapter3.notifyDataSetChanged();
 				}
 				
 				show(status);
@@ -324,9 +275,6 @@ private static boolean flag = true;
 			show("0");
 			break;
 		case 2:
-			show("onclass");
-			break;
-		case 3:
 			show("close");
 			break;
 		}
@@ -339,44 +287,15 @@ private static boolean flag = true;
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
 			lv2.setVisibility(View.GONE);
-			lv3.setVisibility(View.GONE);
-			lv1.onRefreshComplete();
-			tv1.setTextColor(getResources().getColor(R.color.select));
-			tv1.setBackgroundColor(getResources().getColor(R.color.background2));
-			tv2.setTextColor(getResources().getColor(R.color.unselect));
-			tv2.setBackgroundColor(getResources().getColor(R.color.background1));		
-			tv3.setTextColor(getResources().getColor(R.color.unselect));
-			tv3.setBackgroundColor(getResources().getColor(R.color.background1));
+			lv1.onRefreshComplete();	
 		}
-		else if (status.equals("onclass")){
+		else if (status.equals("close")){
 			if (lv2.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);
 			lv1.setVisibility(View.GONE);
-			lv3.setVisibility(View.GONE);
-			lv2.onRefreshComplete();
-			tv2.setTextColor(getResources().getColor(R.color.select));
-			tv2.setBackgroundColor(getResources().getColor(R.color.background2));
-			tv1.setTextColor(getResources().getColor(R.color.unselect));
-			tv1.setBackgroundColor(getResources().getColor(R.color.background1));		
-			tv3.setTextColor(getResources().getColor(R.color.unselect));
-			tv3.setBackgroundColor(getResources().getColor(R.color.background1));	
+			lv2.onRefreshComplete();		
 		}
-		else if (status.equals("close")){
-			if (lv3.getRefreshableView().getAdapter() == null)
-				getDataResource(status);
-			lv3.setVisibility(View.VISIBLE);
-			lv2.setVisibility(View.GONE);
-			lv1.setVisibility(View.GONE);
-			lv3.onRefreshComplete();
-			tv3.setTextColor(getResources().getColor(R.color.select));
-			tv3.setBackgroundColor(getResources().getColor(R.color.background2));
-			tv2.setTextColor(getResources().getColor(R.color.unselect));
-			tv2.setBackgroundColor(getResources().getColor(R.color.background1));		
-			tv1.setTextColor(getResources().getColor(R.color.unselect));
-			tv1.setBackgroundColor(getResources().getColor(R.color.background1));
-		}		
-		
 	}
 	
 	public List<T2_net> parseJsonT2_netItem(String json) {
@@ -415,5 +334,6 @@ private static boolean flag = true;
 		Log.v("T2","return");
 		getDataResource();
 	}
+
 	
 }
