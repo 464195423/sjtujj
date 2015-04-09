@@ -22,6 +22,11 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.yousi.net.T2_net;
+import com.yousi.util.DB;
+import com.yousi.util.MyPath;
+import com.yousi.util.Send_message;
+import com.yousi.util.Switch_pager;
 
 public class T2Fragment extends Fragment implements OnRefreshListener2<ListView>{
 private TextView tv1;
@@ -34,12 +39,15 @@ private List<T2_net> T2_net_Items2;
 private T2_adapter adapter1 = null;
 private T2_adapter adapter2 = null;
 private static boolean flag = true;
+private Switch_pager sp;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,  
 	        Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_t2, container, false);
 			
+		//sp = (Switch_pager) getArguments().getSerializable("interface");
+		
 		tv1 = (TextView)rootView.findViewById(R.id.t2_tv1);
 		tv2 = (TextView)rootView.findViewById(R.id.t2_tv2);
 
@@ -122,25 +130,25 @@ private static boolean flag = true;
 					startActivityForResult(intent, 0);
 					break;
 				case 2:
-					intent = new Intent(getActivity(), T2_yjddActivity.class);
+					intent = new Intent(getActivity(), T2_nyjddActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
 					break;
 				case 3:
-					intent = new Intent(getActivity(), T2_ksstActivity.class);
+					intent = new Intent(getActivity(), T2_nksstActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
 					break;
 				case 4:
-					intent = new Intent(getActivity(), T2_stskzActivity.class);
+					intent = new Intent(getActivity(), T2_nstskzActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
 					break;
 				case 5:
-					intent = new Intent(getActivity(), T2_stwcActivity.class);
+					intent = new Intent(getActivity(), T2_nstwcActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
@@ -154,7 +162,8 @@ private static boolean flag = true;
 					startActivityForResult(intent, 0);
 					break;
 				case 8:
-					intent = new Intent(getActivity(), T2_ksskActivity.class);
+					intent = new Intent(getActivity(), T2_nksskActivity.class);
+					//bundle.putSerializable("interface", sp);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);

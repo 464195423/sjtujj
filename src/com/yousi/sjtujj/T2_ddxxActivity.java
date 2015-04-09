@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 
 public class T2_ddxxActivity extends FragmentActivity {
 	private String rid;
-	private DdxxFragment fragment1;
+	private NddxxFragment fragment1;
 	private FragmentManager fragmentManager;
 	private Fragment currentFragment;
 	@Override
@@ -28,7 +28,7 @@ public class T2_ddxxActivity extends FragmentActivity {
 		fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 	
-        fragment1 = DdxxFragment.newInstance(rid);
+        fragment1 = NddxxFragment.newInstance(rid);
 
         fragmentTransaction.replace(R.id.t2_ddxx_container,fragment1);//将fragment1设置到布局上
         fragmentTransaction.commit();

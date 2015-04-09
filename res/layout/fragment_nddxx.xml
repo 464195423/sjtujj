@@ -1,0 +1,549 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.yousi.sjtujj.DdxxFragment"
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:scrollbars="vertical">
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- TODO: Update blank fragment layout -->
+
+	<!-- 学员信息 -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#a5e0e8"
+        android:orientation="horizontal">
+	    <View 
+	        android:layout_width="10dp"
+	        android:layout_height="10dp"
+	        android:layout_gravity="center"
+	        android:layout_marginLeft="@dimen/ddxx_padding"
+	        android:layout_marginRight="@dimen/ddxx_padding"
+	        android:layout_marginTop="@dimen/ddxx_padding"
+	        android:layout_marginBottom="@dimen/ddxx_padding" 
+	        android:background="@drawable/circle"/>
+	    
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="@dimen/ddxx_padding"
+	        android:paddingRight="@dimen/ddxx_padding"
+	        android:paddingTop="@dimen/ddxx_padding"
+	        android:paddingBottom="@dimen/ddxx_padding"
+	        android:textColor="@color/black"
+	        android:text="学员信息" />
+	</LinearLayout>
+    
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/ddxx_padding"
+        android:paddingRight="@dimen/ddxx_padding"
+        android:paddingTop="@dimen/ddxx_padding"
+        android:paddingBottom="@dimen/ddxx_padding">
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="学生姓名：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="李小璐" />		            
+        </LinearLayout>
+                
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="学生年级：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="五年级" />		            
+        </LinearLayout>
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>    
+                
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="学生性别：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="女" />		            
+        </LinearLayout> 
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/> 
+            
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="家长姓名：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv4"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="李大龙" />		            
+        </LinearLayout>     
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>    
+                 
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="联系方式：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv5"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="13000000000" />		            
+        </LinearLayout> 
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/> 
+                    
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="授课地址：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l1_tv6"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="上海市闵行区沧源路1200号" />		            
+        </LinearLayout> 
+    </LinearLayout>
+    
+	<!-- 家教信息 -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#a5e0e8"
+        android:orientation="horizontal">
+	    <View 
+	        android:layout_width="10dp"
+	        android:layout_height="10dp"
+	        android:layout_gravity="center"
+	        android:layout_marginLeft="@dimen/ddxx_padding"
+	        android:layout_marginRight="@dimen/ddxx_padding"
+	        android:layout_marginTop="@dimen/ddxx_padding"
+	        android:layout_marginBottom="@dimen/ddxx_padding" 
+	        android:background="@drawable/circle"/>
+	    
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="@dimen/ddxx_padding"
+	        android:paddingRight="@dimen/ddxx_padding"
+	        android:paddingTop="@dimen/ddxx_padding"
+	        android:paddingBottom="@dimen/ddxx_padding"
+	        android:textColor="@color/black"
+	        android:text="家教信息" />
+	</LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/ddxx_padding"
+        android:paddingRight="@dimen/ddxx_padding"
+        android:paddingTop="@dimen/ddxx_padding"
+        android:paddingBottom="@dimen/ddxx_padding">
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="家教性别：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l2_tv1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="女" />		            
+        </LinearLayout> 
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>   
+                         
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="辅导科目：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l2_tv2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="化学，生物，地理" />		            
+        </LinearLayout> 
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>      
+              
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="特殊需求：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l2_tv3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="无" />		            
+        </LinearLayout> 
+
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>      
+              
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="多人辅导：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l2_tv4"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="无" />		            
+        </LinearLayout>
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>
+               
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="详细需求：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l2_tv5"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="无" />		            
+        </LinearLayout>  
+    </LinearLayout>
+    
+	<!-- 价格信息 -->
+	<LinearLayout
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#a5e0e8"
+        android:orientation="horizontal">
+	    <View 
+	        android:layout_width="10dp"
+	        android:layout_height="10dp"
+	        android:layout_gravity="center"
+	        android:layout_marginLeft="@dimen/ddxx_padding"
+	        android:layout_marginRight="@dimen/ddxx_padding"
+	        android:layout_marginTop="@dimen/ddxx_padding"
+	        android:layout_marginBottom="@dimen/ddxx_padding" 
+	        android:background="@drawable/circle"/>
+	    
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="@dimen/ddxx_padding"
+	        android:paddingRight="@dimen/ddxx_padding"
+	        android:paddingTop="@dimen/ddxx_padding"
+	        android:paddingBottom="@dimen/ddxx_padding"
+	        android:textColor="@color/black"
+	        android:text="价格信息" />
+	</LinearLayout>
+
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/ddxx_padding"
+        android:paddingRight="@dimen/ddxx_padding"
+        android:paddingTop="@dimen/ddxx_padding"
+        android:paddingBottom="@dimen/ddxx_padding">
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="加         价：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l3_tv1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="无" />		            
+        </LinearLayout>
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>    
+                        
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="小时单价：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l3_tv2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="无" />		            
+        </LinearLayout>      
+        
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/grey_divider"/>    
+                
+        <LinearLayout 
+            android:layout_width="match_parent"
+		    android:layout_height="wrap_content" 
+		    android:orientation="horizontal">
+            
+	        <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="支付状态：" /> 
+	        <TextView
+	            android:id="@+id/ddxx_l3_tv3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:paddingLeft="@dimen/ddxx_padding"
+      			android:paddingRight="@dimen/ddxx_padding"
+        		android:paddingTop="@dimen/ddxx_padding"
+        		android:paddingBottom="@dimen/ddxx_padding"
+		        android:text="线上支付，已付款" />		            
+        </LinearLayout>
+    </LinearLayout>  
+    
+    
+</LinearLayout>
+</ScrollView>

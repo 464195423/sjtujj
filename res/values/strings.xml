@@ -52,5 +52,10 @@
     <string name="title_activity_t1_ddxx">订单信息</string>
     <string name="title_activity_t2_skjl">授课记录</string>
     <string name="title_activity_map">地图显示</string>
+    <string name="title_activity_t2_nyjdd">T2_nyjddActivity</string>
+    <string name="title_activity_t2_nksst">T2_nksstActivity</string>
+    <string name="title_activity_t2_nstskz">T2_nstskzActivity</string>
+    <string name="title_activity_t2_nstwc">T2_nstwcActivity</string>
+    <string name="title_activity_t2_nkssk">T2_nksskActivity</string>
 
 </resources>

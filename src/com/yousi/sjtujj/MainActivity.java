@@ -1,45 +1,28 @@
 package com.yousi.sjtujj;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
 
-
-
-
-
-
-
-
-
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.TabHost.OnTabChangeListener;
-import cn.jpush.android.api.JPushInterface;
+
+import com.yousi.util.Switch_pager;
 
 public class MainActivity extends FragmentActivity {
 
@@ -63,6 +46,7 @@ private Fragment fourthFragment;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		T2_nksskActivity.setCallback(sp);
 		Intent intent1 = getIntent();
 		Bundle bundle = intent1.getExtras();
 		/*
@@ -104,9 +88,15 @@ private Fragment fourthFragment;
 		//设置选中第一项
 		set_select(0);
 		
+		
+		
+		
 		fragmentList = new ArrayList<Fragment>();  
         firstFragment= new T1Fragment();  
         secondFragment = new T2Fragment();  
+        /*Bundle bundle1 = new Bundle();
+        bundle1.putSerializable("interface", sp);
+        secondFragment.setArguments(bundle1);*/
         thirdFragment = new T3Fragment();   
         fourthFragment = new T4Fragment();   
         fragmentList.add(firstFragment);  
@@ -203,6 +193,8 @@ private Fragment fourthFragment;
 		});
 	}
 
+	
+	
 	private void set_select(int n){
 		switch (n){
 		case 0:
@@ -249,6 +241,16 @@ private Fragment fourthFragment;
 			
 		
 	}
+	
+	Switch_pager sp = new Switch_pager() {
+
+		@Override
+		public void switch_pager(int n) {
+			// TODO Auto-generated method stub
+			set_select(n);	
+			pager.setCurrentItem(n);
+		}
+	};
 	
 	/*
 	private View getView(String id, Intent intent) {
@@ -329,6 +331,9 @@ private Fragment fourthFragment;
 	}
 	
 	    */	
+	
+
+	
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

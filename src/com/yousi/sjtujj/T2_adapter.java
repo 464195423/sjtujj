@@ -8,12 +8,12 @@ import java.util.Map;
 
 
 
-
-
-
-
-
 import com.alibaba.fastjson.JSONObject;
+import com.yousi.expired.T2_stskzActivity;
+import com.yousi.net.T2_net;
+import com.yousi.util.DB;
+import com.yousi.util.MyPath;
+import com.yousi.util.Send_message;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -415,7 +415,7 @@ final int TYPE_9 = 9;
 			holder3.textViewl2.setText("学生年级："+list.get(position).getGradename());
 			holder3.textViewl3.setText("辅导科目："+list.get(position).getWeaksubjectname());
 			holder3.textViewl4.setText("小时单价："+list.get(position).getOnehourprice()+"元/时");
-			holder3.textViewl5.setText("确认试教时间：11:59:59");//TODO
+			holder3.textViewl5.setText("确认试教时间：2015-1-1 10:00:00");//TODO
 			holder3.textViewtv1.setText(list.get(position).getSname()+"家长");
 			holder3.textViewtv2.setText("13000000000");//TODO
 			holder3.LinearLayoutbt1.setOnClickListener(new View.OnClickListener() {

@@ -10,8 +10,6 @@
         android:orientation="vertical"
 		android:background="@drawable/frame"
         android:padding="1dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
 	    <!-- title -->
 		<RelativeLayout 
@@ -39,7 +37,7 @@
 		<View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/divider"/>
+			android:background="@drawable/grey_divider"/>
 		
 		<!-- content -->
 	    <RelativeLayout 
@@ -85,7 +83,7 @@
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
 		    		android:textColor="@color/t2_color1"
-		    		android:text="剩余联系时间：11:59:59"/>
+		    		android:text="确认试教时间：11:59:59"/>
 		        
 		    </LinearLayout>
 		    
@@ -114,7 +112,7 @@
 	    <View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/divider"/>
+			android:background="@drawable/grey_divider"/>
 	    
 	    <!-- 家长电话 -->
 	    <RelativeLayout 

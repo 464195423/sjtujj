@@ -1,5 +1,7 @@
 package com.yousi.sjtujj;
 
+import com.yousi.net.T2_ddxx_tsxq_net;
+
 public class T2_ddxx_net {
 private String r_id;
 private String s_sexname;

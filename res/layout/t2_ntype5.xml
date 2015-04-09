@@ -10,8 +10,6 @@
         android:orientation="vertical"
 		android:background="@drawable/frame"
         android:padding="1dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
 	    <!-- title -->
 		<RelativeLayout 
@@ -39,7 +37,7 @@
 		<View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/divider"/>
+			android:background="@drawable/grey_divider"/>
 		
 		<!-- content -->
 	    <RelativeLayout 
@@ -87,7 +85,7 @@
 	    <View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/divider"/>
+			android:background="@drawable/grey_divider"/>
 	    
 	    <!-- 家长电话 -->
 	    <RelativeLayout 
