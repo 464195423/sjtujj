@@ -46,7 +46,10 @@ private Fragment fourthFragment;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		T2_nksskActivity.setCallback(sp);
+		T2_adapter.setCallback(sp);
+		T2_nskzActivity.setCallback(sp);
+		T2_nstskzActivity.setCallback(sp);
+		
 		Intent intent1 = getIntent();
 		Bundle bundle = intent1.getExtras();
 		/*
@@ -68,8 +71,7 @@ private Fragment fourthFragment;
 		pager  = (ViewPager) findViewById(R.id.viewpager);
 		
 		Date date = new Date();
-		
-		Log.v("time = ", date.getTime()+"");
+
 		
 		//这儿主要是自定义一下tabhost中的tab的样式
 		tvTab1 = (TextView)findViewById(R.id.tv_title1);
@@ -94,11 +96,8 @@ private Fragment fourthFragment;
 		fragmentList = new ArrayList<Fragment>();  
         firstFragment= new T1Fragment();  
         secondFragment = new T2Fragment();  
-        /*Bundle bundle1 = new Bundle();
-        bundle1.putSerializable("interface", sp);
-        secondFragment.setArguments(bundle1);*/
-        thirdFragment = new T3Fragment();   
-        fourthFragment = new T4Fragment();   
+        thirdFragment = new T3nFragment();   
+        fourthFragment = new T4nFragment();   
         fragmentList.add(firstFragment);  
         fragmentList.add(secondFragment);  
         fragmentList.add(thirdFragment);  
@@ -121,31 +120,6 @@ private Fragment fourthFragment;
 			}
 		});
 		
-		/*
-		//点击tabhost中的tab时，要切换下面的viewPager
-		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
-	        @Override
-	        public void onTabChanged(String tabId) {
-	        	if ("A".equals(tabId)) {
-	        		set_select(1);
-	                pager.setCurrentItem(0);
-	            } 
-	            if ("B".equals(tabId)) {            	
-	                set_select(2);
-	                pager.setCurrentItem(1);
-	            } 
-	            if ("C".equals(tabId)) {
-	                set_select(3);
-	                pager.setCurrentItem(2);
-	            } 
-	            if ("D".equals(tabId)) {
-	                set_select(4);
-	                pager.setCurrentItem(3);
-	            }       
-	            pager.refreshDrawableState();
-	        }
-	    });
-	    */
 
 		//设置点击标签切换
 		LinearLayout ll1 = (LinearLayout)findViewById(R.id.main_ll1);
@@ -198,44 +172,44 @@ private Fragment fourthFragment;
 	private void set_select(int n){
 		switch (n){
 		case 0:
-			tvTab1.setTextColor(0xff59c2e6);
-			tvTab2.setTextColor(0xffffffff);
-			tvTab3.setTextColor(0xffffffff);
-			tvTab4.setTextColor(0xffffffff);
-			ivTab1.setColorFilter(0xff59c2e6);
-			ivTab2.setColorFilter(0xffffffff);
-			ivTab3.setColorFilter(0xffffffff);
-			ivTab4.setColorFilter(0xffffffff);
+			tvTab1.setTextColor(0xff36a5df);
+			tvTab2.setTextColor(0xff999999);
+			tvTab3.setTextColor(0xff999999);
+			tvTab4.setTextColor(0xff999999);
+			ivTab1.setImageResource(R.drawable.demand_icon);
+			ivTab2.setImageResource(R.drawable.order_icon2);
+			ivTab3.setImageResource(R.drawable.couse_icon2);
+			ivTab4.setImageResource(R.drawable.person_icon2);
 			break;
 		case 1:
-			tvTab1.setTextColor(0xffffffff);
-			tvTab2.setTextColor(0xff59c2e6);
-			tvTab3.setTextColor(0xffffffff);
-			tvTab4.setTextColor(0xffffffff);
-			ivTab1.setColorFilter(0xffffffff);
-			ivTab2.setColorFilter(0xff59c2e6);
-			ivTab3.setColorFilter(0xffffffff);
-			ivTab4.setColorFilter(0xffffffff);
+			tvTab1.setTextColor(0xff999999);
+			tvTab2.setTextColor(0xff36a5df);
+			tvTab3.setTextColor(0xff999999);
+			tvTab4.setTextColor(0xff999999);
+			ivTab1.setImageResource(R.drawable.demand_icon2);
+			ivTab2.setImageResource(R.drawable.order_icon);
+			ivTab3.setImageResource(R.drawable.couse_icon2);
+			ivTab4.setImageResource(R.drawable.person_icon2);
 			break;
 		case 2:
-			tvTab1.setTextColor(0xffffffff);
-			tvTab2.setTextColor(0xffffffff);
-			tvTab3.setTextColor(0xff59c2e6);
-			tvTab4.setTextColor(0xffffffff);
-			ivTab1.setColorFilter(0xffffffff);
-			ivTab2.setColorFilter(0xffffffff);
-			ivTab3.setColorFilter(0xff59c2e6);
-			ivTab4.setColorFilter(0xffffffff);
+			tvTab1.setTextColor(0xff999999);
+			tvTab2.setTextColor(0xff999999);
+			tvTab3.setTextColor(0xff36a5df);
+			tvTab4.setTextColor(0xff999999);
+			ivTab1.setImageResource(R.drawable.demand_icon2);
+			ivTab2.setImageResource(R.drawable.order_icon2);
+			ivTab3.setImageResource(R.drawable.couse_icon);
+			ivTab4.setImageResource(R.drawable.person_icon2);
 			break;
 		case 3:
-			tvTab1.setTextColor(0xffffffff);
-			tvTab2.setTextColor(0xffffffff);
-			tvTab3.setTextColor(0xffffffff);
-			tvTab4.setTextColor(0xff59c2e6);
-			ivTab1.setColorFilter(0xffffffff);
-			ivTab2.setColorFilter(0xffffffff);
-			ivTab3.setColorFilter(0xffffffff);
-			ivTab4.setColorFilter(0xff59c2e6);
+			tvTab1.setTextColor(0xff999999);
+			tvTab2.setTextColor(0xff999999);
+			tvTab3.setTextColor(0xff999999);
+			tvTab4.setTextColor(0xff36a5df);
+			ivTab1.setImageResource(R.drawable.demand_icon2);
+			ivTab2.setImageResource(R.drawable.order_icon2);
+			ivTab3.setImageResource(R.drawable.couse_icon2);
+			ivTab4.setImageResource(R.drawable.person_icon);
 			break;
 		}
 			
@@ -252,11 +226,6 @@ private Fragment fourthFragment;
 		}
 	};
 	
-	/*
-	private View getView(String id, Intent intent) {
-		return manager.startActivity(id, intent).getDecorView();
-	}
-	*/
 	
 	//PageAdapter
 	public class MyFragmentPagerAdapter extends FragmentPagerAdapter{  
@@ -277,63 +246,6 @@ private Fragment fourthFragment;
 	    }  
   
 	} 
-	
-	
-	/*
-	private class MyPageAdapter extends PagerAdapter {
-		
-		private List<View> list;
-	
-		private MyPageAdapter(List<View> list) {
-			this.list = list;
-		}
-	
-		@Override
-	    public void destroyItem(View view, int position, Object arg2) {
-	        ViewPager pViewPager = ((ViewPager) view);
-	        pViewPager.removeView(list.get(position));
-	    }
-	
-	    @Override
-	    public void finishUpdate(View arg0) {
-	    }
-	
-	    @Override
-	    public int getCount() {
-	        return list.size();
-	    }
-	
-	    @Override
-	    public Object instantiateItem(View view, int position) {
-	        ViewPager pViewPager = ((ViewPager) view);
-	        pViewPager.addView(list.get(position));
-	        return list.get(position);
-	    }
-	
-	    @Override
-	    public boolean isViewFromObject(View arg0, Object arg1) {
-	        return arg0 == arg1;
-	    }
-	
-	    @Override
-	    public void restoreState(Parcelable arg0, ClassLoader arg1) {
-	    }
-	
-	    @Override
-	    public Parcelable saveState() {
-	        return null;
-	    }
-	
-	    @Override
-	    public void startUpdate(View arg0) {
-	    }
-	    
-	}
-	
-	    */	
-	
-
-	
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

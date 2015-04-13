@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <!-- Title -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@color/background1"
+        android:text="个人中心"
+        android:gravity="center"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        />
+    
+  	<View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="10dp"/>  
+    
+    <!-- content1 -->
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_bg_with_frame"
+        android:orientation="horizontal">
+        <ImageView
+	        android:id="@+id/t4_pic"
+	        android:layout_width="0dp"
+	        android:layout_height="50dp"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:src="@drawable/accuser">       
+	    </ImageView>
+	    
+	   	<!-- 3 col -->
+	    <LinearLayout 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:paddingTop="10dp"
+	        android:paddingBottom="10dp"
+	        android:orientation="vertical">
+	    
+	        <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical"
+	        	android:padding="1dp">
+		        <TextView 
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="已授课："
+				        android:textColor="@color/black"/>
+		        <TextView 
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="总收入："
+				        android:textColor="@color/black"/>
+		        <TextView 
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="账户余额："
+				        android:textColor="@color/black"/>
+	        </LinearLayout>  
+	    </LinearLayout>
+	 
+	   	<!-- 3 col -->
+	    <LinearLayout 
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:layout_gravity="center"
+	        android:paddingTop="10dp"
+	        android:paddingBottom="10dp"
+	        android:orientation="vertical">
+	    
+	        <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical"
+	        	android:padding="1dp">
+		        <TextView 
+		            	android:id="@+id/t4_col1"
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="136小时"
+				        android:textColor="@color/black"/>
+		        <TextView 
+		            	android:id="@+id/t4_col2"
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="1881.00元"
+				        android:textColor="@color/black"/>
+		        <TextView 
+		           		android:id="@+id/t4_col3"
+			            android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:text="1881.00元"
+				        android:textColor="@color/black"/>
+	        </LinearLayout>  
+	    </LinearLayout>	    
+	    
+    </LinearLayout>
+	<!-- content1_end -->
+	
+	<View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="10dp"/>
+	
+	<!-- content2 -->
+	<!-- 我的消息 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:text="我的消息"
+	        android:textColor="@color/black"/>
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/t1_lst"/>
+	</RelativeLayout>
+	
+	<!-- 个人设置 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:text="个人设置"
+	        android:textColor="@color/black"/>
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/t1_lst"/>
+	</RelativeLayout>
+	
+	<!-- 使用帮助 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl3"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:text="使用帮助"
+	        android:textColor="@color/black"/>
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/t1_lst"/>
+	</RelativeLayout>
+
+	<View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="10dp"/>
+	
+	<!-- 意见反馈 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl5"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:text="意见反馈"
+	        android:textColor="@color/black"/>
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/t1_lst"/>
+	</RelativeLayout>
+		
+	<!-- 退出登录 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl6"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:text="退出登录"
+	        android:textColor="@color/black"/>
+	    <ImageView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/t1_lst"/>
+	</RelativeLayout>			
+</LinearLayout>

@@ -4,7 +4,9 @@ import java.util.HashMap;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,7 +28,7 @@ import android.widget.TextView;
 public class T2_nksstActivity extends FragmentActivity {
 private String rid = "";
 private String time = "";
-private NddxxFragment fragment1;
+private Nddxx2Fragment fragment1;
 private FragmentManager fragmentManager;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ private FragmentManager fragmentManager;
 		//fragment
 		fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	
-        fragment1 = NddxxFragment.newInstance(rid);
+        fragment1 = Nddxx2Fragment.newInstance(rid);
         fragmentTransaction.replace(R.id.t2_nksst_container,fragment1);//将fragment1设置到布局上
         fragmentTransaction.commit();
 		

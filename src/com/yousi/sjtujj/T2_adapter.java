@@ -8,12 +8,17 @@ import java.util.Map;
 
 
 
+
+
 import com.alibaba.fastjson.JSONObject;
 import com.yousi.expired.T2_stskzActivity;
 import com.yousi.net.T2_net;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 import com.yousi.util.Send_message;
+import com.yousi.util.Switch_pager;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -455,12 +460,8 @@ final int TYPE_9 = 9;
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Intent intent = new Intent(context, T2_stjsActivity.class);
-					Bundle bundle = new Bundle();
-					bundle.putCharSequence("rid", list.get(position).getRid());
-
-					intent.putExtras(bundle);
-					context.startActivity(intent);	
+					if (mSwitch != null)
+						mSwitch.switch_pager(2);
 				}
 			});
 			break;
@@ -499,7 +500,8 @@ final int TYPE_9 = 9;
 				
 				@Override
 				public void onClick(View v) {
-					// TODO 转到查看课程
+					if (mSwitch != null)
+						mSwitch.switch_pager(2);
 				}
 			});
 			break; 
@@ -608,6 +610,12 @@ final int TYPE_9 = 9;
 		}, MyPath.qushouke_path, map, DB.getSessionid(context));
 	}
 	
+	
+	private static Switch_pager mSwitch=null;
+	public static void setCallback(Switch_pager callback){
+		if (callback != null)
+			mSwitch = callback;
+	}
 }
 
 

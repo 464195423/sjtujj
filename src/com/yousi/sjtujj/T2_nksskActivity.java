@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 
 public class T2_nksskActivity extends FragmentActivity {
 private String rid = "";
-private NddxxFragment fragment1;
+private Nddxx2Fragment fragment1;
 private FragmentManager fragmentManager;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +24,11 @@ private FragmentManager fragmentManager;
 		setContentView(R.layout.activity_t2_nkssk);
 		
 		rid = getIntent().getExtras().getString("rid");
-		//sp = (Switch_pager) getIntent().getExtras().getSerializable("interface");
 		
 		//fragment
 		fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	
-		fragment1 = NddxxFragment.newInstance(rid);
+		fragment1 = Nddxx2Fragment.newInstance(rid);
 		fragmentTransaction.replace(R.id.t2_nkssk_container,fragment1);//将fragment1设置到布局上
 		fragmentTransaction.commit();
 				
@@ -44,23 +43,27 @@ private FragmentManager fragmentManager;
 			}
 		});
 		
-		//查看课程
+		//去授课
 		Button bt1 = (Button)findViewById(R.id.t2_nkssk_bt1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 					
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//跳转页面
-				if (mSwitch != null)
-					mSwitch.switch_pager(2);
-				finish();
+				//TODO
+			}
+		});
+		
+		//申请放弃
+		Button bt2 = (Button)findViewById(R.id.t2_nkssk_bt2);
+		bt2.setOnClickListener(new View.OnClickListener() {
+							
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				//TODO
 			}
 		});
 	}
-	private static Switch_pager mSwitch=null;
-	public static void setCallback(Switch_pager callback){
-		if (callback != null)
-			mSwitch = callback;
-	}
+
 }

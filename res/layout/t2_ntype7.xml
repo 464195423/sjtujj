@@ -104,7 +104,7 @@
 		    		android:background="@drawable/t2_nbutton"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
-		    		android:text="查看课程"/>
+		    		android:text="操作"/>
 		    </LinearLayout>
 		    
 		</RelativeLayout>	

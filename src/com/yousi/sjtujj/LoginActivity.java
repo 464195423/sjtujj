@@ -16,7 +16,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yousi.net.Login_net;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;

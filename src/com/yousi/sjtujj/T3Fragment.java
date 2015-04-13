@@ -19,7 +19,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.yousi.net.T3_net;
 import com.yousi.util.DB;
 import com.yousi.util.LoadImage;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 public class T3Fragment extends Fragment {
 private static T3_net T3_net_Items;
@@ -54,7 +56,6 @@ private static boolean flag = true;
 			public void netWorkOk(String json) {
 				//Log.v("json",json);
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
@@ -68,20 +69,6 @@ private static boolean flag = true;
 			public void netWorkError() {
 			}
 		}, DB.getSessionid(getActivity()));
-
-		/* 
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("startus", "0");
-		MyHttpClient.doPost2(null, new NetRespondPost() {
-			@Override
-			public void netWorkOk(String json) {
-				Log.v("json",json);
-			}
-			@Override
-			public void netWorkError() {
-			}
-		}, MyPath.my_demand_path, map, MyPath.getSessionid());
-		*/
 	}
 
 	private void SetData(){

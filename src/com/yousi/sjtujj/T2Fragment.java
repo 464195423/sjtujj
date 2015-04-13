@@ -24,7 +24,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.yousi.net.T2_net;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 import com.yousi.util.Send_message;
 import com.yousi.util.Switch_pager;
 
@@ -39,15 +41,12 @@ private List<T2_net> T2_net_Items2;
 private T2_adapter adapter1 = null;
 private T2_adapter adapter2 = null;
 private static boolean flag = true;
-private Switch_pager sp;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,  
 	        Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_t2, container, false);
 			
-		//sp = (Switch_pager) getArguments().getSerializable("interface");
-		
+	
 		tv1 = (TextView)rootView.findViewById(R.id.t2_tv1);
 		tv2 = (TextView)rootView.findViewById(R.id.t2_tv2);
 
@@ -156,7 +155,7 @@ private Switch_pager sp;
 				case 6:
 					break;
 				case 7:
-					intent = new Intent(getActivity(), T2_skzActivity.class);
+					intent = new Intent(getActivity(), T2_nskzActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
@@ -340,8 +339,8 @@ private Switch_pager sp;
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		Log.v("T2","return");
-		getDataResource();
+		//Log.v("T2","return");
+		//getDataResource();
 	}
 
 	

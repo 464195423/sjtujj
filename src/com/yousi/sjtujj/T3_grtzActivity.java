@@ -8,7 +8,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yousi.net.Info_net;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 import android.app.Activity;
 import android.app.AlertDialog;

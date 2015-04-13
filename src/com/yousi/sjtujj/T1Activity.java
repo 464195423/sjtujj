@@ -29,7 +29,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yousi.net.T1_demand_net;
 import com.yousi.sjtujj.MyListView.OnRefreshListener;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 public class T1Activity extends ListActivity implements OnRefreshListener2<ListView>{
 private List<String> list;  

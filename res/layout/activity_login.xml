@@ -2,43 +2,85 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:background="@drawable/login_bgd">
     
-   
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="50dp"
+    android:paddingBottom="100dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp">
+    
+    
     <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-    >
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/icon_teacher">
     </ImageView>
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"  
-        android:id="@+id/reg_usrname"
-        android:inputType="text"
-        android:textColorHint="#AAAAAA"
-        android:hint="用户名"
-        >
-    </EditText>
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"  
-        android:id="@+id/reg_passwd"
-        android:inputType="textPassword"
-        android:textColorHint="#AAAAAA"
-        android:hint="密码"
-        > 
-    </EditText> 
+    <LinearLayout
+	    android:orientation="vertical"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
     
-    <Button
-        android:id="@+id/reg_login"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#66ccff"
-        android:textColor="@color/white"
-        android:text="@string/login" >
-    </Button>
-
-    
+	    <RelativeLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="10dp">
+	        <ImageView
+	            android:id="@+id/reg_iv1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/phone_icon">
+		    </ImageView>
+	        <EditText
+	            android:layout_alignBottom="@id/reg_iv1"
+	            android:layout_toRightOf="@id/reg_iv1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/reg_usrname"
+		        android:inputType="text"
+		        android:textColorHint="#AAAAAA"
+		        android:hint="请输入手机号">
+		    </EditText>
+	    </RelativeLayout>
+	    
+	    <RelativeLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="10dp">
+	        <ImageView
+	            android:id="@+id/reg_iv2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/lock_icon">
+		    </ImageView>
+		    <EditText
+		        android:layout_alignBottom="@id/reg_iv2"
+	            android:layout_toRightOf="@id/reg_iv2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:id="@+id/reg_passwd"
+		        android:inputType="textPassword"
+		        android:textColorHint="#AAAAAA"
+		        android:hint="请输入密码"
+		        > 
+		    </EditText> 
+		</RelativeLayout>
+	    
+	    <Button
+	        android:layout_margin="10dp"
+	        android:id="@+id/reg_login"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="#66ccff"
+	        android:textColor="@color/white"
+	        android:text="@string/login" >
+	    </Button>
+	    
+	</LinearLayout>
+</LinearLayout>   
 </LinearLayout>

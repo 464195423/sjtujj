@@ -4,15 +4,15 @@ import java.util.HashMap;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yousi.sjtujj.DdxxFragment;
-import com.yousi.sjtujj.MyHttpClient;
-import com.yousi.sjtujj.NetRespondPost;
 import com.yousi.sjtujj.R;
 import com.yousi.sjtujj.T2_ddxx_net;
 import com.yousi.sjtujj.T2_qdstsjActivity;
 import com.yousi.sjtujj.R.id;
 import com.yousi.sjtujj.R.layout;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 import android.app.Activity;
 import android.app.AlertDialog;

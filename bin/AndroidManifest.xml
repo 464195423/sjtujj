@@ -116,7 +116,7 @@
             android:label="@string/title_activity_t3_yjfk" >
         </activity>
         <activity
-            android:name=".T2_skzActivity"
+            android:name="com.yousi.expired.T2_skzActivity"
             android:label="@string/title_activity_t2_skz" >
         </activity>
         <activity
@@ -202,6 +202,14 @@
         <activity
             android:name=".T2_nksskActivity"
             android:label="@string/title_activity_t2_nkssk" >
+        </activity>
+        <activity
+            android:name=".T2_nskzActivity"
+            android:label="@string/title_activity_t2_nskz" >
+        </activity>
+        <activity
+            android:name=".T3nFragment"
+            android:label="@string/title_activity_t3n_fragment" >
         </activity>
     </application>
 

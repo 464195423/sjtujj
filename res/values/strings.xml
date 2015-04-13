@@ -57,5 +57,7 @@
     <string name="title_activity_t2_nstskz">T2_nstskzActivity</string>
     <string name="title_activity_t2_nstwc">T2_nstwcActivity</string>
     <string name="title_activity_t2_nkssk">T2_nksskActivity</string>
+    <string name="title_activity_t2_nskz">T2_nskzActivity</string>
+    <string name="title_activity_t3n_fragment">T3nFragment</string>
 
 </resources>

@@ -15,9 +15,47 @@
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"
         />
-        
-    <TextView 
+
+    <LinearLayout 
+        android:id="@+id/t1_ll1"
         android:layout_below="@id/t1_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:orientation="horizontal">
+        <Spinner 
+            android:id="@+id/t1_sp1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Spinner 
+            android:id="@+id/t1_sp2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Spinner 
+            android:id="@+id/t1_sp3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Spinner 
+            android:id="@+id/t1_sp4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        
+    </LinearLayout>
+    
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/t1_lv"  
+        android:layout_width="fill_parent"  
+        android:layout_height="fill_parent"
+        android:layout_below="@id/t1_ll1"
+        android:listSelector="@color/touming"
+         /> 
+         
+	<TextView 
+        android:layout_below="@id/t1_ll1"
         android:id="@+id/t1_tv"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -25,12 +63,4 @@
         android:gravity="top|left"
         android:text="暂无订单"
         android:textColor="@color/black"/>
-    
-	<com.handmark.pulltorefresh.library.PullToRefreshListView
-        android:id="@+id/t1_lv"  
-        android:layout_width="fill_parent"  
-        android:layout_height="fill_parent"
-        android:layout_below="@id/t1_text"
-        android:listSelector="@color/touming"
-         /> 
 </RelativeLayout>

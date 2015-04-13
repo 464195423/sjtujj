@@ -3,7 +3,7 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <!-- 主颜色，title栏等 -->
-    <color name="background1">#03a9f4</color>
+    <color name="background1">#16709f</color>
     <color name="unselect">#ffffff</color>
     <color name="select">#66ccff</color>
     <color name="background2">#ffffff</color>
@@ -22,7 +22,8 @@
     <color name="t2_lv_title">#008800</color>
     <!-- 我的订单提示信息，淡蓝色 -->
     <color name="t2_color1">#66ccff</color>  
-    
+    <!-- 灰色 -->
+    <color name="grey">#aaaaaa</color>  
     <!-- #03a9f4 -->
     
 	<color name="transparent">#ffffff</color>

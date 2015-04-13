@@ -1,5 +1,6 @@
 package com.yousi.sjtujj;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
@@ -24,7 +27,9 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.yousi.net.T1_demand_net;
 import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
+import com.yousi.util.NetRespondPost;
 
 public class T1Fragment extends Fragment implements OnRefreshListener2<ListView>{
 private List<String> list;  
@@ -36,6 +41,19 @@ private List<T1_demand_net> T1_demand_netItems;
             Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.activity_t1, container, false);
 
+		Spinner sp1 = (Spinner)rootView.findViewById(R.id.t1_sp1);
+		Spinner sp2 = (Spinner)rootView.findViewById(R.id.t1_sp2);
+		Spinner sp3 = (Spinner)rootView.findViewById(R.id.t1_sp3);
+		Spinner sp4 = (Spinner)rootView.findViewById(R.id.t1_sp4);
+		
+		List<String> ls1 = new ArrayList<String>();
+		ls1.add("aaa");
+		ls1.add("bbb");
+		
+		sp1.setAdapter(new T1_sp_adapter(getActivity(), ls1));
+		sp2.setAdapter(new T1_sp_adapter(getActivity(), ls1));
+		sp3.setAdapter(new T1_sp_adapter(getActivity(), ls1));
+		sp4.setAdapter(new T1_sp_adapter(getActivity(), ls1));
 		
         lv = (PullToRefreshListView)rootView.findViewById(R.id.t1_lv);  
   
