@@ -211,6 +211,10 @@
             android:name=".T3nFragment"
             android:label="@string/title_activity_t3n_fragment" >
         </activity>
+        <activity
+            android:name=".T2_nddxqActivity"
+            android:label="@string/title_activity_t2_nddxq" >
+        </activity>
     </application>
 
 </manifest>

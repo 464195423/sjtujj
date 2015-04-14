@@ -15,11 +15,13 @@ import android.widget.TextView;
 public class T3_2adapter extends BaseExpandableListAdapter{
 private Context context;	
 private List<String> listtype;	
-private List<String>[] list; 
+private List<List<String>> list; 
 
-	public T3_2adapter(Context context) {
+	public T3_2adapter(Context context, List<String> listtype, List<List<String>> list) {
 		// TODO Auto-generated constructor stub
 		this.context = context;
+		this.list = list;
+		this.listtype = listtype;
 	}
 
 	@Override
@@ -31,7 +33,7 @@ private List<String>[] list;
 	@Override
 	public int getChildrenCount(int groupPosition) {
 		// TODO Auto-generated method stub
-		return list[groupPosition].size();
+		return list.get(groupPosition).size();
 	}
 
 	@Override
@@ -43,7 +45,7 @@ private List<String>[] list;
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
-		return list[groupPosition].get(childPosition);
+		return list.get(groupPosition).get(childPosition);
 	}
 
 	@Override
@@ -90,7 +92,7 @@ private List<String>[] list;
         ll.setOrientation(0);
         TextView textView = new TextView(context);
 				
-        textView.setText(list[groupPosition].get(childPosition));
+        textView.setText(list.get(groupPosition).get(childPosition));
         textView.setTextSize(20);
         textView.setGravity(Gravity.CENTER);
         ll.addView(textView);

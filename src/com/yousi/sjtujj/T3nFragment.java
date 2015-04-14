@@ -1,5 +1,6 @@
 package com.yousi.sjtujj;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,7 +33,7 @@ private PullToRefreshExpandableListView lv2;
 private List<String> T3_1net_Items1;
 private List<String> T3_1net_Items2;
 private T2_adapter adapter1 = null;
-private T2_adapter adapter2 = null;
+private T3_2adapter adapter2 = null;
 private static boolean flag = true;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,  
@@ -104,12 +106,11 @@ private static boolean flag = true;
 		};
 		
 		lv1.setOnItemClickListener(listener);
-		lv2.setOnItemClickListener(listener);	
 		
 		if (adapter1 != null)
 			lv1.setAdapter(adapter1);
 		if (adapter2 != null)
-			lv2.setAdapter(adapter2);
+			lv2.getRefreshableView().setAdapter(adapter2);
 
 	
 		if (flag){
@@ -137,6 +138,20 @@ private static boolean flag = true;
 	
 	
 	private void getDataResource(final String status){
+		List<String> listtype = new ArrayList<String>();
+		listtype.add("line1");
+		listtype.add("line2");
+		List<List<String>> list = new ArrayList<List<String>>();
+		List<String> tmp1 = new ArrayList<String>();
+		tmp1.add("content1");
+		tmp1.add("content2");
+		List<String> tmp2 = new ArrayList<String>();
+		tmp2.add("content3");
+		tmp2.add("content4");
+		list.add(tmp1);
+		list.add(tmp2);
+		adapter2 = new T3_2adapter(getActivity(),listtype,list);
+		lv2.getRefreshableView().setAdapter(adapter2);
 	}
 	
 	//show

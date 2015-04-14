@@ -123,7 +123,7 @@ private static boolean flag = true;
 				
 				switch (typea){
 				case 1:
-					intent = new Intent(getActivity(), T2_ddxqActivity.class);
+					intent = new Intent(getActivity(), T2_nddxqActivity.class);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);

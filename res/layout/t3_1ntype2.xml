@@ -17,14 +17,14 @@
 		    android:layout_height="wrap_content"
 		    android:background="@drawable/t2_title">
 		    <TextView 
-		        android:id="@+id/t3_1t1_title1"
+		        android:id="@+id/t3_1t2_title1"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
 		        android:textColor="@color/black"
 		        android:text="常规授课"/>
 		    <TextView 
-		        android:id="@+id/t3_1t1_title2"
+		        android:id="@+id/t3_1t2_title2"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="5dp" 
@@ -49,21 +49,20 @@
 	   		android:paddingBottom="@dimen/t2_content_padding">
 	   		
 		    <LinearLayout 
-		        android:id="@+id/t3_1t1_ll"
+		        android:id="@+id/t3_1t2_ll"
 		        android:layout_width="wrap_content"
 		    	android:layout_height="wrap_content"
-		    	android:orientation="horizontal"
+		    	android:orientation="vertical"
 		    	android:layout_gravity="left">
 		        <ImageView 
 		            android:layout_gravity="center"
-		            android:id="@+id/t3_1t1_iv1"
+		            android:id="@+id/t3_1t2_iv1"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:background="@drawable/circle"
-		    		android:src="@drawable/accuser"/>
+		    		android:src="@drawable/p2"/>
 		        <TextView 
 		            android:layout_gravity="center"
-		            android:id="@+id/t3_1t1_tvl"
+		            android:id="@+id/t3_1t2_tvl"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
 		    		android:textColor="@color/black"
@@ -80,74 +79,43 @@
 		    	android:layout_marginRight="10dp"
 		    	android:layout_alignParentRight="true">
 		        <TextView 
-		            android:id="@+id/t3_1t1_tv1"
+		            android:id="@+id/t3_1t2_tv1"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
 		    		android:textColor="@color/black"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
-		    		android:text="授课时长：2小时"/>
-		        <TextView 
-		            android:id="@+id/t3_1t1_tv2"
-		            android:layout_width="wrap_content"
-		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
-		    		android:layout_gravity="center"
-		    		android:gravity="center"
-		    		android:text="剩余课时包：0小时"/>
+		    		android:text="试听时长：2小时"/>
 		    </LinearLayout>
 		    
 		</RelativeLayout>	
 
-	    <!-- warning -->
-	    <TextView 
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="注意：剩余课时包不足2小时，请确认是否满足授课需求"
-	        android:textColor="@color/white"
-	        android:background="#ef6767"
-	        android:paddingLeft="10dp"
-	        android:paddingRight="10dp"
-	        android:paddingTop="5dp"
-	        android:paddingBottom="5dp"/>
-	        
 	    <!-- 按钮 -->
 	    <LinearLayout 
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal"
 	        android:background="@color/white">
-	        <TextView 
-	            android:id="@+id/t3_1t1_bt1"
-	            android:layout_width="0dp"
-	        	android:layout_height="wrap_content"
-	        	android:layout_weight="1"
-	        	android:paddingTop="5dp"
-	       		android:paddingBottom="5dp"
-	        	android:gravity="center"
-	        	android:text="修改授课时长"
-	        	android:textColor="@color/white"
-	        	android:background="#66ccff"/>
 	        <TextView
-	            android:id="@+id/t3_1t1_bt2"
+	            android:id="@+id/t3_1t2_bt2"
 	            android:layout_width="0dp"
 	            android:layout_height="wrap_content"
 	            android:layout_weight="1"
 	            android:paddingTop="5dp"
 	       		android:paddingBottom="5dp"
 	            android:gravity="center"
-	            android:text="取消授课"
+	            android:text="取消试教"
 	            android:textColor="@color/white"
 				android:background="#66ccff"/>
 	        <TextView
-	            android:id="@+id/t3_1t1_bt3"
+	            android:id="@+id/t3_1t2_bt3"
 	            android:layout_width="0dp"
 	            android:layout_height="wrap_content"
-	            android:layout_weight="2"
+	            android:layout_weight="1"
 	            android:paddingTop="5dp"
 	       		android:paddingBottom="5dp"
 	            android:gravity="center"
-	            android:text="确认结课"
+	            android:text="确认授课"
 	            android:textColor="@color/white"
 				android:background="#66ccff"/>
 	    </LinearLayout>
