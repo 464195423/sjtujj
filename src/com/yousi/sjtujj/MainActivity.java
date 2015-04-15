@@ -95,13 +95,13 @@ private Fragment fourthFragment;
 		
 		fragmentList = new ArrayList<Fragment>();  
         firstFragment= new T1Fragment();  
-        secondFragment = new T2Fragment();  
-        thirdFragment = new T3nFragment();   
-        fourthFragment = new T4nFragment();   
+//        secondFragment = new T2Fragment();  
+//        thirdFragment = new T3nFragment();   
+//        fourthFragment = new T4nFragment();   
         fragmentList.add(firstFragment);  
-        fragmentList.add(secondFragment);  
-        fragmentList.add(thirdFragment);  
-        fragmentList.add(fourthFragment); 
+//        fragmentList.add(secondFragment);  
+//        fragmentList.add(thirdFragment);  
+//        fragmentList.add(fourthFragment); 
 		
 		
 		pager .setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragmentList));

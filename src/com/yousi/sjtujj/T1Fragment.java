@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -26,16 +27,19 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.yousi.net.T1_demand_net;
+import com.yousi.net.T1_net;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 public class T1Fragment extends Fragment implements OnRefreshListener2<ListView>{
 private List<String> list;  
 private PullToRefreshListView lv;  
 private T1_adapter adapter;  
-private List<T1_demand_net> T1_demand_netItems;  
+private List<T1_net> T1_netItems;  
+private static boolean flag = true;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,  
             Bundle savedInstanceState) {
@@ -77,7 +81,7 @@ private List<T1_demand_net> T1_demand_netItems;
 				position--;
 				Intent intent = new Intent(getActivity(), T1_ddxxActivity.class);
 				Bundle bundle = new Bundle();
-				bundle.putCharSequence("rid", T1_demand_netItems.get(position).getR_id());
+				bundle.putCharSequence("rid", T1_netItems.get(position).getR_id());
 				intent.putExtras(bundle);
 				//startActivity(intent);
 				startActivityForResult(intent, 0);
@@ -90,8 +94,11 @@ private List<T1_demand_net> T1_demand_netItems;
         
         if (adapter != null)
         	lv.setAdapter(adapter);
-        else
+        
+        if (flag){
         	getDataResource();
+        	flag = false;
+        }
 
 		return rootView; 
 	}
@@ -101,59 +108,54 @@ private List<T1_demand_net> T1_demand_netItems;
 //    	加载数据源
     	private void getDataResource(){
     		HashMap<String, String> map = new HashMap<String, String>();
-    		map.put("id", "1");
-    		map.put("grade", "0");
-    		map.put("subject", "0");
-    		map.put("order", "0");
     		MyHttpClient.doPost2(getActivity(), new NetRespondPost() {
     			@Override
     			public void netWorkOk(String json) {
-    				T1_demand_netItems = parseJsonT1_demand_netItem(json);
-    				adapter = new T1_adapter(getActivity(), T1_demand_netItems);
-    				//adapter.notifyDataSetChanged();
+    				T1_netItems = parseJsonT1_netItem(json);
+    				adapter = new T1_adapter(getActivity(), T1_netItems);
     				lv.setAdapter(adapter);
+    				lv.onRefreshComplete();
+    			}
+    			@Override
+    			public void netWorkError() {
+    			}
+    		}, NewMyPath.demand_path, map, DB.getSessionid(getActivity()));
+    	}
+
+    	public List<T1_net> parseJsonT1_netItem(String json) {
+    		List<T1_net> T1_netItems = null;
+    		JSONObject jsonObject = JSONObject.parseObject(json);
+    		String code = jsonObject.getString("code");
+    		if (code.equals("200")) {
+    			JSONArray dataArray = jsonObject.getJSONArray("data");
+    			if (dataArray != null) {
+    				T1_netItems = JSONArray.parseArray(dataArray.toString(),
+    						T1_net.class);
+    			}else{
+    				return null;
+    			}
+    		}
+    		return T1_netItems;
+    	}	
+
+//    	更新数据源
+    	private void updateDataResource(){
+    		HashMap<String, String> map = new HashMap<String, String>();
+    		map.put("before", T1_netItems.get(T1_netItems.size()-1).getR_id());
+    		MyHttpClient.doPost2(getActivity(), new NetRespondPost() {
+    			@Override
+    			public void netWorkOk(String json) {
+    				List<T1_net> tmp = parseJsonT1_netItem(json);
+    				T1_netItems.addAll(tmp);
     				adapter.notifyDataSetChanged();
     				lv.onRefreshComplete();
     			}
     			@Override
     			public void netWorkError() {
     			}
-    		}, MyPath.demand_path, map, DB.getSessionid(getActivity()));
+    		}, NewMyPath.demand_path, map, DB.getSessionid(getActivity()));
     	}
-
-    	public List<T1_demand_net> parseJsonT1_demand_netItem(String json) {
-    		List<T1_demand_net> T1_demand_netItems = null;
-    		JSONObject jsonObject = JSONObject.parseObject(json);
-    		String code = jsonObject.getString("code");
-    		if (code.equals("200")) {
-    			JSONArray dataArray = jsonObject.getJSONArray("data");
-    			if (dataArray != null) {
-    				T1_demand_netItems = JSONArray.parseArray(dataArray.toString(),
-    						T1_demand_net.class);
-    			}else{
-    				return null;
-    			}
-    		}
-    		return T1_demand_netItems;
-    	}	
-/*
-//    	更新数据源
-    	private void updateDataResource(){
-    		MyHttpClient.getJson(MyPath.QUESTIONLISTPATH, new NetRespondPost() {
-    			@Override
-    			public void netWorkOk(String json) {
-    				questionItems = FastJsonParser.parseJsonQuestionItem(json);
-    				adapter.notifyDataSetChanged();
-    				mPullRefreshListView.onRefreshComplete();
-
-    			}
-    			
-    			@Override
-    			public void netWorkError() {
-    			}
-    		}, SessionID);
-    	}
-*/	
+	
    	
 //    	下拉刷新
 		@Override
@@ -163,8 +165,7 @@ private List<T1_demand_net> T1_demand_netItems;
 //    	上拉加载
 		@Override
     	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-    		//updateDataResource();
-			lv.onRefreshComplete();
+    		updateDataResource();
     	}
 
 
@@ -172,8 +173,8 @@ private List<T1_demand_net> T1_demand_netItems;
 		public void onActivityResult(int requestCode, int resultCode, Intent data) {
 			// TODO Auto-generated method stub
 			super.onActivityResult(requestCode, resultCode, data);
-			Log.v("T1","return");
-			getDataResource();
+			//Log.v("T1","return");
+			//getDataResource();
 		}
 
 

@@ -237,7 +237,6 @@ public class MyHttpClient {
 							if (header.getName().equals("Set-Cookie"))
 								sessionid += header.getValue() + "; ";// 获取服务器的sessionid
 						}
-						
 						//写入sessionid
 						//MyPath.setSessionid(sessionid);
 						DB.setSessionid(context, sessionid);

@@ -13,7 +13,7 @@
 	        android:layout_height="wrap_content"
 	        android:textColor="@color/white"
 	        android:background="@color/background1"
-	        android:text="订单信息"
+	        android:text="家教课程详情"
 	        android:gravity="center"
 	        android:paddingTop="@dimen/padding"
 	        android:paddingBottom="@dimen/padding"
@@ -36,18 +36,9 @@
 		</LinearLayout>
 	</RelativeLayout>
 
-	<!-- 订单信息fragment -->
-	<LinearLayout
-        android:id="@+id/t1_ddxx_container"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content" 
-        android:layout_below="@id/t1_ddxx_rl">
-    </LinearLayout>
-
-
 	<!-- 接单 -->
    	<LinearLayout 
+   	    android:id="@+id/t1_ll"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -56,10 +47,23 @@
 	        android:id="@+id/t1_ddxx_bt"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:background="#66ccff"
+	        android:background="#36a5df"
 	        android:textColor="@color/white"
 	        android:text="接单">
 	    </Button>
     </LinearLayout>
+	
+	<!-- 订单信息fragment -->
+	<LinearLayout
+        android:id="@+id/t1_ddxx_container"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" 
+        android:layout_below="@id/t1_ddxx_rl"
+        android:layout_above="@id/t1_ll">
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

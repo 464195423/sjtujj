@@ -3,10 +3,14 @@ package com.yousi.sjtujj;
 import java.util.HashMap;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yousi.net.Nddxx_net;
+import com.yousi.net.Special;
+import com.yousi.net.T2_ddxx_net;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +28,8 @@ import android.widget.TextView;
  * factory method to create an instance of this fragment.
  *
  */
+
+/* 家教需求详情*/
 public class NddxxFragment extends Fragment {
 	// TODO: Rename parameter arguments, choose names that match
 	// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,10 +39,8 @@ public class NddxxFragment extends Fragment {
 	// TODO: Rename and change types of parameters
 
 	private String rid;
-	private T2_ddxx_net T2_ddxx_netItems;
-	private String add_price;
-	
-	
+	private Nddxx_net Nddxx_netItems;
+
 	/**
 	 * Use this factory method to create a new instance of this fragment using
 	 * the provided parameters.
@@ -93,29 +97,24 @@ public class NddxxFragment extends Fragment {
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
-					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
-					//Log.v("data1",data1.get("additional_price").toString());
-					if (data1.get("additional_price") == null)
-						add_price = null;
-					else
-						add_price = data1.get("additional_price").toString();
+					Nddxx_netItems = JSONObject.parseObject(data1.toString(), Nddxx_net.class);	
 					setData();
 				}
 			}
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.ddxx_path, map, DB.getSessionid(getActivity()));
+		}, NewMyPath.orderShow_path, map, DB.getSessionid(getActivity()));
 	}	
 	
-	private void setData(){
+	private void setData(){		
+		TextView l0_tv1 = (TextView)getView().findViewById(R.id.ddxx_l0_tv1);
+		TextView l0_tv2 = (TextView)getView().findViewById(R.id.ddxx_l0_tv2);
+	
 		TextView l1_tv1 = (TextView)getView().findViewById(R.id.ddxx_l1_tv1);
 		TextView l1_tv2 = (TextView)getView().findViewById(R.id.ddxx_l1_tv2);
 		TextView l1_tv3 = (TextView)getView().findViewById(R.id.ddxx_l1_tv3);
-		TextView l1_tv4 = (TextView)getView().findViewById(R.id.ddxx_l1_tv4);
-		TextView l1_tv5 = (TextView)getView().findViewById(R.id.ddxx_l1_tv5);
-		TextView l1_tv6 = (TextView)getView().findViewById(R.id.ddxx_l1_tv6);
-		
+
 		TextView l2_tv1 = (TextView)getView().findViewById(R.id.ddxx_l2_tv1);
 		TextView l2_tv2 = (TextView)getView().findViewById(R.id.ddxx_l2_tv2);
 		TextView l2_tv3 = (TextView)getView().findViewById(R.id.ddxx_l2_tv3);
@@ -124,144 +123,61 @@ public class NddxxFragment extends Fragment {
 		
 		TextView l3_tv1 = (TextView)getView().findViewById(R.id.ddxx_l3_tv1);
 		TextView l3_tv2 = (TextView)getView().findViewById(R.id.ddxx_l3_tv2);
-		TextView l3_tv3 = (TextView)getView().findViewById(R.id.ddxx_l3_tv3);
 		
-		//l1_tv1.setText(T2_ddxx_netItems.get);//TODO
-		l1_tv2.setText(T2_ddxx_netItems.getS_gradename());
-		l1_tv3.setText(T2_ddxx_netItems.getS_sexname());
-		l1_tv4.setText(T2_ddxx_netItems.getParentname());
-		l1_tv5.setText(T2_ddxx_netItems.getPhone());
-		l1_tv6.setText(Html.fromHtml("<font color=#738ffe>"
-				+T2_ddxx_netItems.getAddress()
+		String str = "";
+		l0_tv1.setText(Nddxx_netItems.getR_id());
+		l0_tv2.setText(Nddxx_netItems.getCreatetime());
+		l1_tv1.setText(Nddxx_netItems.getS_gradename());
+		l1_tv2.setText(Nddxx_netItems.getS_sexname());
+		l1_tv3.setText(Html.fromHtml("<font color=#738ffe>"
+				+Nddxx_netItems.getAddress()
 				+"</font>"
 				+"<font color=#AAAAAA>(点击可查看地图)</font>"));
-		l1_tv6.setOnClickListener(new View.OnClickListener() {
+
+		l1_tv3.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getActivity(), MapActivity.class);
 				Bundle bundle = new Bundle();
-				bundle.putCharSequence("place", T2_ddxx_netItems.getAddress());
+				bundle.putCharSequence("place", Nddxx_netItems.getAddress());
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 		});
 		
-		//l2_tv1.setText(T2_ddxx_netItems.get);//TODO
-		l2_tv2.setText(T2_ddxx_netItems.getR_weaksubjectname());
-		if (!T2_ddxx_netItems.getAdditional_subject().equals(""))
-			l2_tv3.setText(T2_ddxx_netItems.getAdditional_subject());
-		if (!T2_ddxx_netItems.getPeople_count().equals("1"))
-			l2_tv4.setText(T2_ddxx_netItems.getPeople_count()+"人");
-		//l2_tv5.setText(T2_ddxx_netItems.get);//TODO
+		l2_tv1.setText(Nddxx_netItems.getT_sexname());
+		str = "";
+		String tmp[] = Nddxx_netItems.getWeaksubject();
+		for (int i = 0; i < tmp.length; i++)
+			str += tmp[i] + " ";
+		l2_tv2.setText(str);
 		
-		l3_tv1.setText(T2_ddxx_netItems.getAdd_price()+"元/时");
-		String str = "";
-		if (add_price != null)
+		str = "";
+		Special tmp1[] = Nddxx_netItems.getSpecial();
+		for (int i = 0; i < tmp1.length; i++)
+			str += tmp1[i].getName() + " ";
+		l2_tv3.setText(str.equals("") ? "无" : str);
+		
+		l2_tv4.setText(Nddxx_netItems.getPeople_count());
+		l2_tv5.setText(Nddxx_netItems.getQualification());
+		
+		l3_tv1.setText(Nddxx_netItems.getAdd_price()+"元/时");
+		str = "";
+		for (int i = 0; i < tmp1.length; i++)
 		{
-			JSONObject data2 = JSONObject.parseObject(add_price);
-			if (data2.get("外语授课") != null)
-				str += "  外语授课:"+data2.get("外语授课").toString()+"元/时";
-			if (data2.get("外语教材汉语授课") != null)
-				str += "  外语教材汉语授课:"+data2.get("外语教材汉语授课").toString()+"元/时";
-			if (data2.get("竞赛辅导") != null)
-				str += "  竞赛辅导:"+data2.get("竞赛辅导").toString()+"元/时";
+			str += "  ";
+			str += tmp1[i].getName();
+			str += tmp1[i].getPrice();
+			str += "元/时";
 		}
-		l3_tv2.setText(T2_ddxx_netItems.getHalf_price()+"元/时"+"\n"
-				+"("+T2_ddxx_netItems.getS_gradename()+":"+T2_ddxx_netItems.getGrade_price()+"元/时"
-				+(T2_ddxx_netItems.getAdd_price().equals("0") ? "" : ("  加价:"+T2_ddxx_netItems.getAdd_price()+"元/时"))
+	
+		l3_tv2.setText(Nddxx_netItems.getOne_price()+"元/时"+"\n"
+				+"("+Nddxx_netItems.getS_gradename()+":"+Nddxx_netItems.getGrade_price()+"元/时"
+				+(Nddxx_netItems.getAdd_price().equals("0") ? "" : ("  加价:"+Nddxx_netItems.getAdd_price()+"元/时"))
 				+ str + ")");
-		l3_tv3.setText(T2_ddxx_netItems.getPay_status());
 		
-//		tv1.setText(T2_ddxx_netItems.getS_gradename());
-//		tv2.setText(T2_ddxx_netItems.getS_sexname());
-//		tv3.setText(T2_ddxx_netItems.getR_weaksubjectname());
-//		tv4.setText(Html.fromHtml("<font color=#66ccff>"
-//						+T2_ddxx_netItems.getAddress()
-//						+"</font>"
-//						+"<font color=#AAAAAA>(点击可查看地图)</font>"));
-//		
-//		tv4.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				Intent intent = new Intent(getActivity(), MapActivity.class);
-//				Bundle bundle = new Bundle();
-//				bundle.putCharSequence("place", T2_ddxx_netItems.getAddress());
-//				intent.putExtras(bundle);
-//				startActivity(intent);
-//			}
-//		});
-//		
-//		
-//		tv5.setText(T2_ddxx_netItems.getT_sexname());
-//		if (!T2_ddxx_netItems.getAdditional_subject().equals(""))
-//			tv6.setText(T2_ddxx_netItems.getAdditional_subject());
-//		if (!T2_ddxx_netItems.getPeople_count().equals("1"))
-//			tv7.setText(T2_ddxx_netItems.getPeople_count()+"人");
-//		tv8.setText(T2_ddxx_netItems.getTeacher_qualification());
-//		
-//		boolean t = false;
-//		String str = "";
-//		if (add_price == null)
-//		{
-//			t = false;
-//			//Log.v("addprice","null");
-//		}
-//		else
-//		{
-//			/*
-//			//Log.v("debug",T2_ddxx_netItems.getAdditional_price().debug());
-//			//Log.v("addprice","not null");
-//			if (T2_ddxx_netItems.getAdditional_price().get外语授课() != null){
-//				str += "外语授课("+T2_ddxx_netItems.getAdditional_price().get外语授课()+"元/时) ";
-//				//Log.v("addprice","外语授课");
-//				t = true;
-//			}
-//			if (T2_ddxx_netItems.getAdditional_price().get竞赛辅导() != null){
-//				str += "竞赛辅导("+T2_ddxx_netItems.getAdditional_price().get竞赛辅导()+"元/时) ";
-//				//Log.v("addprice","竞赛辅导");
-//				t = true;
-//			}
-//			if (T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课() != null){
-//				str += "外语教材汉语授课("+T2_ddxx_netItems.getAdditional_price().get外语教材汉语授课()+"元/时) ";
-//				//Log.v("addprice","外语教材汉语授课");
-//				t = true;
-//			}
-//			
-//			*/
-//			JSONObject data2 = JSONObject.parseObject(add_price);
-//			/*
-//			T2_ddxx_tsxq_net T2_ddxx_tsxq_netItems = JSONObject.parseObject(data2.toString(), T2_ddxx_tsxq_net.class);	
-//			//Log.v("data1",data1.get("additional_price").toString());
-//			//add_price = data2.get("additional_price").toString();
-//			Log.v("外语授课","+"+T2_ddxx_tsxq_netItems.get外语授课());
-//			Log.v("外语教材汉语授课","+"+T2_ddxx_tsxq_netItems.get外语教材汉语授课());
-//			Log.v("竞赛辅导","+"+T2_ddxx_tsxq_netItems.get竞赛辅导());
-//			
-//			Log.v("data","+"+data2.toString());
-//			//Log.v("外语授课","+"+data2.get("外语授课").toString());
-//			//Log.v("外语教材汉语授课","+"+data2.get("外语教材汉语授课").toString());
-//			Log.v("竞赛辅导","+"+data2.get("竞赛辅导").toString());
-//			*/
-//			t = true;
-//			if (data2.get("外语授课") != null)
-//				str += "外语授课("+data2.get("外语授课").toString()+"元/时) ";
-//			if (data2.get("外语教材汉语授课") != null)
-//				str += "外语教材汉语授课("+data2.get("外语教材汉语授课").toString()+"元/时) ";
-//			if (data2.get("竞赛辅导") != null)
-//				str += "竞赛辅导("+data2.get("竞赛辅导").toString()+"元/时) ";
-//		}
-//		if (t)
-//			tv9.setText(str);
-//		if (!T2_ddxx_netItems.getAdd_price().equals("0"))
-//		tv10.setText(T2_ddxx_netItems.getAdd_price()+"元");
-//		tv11.setText(T2_ddxx_netItems.getHalf_price()+"元/时");
-//		tv12.setText(T2_ddxx_netItems.getPay_status());
-		
-
 	}
 	
 }

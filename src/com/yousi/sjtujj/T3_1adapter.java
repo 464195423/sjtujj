@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 class viewHolder3_1_1{
 	public TextView textViewt1;
-	public ImageView imageview1;
+	public com.yousi.util.CustomImageView imageview1;
 	public TextView textViewtvl;
 	public TextView textViewtv1;
 	public TextView textViewtv2;
@@ -77,7 +77,7 @@ private List<String> list;
 				convertView = layoutInflater.inflate(R.layout.t3_1ntype1, parent, false); 
 				holder1 = new viewHolder3_1_1(); 
 				holder1.textViewt1 = (TextView)convertView.findViewById(R.id.t3_1t1_title2); 
-				holder1.imageview1 = (ImageView)convertView.findViewById(R.id.t3_1t1_iv1);
+				holder1.imageview1 = (com.yousi.util.CustomImageView)convertView.findViewById(R.id.t3_1t1_iv1);
 				holder1.textViewtvl = (TextView)convertView.findViewById(R.id.t3_1t1_tvl); 
 				holder1.textViewtv1 = (TextView)convertView.findViewById(R.id.t3_1t1_tv1); 
 				holder1.textViewtv2 = (TextView)convertView.findViewById(R.id.t3_1t1_tv2); 

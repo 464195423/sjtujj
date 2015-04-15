@@ -9,62 +9,190 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-		android:background="@drawable/frame"
-        android:padding="1dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp">
         
+        <!-- title -->
+        <TextView 
+			android:id="@+id/t1_title"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:textColor="@color/white"
+			android:background="#36a5df"
+			android:paddingTop="5dp"
+			android:paddingBottom="5dp"
+			android:paddingLeft="15dp"
+			android:text="五年级  女  数"/>
+        
     	<!-- content -->
-	    <RelativeLayout 
+	    <LinearLayout 
 	        android:layout_width="match_parent"
 	   		android:layout_height="wrap_content"
 	   		android:background="@drawable/t2_content"
 	   		android:padding="@dimen/t2_content_padding">
-	   		
+      
 		    <LinearLayout 
 		        android:id="@+id/t1_ll"
-		        android:layout_width="wrap_content"
+		        android:layout_width="0dp"
+		        android:layout_weight="5"
 		    	android:layout_height="wrap_content"
-		    	android:orientation="vertical"
-		    	android:layout_gravity="left">
-		        <TextView 
-		            android:id="@+id/t1_tv1"
-		            android:layout_width="wrap_content"
-		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
-		    		android:text="五年级  女  数"/>
-		        <TextView 
-		            android:id="@+id/t1_tv2"
-		            android:layout_width="wrap_content"
-		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
-		    		android:text="地址：XXXXXXXXXXXXXXXX"/>
-		        <TextView 
-		            android:id="@+id/t1_tv3"
-		            android:layout_width="wrap_content"
-		    		android:layout_height="wrap_content"
-		    		android:textColor="#aaaaaa"
-		    		android:text="备注"/>
-		        <TextView 
-		            android:id="@+id/t1_tv4"
-		            android:layout_width="wrap_content"
-		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/dark_green"
-		    		android:text="¥价格"/>
+		    	android:orientation="vertical">
+		    	<LinearLayout 
+		    	    android:layout_width="fill_parent"
+		    	    android:layout_height="wrap_content"
+		    	    android:orientation="horizontal">
+		    	    <ImageView 
+		    	        android:layout_width="30dp"
+		    	        android:layout_height="wrap_content"
+		    	        android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+		    	        android:layout_gravity="center"
+		    	        android:src="@drawable/house"/>
+	    	    
+		    	    <ImageView 
+		    	        android:layout_width="1dp"
+		    	        android:layout_height="fill_parent"
+		    	        android:paddingTop="5dp"
+		    	        android:paddingBottom="5dp"
+		    	        android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+		    	        android:layout_gravity="center"
+		    	        android:scaleType="fitXY"
+		    	        android:src="@drawable/line1"/>
+
+		    	    <TextView 
+			            android:id="@+id/t1_tv1"
+			            android:layout_width="wrap_content"
+			    		android:layout_height="wrap_content"
+			    		android:layout_gravity="center"
+			    		android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+			    		android:textColor="#808080"
+			    		android:text="地址：XXXXXXXXXXXXXXXX"/>
+		    	</LinearLayout>
+		        
+
+		    	<LinearLayout 
+		    	    android:layout_width="fill_parent"
+		    	    android:layout_height="wrap_content"
+		    	    android:orientation="horizontal">
+		    	    <ImageView 
+		    	        android:layout_width="30dp"
+		    	        android:layout_height="wrap_content"
+		    	        android:layout_gravity="center"
+		    	        android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+		    	        android:src="@drawable/bubble"/>
+		    	    <ImageView 
+		    	        android:layout_width="1dp"
+		    	        android:layout_height="fill_parent"
+		    	        android:layout_gravity="center"
+ 	        		    android:paddingTop="5dp"
+		    	        android:paddingBottom="5dp"
+		    	        android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+		    	        android:scaleType="fitXY"
+		    	        android:src="@drawable/line1"/>
+		    	    <TextView 
+			            android:id="@+id/t1_tv2"
+			            android:layout_width="wrap_content"
+			    		android:layout_height="wrap_content"
+			    		android:layout_gravity="center"
+			    		android:layout_marginLeft="5dp"
+		    	        android:layout_marginRight="5dp"
+			    		android:textColor="#808080"
+			    		android:text="地址：XXXXXXXXXXXXXXXX"/>
+		    	</LinearLayout>
 		        
 		        
 		    </LinearLayout>
 		    
 		    
 		    <ImageView 
-		        android:layout_width="wrap_content"
-		    	android:layout_height="wrap_content"
-		    	android:layout_centerVertical="true"
-		    	android:layout_marginRight="10dp"
-		    	android:layout_alignParentRight="true"
-		    	android:src="@drawable/t1_lst"/>    
-		</RelativeLayout>	
+		        android:layout_width="0dp"
+		    	android:layout_height="20dp"
+		    	android:layout_weight="1"
+		    	android:layout_gravity="center"
+		    	android:src="@drawable/arrow"/>    
+		</LinearLayout>	
 
+	    <View 
+	        android:layout_width="fill_parent"
+	        android:layout_height="1dp"
+	        android:background="@drawable/grey_divider"/>
+	    
+	    <!-- 特殊需求、加价、价格 -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/t2_content"
+	        android:orientation="horizontal">
+	        <TextView 
+	            android:id="@+id/t1_xq1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="竞赛"
+	            android:paddingLeft="5dp"
+	            android:paddingRight="5dp"
+	            android:paddingTop="2dp"
+	            android:paddingBottom="2dp"
+	            android:layout_margin="5dp"
+	            android:textColor="@color/white"
+	            android:background="#7ac3e9"/>
+	        <TextView 
+	            android:id="@+id/t1_xq2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="外授"
+	            android:paddingLeft="5dp"
+	            android:paddingRight="5dp"
+	            android:paddingTop="2dp"
+	            android:paddingBottom="2dp"
+	            android:layout_margin="5dp"
+	            android:textColor="@color/white"
+	            android:background="#7ac3e9"/>	
+	        <TextView 
+	            android:id="@+id/t1_xq3"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="特殊需求"
+	            android:paddingLeft="5dp"
+	            android:paddingRight="5dp"
+	            android:paddingTop="2dp"
+	            android:paddingBottom="2dp"
+	            android:layout_margin="5dp"
+	            android:textColor="@color/white"
+	            android:background="#7ac3e9"/>	
+	        <LinearLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:paddingRight="15dp"
+		        android:gravity="right">
+					<TextView 
+					    android:id="@+id/t1_xq4"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="加价"
+			            android:paddingLeft="5dp"
+			            android:paddingRight="5dp"
+			            android:paddingTop="2dp"
+			            android:paddingBottom="2dp"
+			            android:layout_margin="5dp"
+			            android:textColor="@color/white"
+			            android:background="#ef6767"/>
+					<TextView 
+					    android:id="@+id/t1_price"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:text="60元/时"
+			            android:paddingLeft="5dp"
+			            android:paddingRight="5dp"
+			            android:paddingTop="2dp"
+			            android:paddingBottom="2dp"
+			            android:layout_margin="5dp"
+			            android:textColor="#ef6767"/>
+            </LinearLayout>      
+	    </LinearLayout>
+	    
 	</LinearLayout>
 </LinearLayout>

@@ -1,6 +1,5 @@
-package com.yousi.sjtujj;
+package com.yousi.net;
 
-import com.yousi.net.T2_ddxx_tsxq_net;
 
 public class T2_ddxx_net {
 private String r_id;

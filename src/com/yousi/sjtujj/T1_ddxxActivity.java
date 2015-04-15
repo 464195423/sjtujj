@@ -8,6 +8,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,7 +29,7 @@ import android.widget.Toast;
 
 public class T1_ddxxActivity extends FragmentActivity {
 private String rid;
-private DdxxFragment fragment1;
+private NddxxFragment fragment1;
 private FragmentManager fragmentManager;
 private Fragment currentFragment;
 	@Override
@@ -41,7 +42,7 @@ private Fragment currentFragment;
 		//fragment
 		fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();	
-        fragment1 = DdxxFragment.newInstance(rid);
+        fragment1 = NddxxFragment.newInstance(rid);
         fragmentTransaction.replace(R.id.t1_ddxx_container,fragment1);//将fragment1设置到布局上
         fragmentTransaction.commit();
         
@@ -112,6 +113,6 @@ private Fragment currentFragment;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.getOrder_path, map, DB.getSessionid(T1_ddxxActivity.this));		
+		}, NewMyPath.getOrder_path, map, DB.getSessionid(T1_ddxxActivity.this));		
 	}
 }

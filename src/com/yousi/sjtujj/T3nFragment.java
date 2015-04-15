@@ -32,7 +32,7 @@ private PullToRefreshListView lv1;
 private PullToRefreshExpandableListView lv2; 
 private List<String> T3_1net_Items1;
 private List<String> T3_1net_Items2;
-private T2_adapter adapter1 = null;
+private T3_1adapter adapter1 = null;
 private T3_2adapter adapter2 = null;
 private static boolean flag = true;
 	@Override
@@ -152,6 +152,13 @@ private static boolean flag = true;
 		list.add(tmp2);
 		adapter2 = new T3_2adapter(getActivity(),listtype,list);
 		lv2.getRefreshableView().setAdapter(adapter2);
+		
+		
+		List<String> ls = new ArrayList<String>();
+		ls.add("123");
+		ls.add("456");
+		adapter1 = new T3_1adapter(getActivity(), ls);
+		lv1.setAdapter(adapter1);
 	}
 	
 	//show

@@ -22,6 +22,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/grey"
+        android:visibility="gone"
         android:orientation="horizontal">
         <Spinner 
             android:id="@+id/t1_sp1"

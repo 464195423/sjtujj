@@ -1,45 +1,6 @@
 package com.yousi.util;
 
 public class MyPath {
-/*
-private static String sessionid = "";
-private static String tid = "";
-private static String group = "";
-private static String school = "";
-
-public static String getSessionid() {
-	return sessionid;
-}
-
-public static void setSessionid(String sessionid) {
-	MyPath.sessionid = sessionid;
-}
-
-public static String getTid() {
-	return tid;
-}
-
-public static void setTid(String tid) {
-	MyPath.tid = tid;
-}
-
-public static String getGroup() {
-	return group;
-}
-
-public static void setGroup(String group) {
-	MyPath.group = group;
-}
-
-public static String getSchool() {
-	return school;
-}
-
-public static void setSchool(String school) {
-	MyPath.school = school;
-}
-
-*/
 
 public static String url = "http://172.16.3.141:8802/TeacherCenterInterface";
 
