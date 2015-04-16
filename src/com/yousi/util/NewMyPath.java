@@ -15,4 +15,12 @@ public static String orderShow_path = url + "orderShow";
 /*rid*/
 public static String getOrder_path = url + "getOrder";
 
+/*type*/
+public static String order_path = url + "order";
+
+/*rid*/
+public static String removeOrder_path = url + "removeOrder";
+
+/*rid*/
+public static String refuseOrder_path = url + "refuseOrder";
 }

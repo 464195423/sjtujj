@@ -22,11 +22,13 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.yousi.net.Order_net;
 import com.yousi.net.T2_net;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 import com.yousi.util.Send_message;
 import com.yousi.util.Switch_pager;
 
@@ -36,8 +38,8 @@ private TextView tv2;
 private int type = 1;
 private PullToRefreshListView lv1; 
 private PullToRefreshListView lv2; 
-private List<T2_net> T2_net_Items1;
-private List<T2_net> T2_net_Items2;
+private List<Order_net> Order_net_Items1;
+private List<Order_net> Order_net_Items2;
 private T2_adapter adapter1 = null;
 private T2_adapter adapter2 = null;
 private static boolean flag = true;
@@ -98,8 +100,7 @@ private static boolean flag = true;
 		lv2.getLoadingLayoutProxy(true, false).setRefreshingLabel("ÕýÔÚË¢ÐÂ...");
 		lv2.setOnRefreshListener(this);
 		lv2.setDividerPadding(10);
-		lv2.getRefreshableView().setDividerHeight(0);
-		
+		lv2.getRefreshableView().setDividerHeight(0);	
 
 		final AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
 
@@ -114,10 +115,10 @@ private static boolean flag = true;
 				
 				switch (type){
 				case 1:
-					bundle.putCharSequence("rid", T2_net_Items1.get(position).getRid());
+					bundle.putCharSequence("rid", Order_net_Items1.get(position).getR_id());
 					break;
 				case 2:
-					bundle.putCharSequence("rid", T2_net_Items2.get(position).getRid());
+					bundle.putCharSequence("rid", Order_net_Items2.get(position).getR_id());
 					break;
 				}
 				
@@ -185,12 +186,11 @@ private static boolean flag = true;
 
 	
 		if (flag){
-			getDataResource("0");
+			getDataResource("valid");
 			flag = false;
 		}
 			
-		show(type);
-		
+		show(type);	
 		return rootView; 
 	}
 
@@ -205,32 +205,32 @@ private static boolean flag = true;
 	
 	public int getItemViewType(int position) {
 		// TODO Auto-generated method stub
-		List<T2_net> T2_net_Items = null;
+		List<Order_net> Order_net_Items = null;
 		switch (type){
 		case 1:
-			T2_net_Items = T2_net_Items1;
+			Order_net_Items = Order_net_Items1;
 			break;
 		case 2:
-			T2_net_Items = T2_net_Items2;
+			Order_net_Items = Order_net_Items2;
 			break;
 		}
 		
-		if (T2_net_Items.get(position).getStatus().equals("0"))
+		if (Order_net_Items.get(position).getOrder_status().equals("7"))
 			return 1;
-		else if (T2_net_Items.get(position).getStatus().equals("1"))
+		else if (Order_net_Items.get(position).getOrder_status().equals("1"))
 			return 2;
-		else if (T2_net_Items.get(position).getStatus().equals("2") && T2_net_Items.get(position).getHire().equals("0"))
+		else if (Order_net_Items.get(position).getOrder_status().equals("2"))
 			return 3;
-		else if (T2_net_Items.get(position).getStatus().equals("2") && T2_net_Items.get(position).getHire().equals("1"))
+		else if (Order_net_Items.get(position).getOrder_status().equals("3"))
 			return 4;
-		else if (T2_net_Items.get(position).getStatus().equals("3"))
+		else if (Order_net_Items.get(position).getOrder_status().equals("4"))
 			return 5;
-		else if (T2_net_Items.get(position).getStatus().equals("4") && T2_net_Items.get(position).getHire().equals("0"))
-			return 8;
-		else if (T2_net_Items.get(position).getStatus().equals("4") && T2_net_Items.get(position).getHire().equals("1"))
-			return 7;
-		else if (T2_net_Items.get(position).getStatus().equals("5"))
+		else if (Order_net_Items.get(position).getOrder_status().equals("10"))
 			return 6;
+		else if (Order_net_Items.get(position).getOrder_status().equals("6"))
+			return 7;
+		else if (Order_net_Items.get(position).getOrder_status().equals("5"))
+			return 8;
 		else
 			return 9;
 	}
@@ -239,10 +239,10 @@ private static boolean flag = true;
 	private void getDataResource(){
 		switch (type){
     	case 1:
-    		getDataResource("0");
+    		getDataResource("valid");
     		break;
     	case 2:
-    		getDataResource("close");
+    		getDataResource("invalid");
     		break;
     	}
 	}
@@ -251,19 +251,19 @@ private static boolean flag = true;
 	
 	private void getDataResource(final String status){
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("status", status);
+		map.put("type", status);
 		MyHttpClient.doPost2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
-				if (status.equals("0")){
-					T2_net_Items1 = parseJsonT2_netItem(json);
-					adapter1 = new T2_adapter(getActivity(), T2_net_Items1, sm);	
+				if (status.equals("valid")){
+					Order_net_Items1 = parseJsonOrder_netItem(json);
+					adapter1 = new T2_adapter(getActivity(), Order_net_Items1, sm);	
 					lv1.setAdapter(adapter1);
 					adapter1.notifyDataSetChanged();
 				}
-				else if (status.equals("close")){
-					T2_net_Items2 = parseJsonT2_netItem(json);
-					adapter2 = new T2_adapter(getActivity(), T2_net_Items2, sm);	
+				else if (status.equals("invalid")){
+					Order_net_Items2 = parseJsonOrder_netItem(json);
+					adapter2 = new T2_adapter(getActivity(), Order_net_Items2, sm);	
 					lv2.setAdapter(adapter2);
 					adapter2.notifyDataSetChanged();
 				}
@@ -274,30 +274,30 @@ private static boolean flag = true;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.my_demand_path, map, DB.getSessionid(getActivity()));
+		}, NewMyPath.order_path, map, DB.getSessionid(getActivity()));
 	}
 
 	private void show(int n){
 		switch (n){
 		case 1:
-			show("0");
+			show("valid");
 			break;
 		case 2:
-			show("close");
+			show("invalid");
 			break;
 		}
 	}
 	
 	
 	private void show(String status){
-		if (status.equals("0")){
+		if (status.equals("valid")){
 			if (lv1.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
 			lv2.setVisibility(View.GONE);
 			lv1.onRefreshComplete();	
 		}
-		else if (status.equals("close")){
+		else if (status.equals("invalid")){
 			if (lv2.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);
@@ -306,20 +306,20 @@ private static boolean flag = true;
 		}
 	}
 	
-	public List<T2_net> parseJsonT2_netItem(String json) {
-		List<T2_net> T2_net_Items = null;
+	public List<Order_net> parseJsonOrder_netItem(String json) {
+		List<Order_net> Order_net_Items = null;
 		JSONObject jsonObject = JSONObject.parseObject(json);
 		String code = jsonObject.getString("code");
 		if (code.equals("200")) {
 			JSONArray dataArray = jsonObject.getJSONArray("data");
 			if (dataArray != null) {
-				T2_net_Items = JSONArray.parseArray(dataArray.toString(),
-						T2_net.class);
+				Order_net_Items = JSONArray.parseArray(dataArray.toString(),
+						Order_net.class);
 			}else{
 				return null;
 			}
 		}
-		return T2_net_Items;
+		return Order_net_Items;
 	}	
 	
 	@Override

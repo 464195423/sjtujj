@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:background="@color/background1"
-        android:text="个人中心"
+        android:text="我的课程"
         android:gravity="center"
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"

@@ -18,8 +18,12 @@
     <color name="hint">#aaaaaa</color>     
     <color name="tab_sel">#59c2e6</color>
     
-    <!-- 我的订单lv中title，绿色 -->
-    <color name="t2_lv_title">#008800</color>
+    <!-- 我的订单lv中title，红色 -->
+    <color name="t2_lv_title">#ef6767</color>
+    <!-- 我的订单title中订单号，灰色 -->
+    <color name="t2_title_r">#808080</color>
+    <!-- 我的订单title中信息，黑灰色 -->
+    <color name="t2_content">#646464</color>
     <!-- 我的订单提示信息，淡蓝色 -->
     <color name="t2_color1">#66ccff</color>  
     <!-- 灰色 -->

@@ -348,4 +348,73 @@ public class MyHttpClient {
 			};
 		}.start();
 	}
+	
+	public static void doGet2(final Context context,
+			final NetRespondPost netRespondPost, final String path,
+			final HashMap<String, String> map, final String SessionID) {
+		final Handler handler = new Handler();
+		new Thread() {
+			public void run() {
+				InputStream is = null;
+				ByteArrayOutputStream os = null;
+				HttpClient client = new DefaultHttpClient();
+				
+				String str = "";
+				for (String key : map.keySet()) {
+					str  += key + "=" + map.get(key) + "&";
+				}
+				
+				if (str.length() != 0)
+					str = str.substring(0, str.length()-1);
+			
+				final HttpGet get = new HttpGet(path + (str.length() == 0 ? "" : "?" + str));
+				if (SessionID != null) {
+					get.setHeader("Cookie", SessionID);
+				}
+				
+				HttpEntity formEntity;
+				try {
+					HttpResponse response = client.execute(get);
+					if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+						is = response.getEntity().getContent();
+						os = new ByteArrayOutputStream();
+						byte[] buffer = new byte[1024];
+						int len = is.read(buffer);
+						while (len != -1) {
+							os.write(buffer, 0, len);
+							len = is.read(buffer);
+						}
+						os.flush();
+						final String json = new String(os.toByteArray(), 0,
+								os.toByteArray().length);
+						handler.post(new Runnable() {
+
+							@Override
+							public void run() {
+								netRespondPost.netWorkOk(json);
+							}
+						});
+					}
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if (is != null) {
+							is.close();
+						}
+						if (os != null) {
+							os.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+
+			};
+		}.start();
+	}
 }

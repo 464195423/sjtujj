@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:background="@color/background1"
-        android:text="家教中心"
+        android:text="个人中心"
         android:gravity="center"
         android:paddingTop="@dimen/padding"
         android:paddingBottom="@dimen/padding"

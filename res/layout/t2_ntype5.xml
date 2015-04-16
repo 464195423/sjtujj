@@ -16,8 +16,16 @@
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:background="@drawable/t2_title">
+		    <ImageView 
+		        android:id="@+id/t2_t5_tmp"
+		        android:layout_width="10dp"
+		        android:layout_height="10dp"
+		        android:src="@drawable/red_spot"
+		        android:layout_marginLeft="10dp"
+		        android:layout_centerVertical="true"/>
 		    <TextView 
 		        android:id="@+id/t2_t5_title1"
+		        android:layout_toRightOf="@id/t2_t5_tmp"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
@@ -29,7 +37,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp" 
 		        android:text="D100"
-		        android:textColor="@color/black"
+		        android:textColor="@color/t2_title_r"
 		        android:gravity="center"
 		        android:layout_alignParentRight="true"/>
 		</RelativeLayout>    
@@ -37,7 +45,7 @@
 		<View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/grey_divider"/>
+			android:background="@drawable/divider1"/>
 		
 		<!-- content -->
 	    <RelativeLayout 
@@ -52,31 +60,32 @@
 		        android:id="@+id/t2_t5_ll"
 		        android:layout_width="wrap_content"
 		    	android:layout_height="wrap_content"
+		    	android:layout_marginLeft="15dp"
 		    	android:orientation="vertical"
 		    	android:layout_gravity="left">
 		        <TextView 
 		            android:id="@+id/t2_t5_l1"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="学生姓名：周星星"/>
 		        <TextView 
 		            android:id="@+id/t2_t5_l2"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="学生年级：一年级"/>
 		        <TextView 
 		            android:id="@+id/t2_t5_l3"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="辅导科目：数、英"/>
 		        <TextView 
 		            android:id="@+id/t2_t5_l4"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="小时单价：80元/时"/>	        
 		    </LinearLayout>
 		    
@@ -85,7 +94,7 @@
 	    <View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/grey_divider"/>
+			android:background="@drawable/divider1"/>
 	    
 	    <!-- 家长电话 -->
 	    <RelativeLayout 
@@ -94,14 +103,20 @@
 	        android:paddingTop="5dp"
 	        android:paddingBottom="5dp"
 	        android:background="@color/white">
+		    <com.yousi.util.RoundImageView
+		        android:id="@+id/t2_t5_iv"
+		        android:layout_marginLeft="15dp"
+		        android:layout_width="40dp"
+		        android:layout_height="40dp"/>
 	        <TextView 
 	            android:id="@+id/t2_t5_tv1"
 	            android:layout_width="wrap_content"
 	        	android:layout_height="wrap_content"
+	        	android:layout_toRightOf="@+id/t2_t5_iv"
 	        	android:paddingLeft="@dimen/t2_content_padding"
 	        	android:layout_centerVertical="true"
 	        	android:text="周家长"
-	        	android:textColor="@color/black"/>
+	        	android:textColor="@color/t2_content"/>
 	        <TextView
 	            android:id="@+id/t2_t5_tv2"
 	            android:layout_width="wrap_content"
@@ -110,21 +125,27 @@
 	            android:paddingLeft="@dimen/t2_content_padding"
 	            android:layout_centerVertical="true"
 	            android:text="13000000000"
-	            android:textColor="@color/black" />       
+	            android:textColor="@color/t2_content" />       
 	        <LinearLayout 
 	            android:id="@+id/t2_t5_bt0"
-	            android:layout_width="wrap_content"
+	            android:layout_width="@dimen/t2_button_width"
 	        	android:layout_height="wrap_content"
 	        	android:layout_alignParentRight="true"
-	        	android:layout_marginRight="10dp"
+	        	android:layout_marginRight="15dp"
 	        	android:layout_centerVertical="true"
-	        	android:orientation="vertical"
-	        	android:padding="5dp">
+	        	android:orientation="horizontal"
+	        	android:gravity="center"
+	        	android:background="@drawable/t2_nbutton">
+		        <ImageView 
+		            android:layout_width="15dp"
+		            android:layout_height="15dp"
+		            android:layout_gravity="center"
+		            android:src="@drawable/phone"/>
 	            <TextView 
-	                android:layout_width="@dimen/t2_button_width"
+	                android:layout_width="wrap_content"
 	        		android:layout_height="wrap_content"
 	        		android:gravity="center"
-	        		android:background="@drawable/t2_nbutton"
+	        		android:paddingLeft="10dp"
 	        		android:text="呼叫"
 	        		android:textColor="@color/white"/>
 	        </LinearLayout>

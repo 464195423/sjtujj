@@ -108,7 +108,7 @@ private static boolean flag = true;
 //    	加载数据源
     	private void getDataResource(){
     		HashMap<String, String> map = new HashMap<String, String>();
-    		MyHttpClient.doPost2(getActivity(), new NetRespondPost() {
+    		MyHttpClient.doGet2(getActivity(), new NetRespondPost() {
     			@Override
     			public void netWorkOk(String json) {
     				T1_netItems = parseJsonT1_netItem(json);
@@ -142,7 +142,7 @@ private static boolean flag = true;
     	private void updateDataResource(){
     		HashMap<String, String> map = new HashMap<String, String>();
     		map.put("before", T1_netItems.get(T1_netItems.size()-1).getR_id());
-    		MyHttpClient.doPost2(getActivity(), new NetRespondPost() {
+    		MyHttpClient.doGet2(getActivity(), new NetRespondPost() {
     			@Override
     			public void netWorkOk(String json) {
     				List<T1_net> tmp = parseJsonT1_netItem(json);

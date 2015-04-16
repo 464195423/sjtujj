@@ -16,8 +16,16 @@
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:background="@drawable/t2_title">
+		    <ImageView 
+		        android:id="@+id/t2_t7_tmp"
+		        android:layout_width="10dp"
+		        android:layout_height="10dp"
+		        android:src="@drawable/red_spot"
+		        android:layout_marginLeft="10dp"
+		        android:layout_centerVertical="true"/>
 		    <TextView 
 		        android:id="@+id/t2_t7_title1"
+		        android:layout_toRightOf="@id/t2_t7_tmp"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
@@ -29,7 +37,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp" 
 		        android:text="D100"
-		        android:textColor="@color/black"
+		        android:textColor="@color/t2_title_r"
 		        android:gravity="center"
 		        android:layout_alignParentRight="true"/>
 		</RelativeLayout>    
@@ -37,7 +45,7 @@
 		<View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/grey_divider"/>
+			android:background="@drawable/divider1"/>
 		
 		<!-- content -->
 	    <RelativeLayout 
@@ -53,30 +61,31 @@
 		        android:layout_width="wrap_content"
 		    	android:layout_height="wrap_content"
 		    	android:orientation="vertical"
+		    	android:layout_marginLeft="15dp"
 		    	android:layout_gravity="left">
 		        <TextView 
 		            android:id="@+id/t2_t7_l1"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="学生姓名：周星星"/>
 		        <TextView 
 		            android:id="@+id/t2_t7_l2"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="学生年级：一年级"/>
 		        <TextView 
 		            android:id="@+id/t2_t7_l3"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="辅导科目：数、英"/>
 		        <TextView 
 		            android:id="@+id/t2_t7_l4"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="小时单价：80元/时"/>
 		        <TextView 
 		            android:id="@+id/t2_t7_l5"
@@ -112,7 +121,7 @@
 	    <View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/grey_divider"/>
+			android:background="@drawable/divider1"/>
 	    
 	    <!-- 家长电话 -->
 	    <RelativeLayout 
@@ -121,14 +130,20 @@
 	        android:paddingTop="5dp"
 	        android:paddingBottom="5dp"
 	        android:background="@color/white">
+		    <com.yousi.util.RoundImageView
+		        android:id="@+id/t2_t7_iv"
+		        android:layout_marginLeft="15dp"
+		        android:layout_width="40dp"
+		        android:layout_height="40dp"/>
 	        <TextView 
 	            android:id="@+id/t2_t7_tv1"
 	            android:layout_width="wrap_content"
 	        	android:layout_height="wrap_content"
+	        	android:layout_toRightOf="@+id/t2_t7_iv"
 	        	android:paddingLeft="@dimen/t2_content_padding"
 	        	android:layout_centerVertical="true"
 	        	android:text="周家长"
-	        	android:textColor="@color/black"/>
+	        	android:textColor="@color/t2_content"/>
 	        <TextView
 	            android:id="@+id/t2_t7_tv2"
 	            android:layout_width="wrap_content"
@@ -137,7 +152,7 @@
 	            android:paddingLeft="@dimen/t2_content_padding"
 	            android:layout_centerVertical="true"
 	            android:text="13000000000"
-	            android:textColor="@color/black" />       
+	            android:textColor="@color/t2_content" />       
 
 	    </RelativeLayout>
 	    

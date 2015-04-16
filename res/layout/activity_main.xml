@@ -38,7 +38,7 @@
 					        android:layout_height="wrap_content"
 					        android:textColor="#ffffff"
 					        android:layout_centerHorizontal="true" 
-					        android:text="家教订单"
+					        android:text="家教需求"
 					        android:layout_centerVertical="true"
 					        android:layout_below="@id/iv_mark1"
 					        />                
@@ -90,7 +90,7 @@
 					        android:layout_height="wrap_content"
 					        android:textColor="#ffffff"
 					        android:layout_centerHorizontal="true" 
-					        android:text="个人中心"
+					        android:text="我的课程"
 					        android:layout_centerVertical="true"
 					        android:layout_below="@id/iv_mark3"
 					        />                
@@ -116,7 +116,7 @@
 					        android:layout_height="wrap_content"
 					        android:textColor="#ffffff"
 					        android:layout_centerHorizontal="true" 
-					        android:text="家教中心"
+					        android:text="个人中心"
 					        android:layout_centerVertical="true"
 					        android:layout_below="@id/iv_mark4"
 					        />                
