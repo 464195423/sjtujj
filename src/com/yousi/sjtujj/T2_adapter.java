@@ -225,7 +225,7 @@ final int TYPE_12 = 12;
 	@Override
 	public int getViewTypeCount() {
 		// TODO Auto-generated method stub
-		return 9;
+		return 12;
 	}
 
 	@Override
@@ -521,7 +521,7 @@ final int TYPE_12 = 12;
 				public void onClick(View v) {
 					// TODO Auto-generated method stub 
 	                //用intent启动拨打电话  
-	                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+"13000000000"));  
+	                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+list.get(position).getPhone()));  
 	                context.startActivity(intent); 
 				}
 			});
@@ -597,7 +597,7 @@ final int TYPE_12 = 12;
 				public void onClick(View v) {
 					// TODO Auto-generated method stub 
 	                //用intent启动拨打电话  
-	                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+"13000000000"));  
+	                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+list.get(position).getPhone()));  
 	                context.startActivity(intent); 
 				}
 			});
@@ -753,16 +753,9 @@ final int TYPE_12 = 12;
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					//TODO
-					Intent intent = new Intent(context, T2_stskzActivity.class);
-					Bundle bundle = new Bundle();
-					bundle.putCharSequence("rid", rid);
-
-					intent.putExtras(bundle);
-					context.startActivity(intent);	
 					sm.send_msg();
 				}
 				else if (code.equals("550")) {
@@ -781,7 +774,7 @@ final int TYPE_12 = 12;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.qushouke_path, map, DB.getSessionid(context));
+		}, NewMyPath.beginToTeach_path, map, DB.getSessionid(context));
 	}
 	
 	

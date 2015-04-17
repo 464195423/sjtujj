@@ -169,6 +169,9 @@ private static boolean flag = true;
 					startActivityForResult(intent, 0);
 					break;
 				case 9:
+				case 10:
+				case 11:
+				case 12:
 					break;
 					
 				}
@@ -231,8 +234,14 @@ private static boolean flag = true;
 			return 7;
 		else if (Order_net_Items.get(position).getOrder_status().equals("5"))
 			return 8;
-		else
+		else if (Order_net_Items.get(position).getOrder_status().equals("8"))
 			return 9;
+		else if (Order_net_Items.get(position).getOrder_status().equals("9"))
+			return 10;
+		else if (Order_net_Items.get(position).getOrder_status().equals("11"))
+			return 11;
+		else
+			return 12;
 	}
 	
 	
@@ -252,7 +261,7 @@ private static boolean flag = true;
 	private void getDataResource(final String status){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("type", status);
-		MyHttpClient.doPost2(null, new NetRespondPost() {
+		MyHttpClient.doGet2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				if (status.equals("valid")){

@@ -96,11 +96,11 @@ private Fragment fourthFragment;
 		fragmentList = new ArrayList<Fragment>();  
         firstFragment= new T1Fragment();  
         secondFragment = new T2Fragment();  
-//        thirdFragment = new T3nFragment();   
+        thirdFragment = new T3nFragment();   
 //        fourthFragment = new T4nFragment();   
         fragmentList.add(firstFragment);  
         fragmentList.add(secondFragment);  
-//        fragmentList.add(thirdFragment);  
+        fragmentList.add(thirdFragment);  
 //        fragmentList.add(fourthFragment); 
 		
 		

@@ -10,6 +10,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -175,6 +176,6 @@ private EditText et2;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.confirmTeach_path, map, DB.getSessionid(T2_qdstsjActivity.this));
+		}, NewMyPath.confirmTeach_path, map, DB.getSessionid(T2_qdstsjActivity.this));
 	}
 }

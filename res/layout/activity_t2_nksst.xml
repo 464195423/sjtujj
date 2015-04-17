@@ -69,17 +69,6 @@
 	        android:layout_marginLeft="5dp"
 	        android:layout_marginRight="5dp">
 	    </Button>
-	    <Button
-	        android:id="@+id/t2_nksst_bt3"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
-	        android:background="@drawable/t2_nbutton"
-	        android:textColor="@color/white"
-	        android:text="放弃试教" 
-	        android:layout_weight="1"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginRight="5dp">
-	    </Button>
     </LinearLayout>
     
     <!-- 订单信息fragment -->

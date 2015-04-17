@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+  	    <!-- title -->
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/t2_title">
+		    <TextView 
+		        android:id="@+id/t3_classlist_title1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="5dp"
+		        android:textColor="#646464"
+		        android:text="常规授课"/>
+		    <TextView 
+		        android:id="@+id/t3_classlist_title2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="5dp" 
+		        android:text="课程号：12345678"
+		        android:textColor="#646464"
+		        android:gravity="center"
+		        android:layout_alignParentRight="true"/>
+		</RelativeLayout>      
+		
+		<View 
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:background="@drawable/divider1"/>
+		
+		
+		<!-- content -->
+		<LinearLayout 
+	        android:layout_width="match_parent"
+	   		android:layout_height="wrap_content"
+	   		android:background="@drawable/t2_content"
+	   		android:paddingTop="@dimen/t2_content_padding"
+	   		android:paddingLeft="@dimen/t2_content_padding"
+	   		android:paddingBottom="@dimen/t2_content_padding">
+	   		
+		    <LinearLayout 
+		        android:id="@+id/t3_classlist_ll"
+		        android:layout_width="0dp"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:orientation="vertical">
+
+		        <com.yousi.util.RoundImageView
+		            android:id="@+id/t3_classlist_iv1"
+		            android:layout_gravity="center"
+		            android:layout_width="50dp"
+		            android:layout_height="50dp" />
+
+		        <TextView 
+		            android:layout_gravity="center"
+		            android:id="@+id/t3_classlist_tvl"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="@color/black"
+		    		android:text="周家长"/>	        
+		    </LinearLayout>
+		    
+		    <LinearLayout 
+		        android:layout_width="0dp"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="2"
+		    	android:orientation="vertical">
+		        <TextView 
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:textColor="#999999"
+		            android:text="开始时间："/>
+		        <TextView 
+		            android:id="@+id/t3_classlist_start"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:textColor="#999999"
+		            android:text="text1"/>
+		        <TextView 
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:textColor="#999999"
+		            android:text="结束时间："/>
+			    <TextView 
+			        android:id="@+id/t3_classlist_end"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:textColor="#999999"
+		            android:text="text1"/>
+		    </LinearLayout>
+		    
+		    
+		    <LinearLayout 
+		        android:layout_width="0dp"
+		    	android:layout_height="wrap_content"
+		    	android:layout_weight="1"
+		    	android:layout_centerVertical="true"
+		    	android:orientation="vertical"
+		    	android:padding="5dp"
+		    	android:layout_gravity="center"
+		    	android:layout_marginRight="10dp">
+		        <TextView 
+		            android:id="@+id/t3_classlist_tv1"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="#646464"
+		    		android:layout_gravity="center"
+		    		android:gravity="center"
+		    		android:text="2小时"/>
+		        <TextView 
+		            android:id="@+id/t3_classlist_tv2"
+		            android:layout_width="wrap_content"
+		    		android:layout_height="wrap_content"
+		    		android:textColor="#646464"
+		    		android:layout_gravity="center"
+		    		android:gravity="center"
+		    		android:text="等待评价"/>
+		    </LinearLayout>
+		    
+		</LinearLayout>
+
+		<!-- divider -->
+		<ImageView 
+		    android:id="@+id/t3_classlist_iv2"
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:src="@drawable/dotted_line"/>
+</LinearLayout>

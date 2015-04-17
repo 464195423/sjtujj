@@ -8,6 +8,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -111,7 +112,7 @@ private FragmentManager fragmentManager;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.getOrder_path, map, DB.getSessionid(T2_nddxqActivity.this));		
+		}, NewMyPath.getOrder_path, map, DB.getSessionid(T2_nddxqActivity.this));		
 	}
 	
 	private void PostData2(){
@@ -138,6 +139,6 @@ private FragmentManager fragmentManager;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.removeOrder_path, map, DB.getSessionid(T2_nddxqActivity.this));		
+		}, NewMyPath.refuseOrder_path, map, DB.getSessionid(T2_nddxqActivity.this));		
 	}
 }

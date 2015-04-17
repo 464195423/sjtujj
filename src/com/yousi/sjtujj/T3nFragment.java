@@ -1,15 +1,26 @@
 package com.yousi.sjtujj;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshExpandableListView;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.yousi.expired.T2_yjddActivity;
+import com.yousi.net.T1_net;
 import com.yousi.net.T2_net;
+import com.yousi.net.T3_1net;
+import com.yousi.net.T3_2net;
+import com.yousi.util.DB;
+import com.yousi.util.MyHttpClient;
+import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +34,7 @@ import android.widget.ExpandableListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T3nFragment extends Fragment implements OnRefreshListener2<ListView>, OnRefreshListener<ExpandableListView>{
 private TextView tv1;
@@ -30,8 +42,8 @@ private TextView tv2;
 private int type = 1;
 private PullToRefreshListView lv1; 
 private PullToRefreshExpandableListView lv2; 
-private List<String> T3_1net_Items1;
-private List<String> T3_1net_Items2;
+private List<T3_1net> T3_1net_Items1;
+private List<T3_2net> T3_2net_Items2;
 private T3_1adapter adapter1 = null;
 private T3_2adapter adapter2 = null;
 private static boolean flag = true;
@@ -114,7 +126,7 @@ private static boolean flag = true;
 
 	
 		if (flag){
-			getDataResource("0");
+			getDataResource("wait");
 			flag = false;
 		}
 			
@@ -127,10 +139,10 @@ private static boolean flag = true;
 	private void getDataResource(){
 		switch (type){
     	case 1:
-    		getDataResource("0");
+    		getDataResource("wait");
     		break;
     	case 2:
-    		getDataResource("close");
+    		getDataResource("list");
     		break;
     	}
 	}
@@ -138,51 +150,90 @@ private static boolean flag = true;
 	
 	
 	private void getDataResource(final String status){
-		List<String> listtype = new ArrayList<String>();
-		listtype.add("line1");
-		listtype.add("line2");
-		List<List<String>> list = new ArrayList<List<String>>();
-		List<String> tmp1 = new ArrayList<String>();
-		tmp1.add("content1");
-		tmp1.add("content2");
-		List<String> tmp2 = new ArrayList<String>();
-		tmp2.add("content3");
-		tmp2.add("content4");
-		list.add(tmp1);
-		list.add(tmp2);
-		adapter2 = new T3_2adapter(getActivity(),listtype,list);
-		lv2.getRefreshableView().setAdapter(adapter2);
-		
-		
-		List<String> ls = new ArrayList<String>();
-		ls.add("123");
-		ls.add("456");
-		adapter1 = new T3_1adapter(getActivity(), ls);
-		lv1.setAdapter(adapter1);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("type", status);
+		MyHttpClient.doGet2(getActivity(), new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					if (status.equals("wait")){
+//						T3_1net_Items1 = parseJsonT3_1netItem(json);
+//	    				adapter1 = new T3_1adapter(getActivity(), T3_1net_Items1);
+//	    				lv1.setAdapter(adapter1);
+//	    				lv1.onRefreshComplete();
+					}
+					else{
+						T3_2net_Items2 = parseJsonT3_2netItem(json);
+	    				adapter2 = new T3_2adapter(getActivity(), T3_2net_Items2);
+	    				lv2.getRefreshableView().setAdapter(adapter2);
+	    				lv2.onRefreshComplete();
+					}
+				}
+				else
+					Toast.makeText(getActivity(), jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.course_path, map, DB.getSessionid(getActivity()));		
+	}
+	
+	public List<T3_1net> parseJsonT3_1netItem(String json) {
+		List<T3_1net> T3_1netItems = null;
+		JSONObject jsonObject = JSONObject.parseObject(json);
+		String code = jsonObject.getString("code");
+		if (code.equals("200")) {
+			JSONArray dataArray = jsonObject.getJSONArray("data");
+			if (dataArray != null) {
+				T3_1netItems = JSONArray.parseArray(dataArray.toString(),
+						T3_1net.class);
+			}else{
+				return null;
+			}
+		}
+		return T3_1netItems;
+	}	
+
+	public List<T3_2net> parseJsonT3_2netItem(String json) {
+		List<T3_2net> T3_2netItems = null;
+		JSONObject jsonObject = JSONObject.parseObject(json);
+		String code = jsonObject.getString("code");
+		if (code.equals("200")) {
+			JSONArray dataArray = jsonObject.getJSONArray("data");
+			if (dataArray != null) {
+				T3_2netItems = JSONArray.parseArray(dataArray.toString(),
+						T3_2net.class);
+			}else{
+				return null;
+			}
+		}
+		return T3_2netItems;
 	}
 	
 	//show
 	private void show(int n){
 		switch (n){
 		case 1:
-			show("0");
+			show("wait");
 			break;
 		case 2:
-			show("close");
+			show("list");
 			break;
 		}
 	}
 	
 	
 	private void show(String status){
-		if (status.equals("0")){
+		if (status.equals("wait")){
 			if (lv1.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
 			lv2.setVisibility(View.GONE);
 			lv1.onRefreshComplete();	
 		}
-		else if (status.equals("close")){
+		else if (status.equals("list")){
 			if (lv2.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);

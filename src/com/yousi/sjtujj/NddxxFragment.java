@@ -90,7 +90,7 @@ public class NddxxFragment extends Fragment {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("rid", rid);
 		//map.put("pwd", passwd.getText().toString());
-		MyHttpClient.doPost2(null, new NetRespondPost() {
+		MyHttpClient.doGet2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);

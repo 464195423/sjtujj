@@ -3,6 +3,7 @@ package com.yousi.sjtujj;
 import java.util.List;
 
 import com.yousi.net.T2_net;
+import com.yousi.net.T3_1net;
 import com.yousi.util.Send_message;
 
 import android.content.Context;
@@ -38,9 +39,9 @@ class viewHolder3_1_2{
 public class T3_1adapter extends BaseAdapter{
 private Context context;
 private LayoutInflater layoutInflater;
-private List<String> list;
+private List<T3_1net> list;
 
-	public T3_1adapter(Context context, List<String> list){
+	public T3_1adapter(Context context, List<T3_1net> list){
 		this.context = context;       
 		layoutInflater = LayoutInflater.from(context);        
 		this.list = list;

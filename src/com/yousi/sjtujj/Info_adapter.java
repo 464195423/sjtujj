@@ -53,9 +53,7 @@ private List<Info_net> list;
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		viewHolder holder = null;
-		
-		
-		
+	
 		if(convertView == null)
 		{
 			convertView = layoutInflater.inflate(R.layout.info_type, parent, false);

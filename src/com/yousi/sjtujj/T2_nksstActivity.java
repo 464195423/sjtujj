@@ -7,6 +7,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -27,7 +28,7 @@ import android.widget.TextView;
 
 public class T2_nksstActivity extends FragmentActivity {
 private String rid = "";
-private String time = "";
+private String time = "2015-01-01 12:00";
 private Nddxx2Fragment fragment1;
 private FragmentManager fragmentManager;
 	@Override
@@ -38,7 +39,7 @@ private FragmentManager fragmentManager;
 		rid = getIntent().getExtras().getString("rid");
 		
 		//获取时间
-		getData();
+		//getData();
 		
 		//去授课按钮
 		Button bt1 = (Button)findViewById(R.id.t2_nksst_bt1);
@@ -66,9 +67,8 @@ private FragmentManager fragmentManager;
 			}
 		});
 		
-		//修改时间与放弃试教
+		//修改时间
         Button bt2 = (Button)findViewById(R.id.t2_nksst_bt2);
-        //Button bt3 = (Button)findViewById(R.id.t2_nksst_bt3);//TODO
         
         bt2.setOnClickListener(new View.OnClickListener() {
 			
@@ -84,6 +84,7 @@ private FragmentManager fragmentManager;
 				finish();
 			}
 		});
+
 		
 		//fragment
 		fragmentManager = getSupportFragmentManager();
@@ -133,7 +134,7 @@ private FragmentManager fragmentManager;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.qushouke_path, map, DB.getSessionid(T2_nksstActivity.this));
+		}, NewMyPath.beginToTeach_path, map, DB.getSessionid(T2_nksstActivity.this));
 	}
 	
 	private void getData(){

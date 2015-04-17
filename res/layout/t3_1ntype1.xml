@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:sjtujj="http://schemas.android.com/apk/res/com.yousi.sjtujj"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -55,14 +54,11 @@
 		    	android:layout_height="wrap_content"
 		    	android:orientation="horizontal"
 		    	android:layout_gravity="left">
-		        <com.yousi.util.CustomImageView
-		            android:layout_gravity="center"
+		    	<com.yousi.util.RoundImageView
+			        android:layout_gravity="center"
 		            android:id="@+id/t3_1t1_iv1"
 		            android:layout_width="50dp"
-		    		android:layout_height="50dp"
-		    		android:background="@drawable/circle"
-		    		sjtujj:src="@drawable/accuser"
-		    		sjtujj:type="circle"/>
+		    		android:layout_height="50dp"/>
 		        <TextView 
 		            android:layout_gravity="center"
 		            android:id="@+id/t3_1t1_tvl"

@@ -23,4 +23,16 @@ public static String removeOrder_path = url + "removeOrder";
 
 /*rid*/
 public static String refuseOrder_path = url + "refuseOrder";
+
+/*rid, listentime*/
+public static String confirmTeach_path = url + "confirmTeach";
+
+/*rid, hour*/
+public static String beginToTeach_path = url + "beginToTeach";
+
+/*rid*/
+public static String giveupOrder_path = url + "giveupOrder";
+
+/*type*/
+public static String course_path = url + "course";
 }
