@@ -33,9 +33,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageView;
+import android.widget.NumberPicker.OnValueChangeListener;
 
 class viewHolder1{
 	public TextView textViewt1;
@@ -167,7 +169,7 @@ public class T2_adapter extends BaseAdapter {
 private Context context;
 private LayoutInflater layoutInflater;
 private List<Order_net> list;
-private Send_message sm;
+private Send_message sm;	//如果需要改变状态则调用此
 final int TYPE_1 = 1; 
 final int TYPE_2 = 2; 
 final int TYPE_3 = 3;
@@ -610,7 +612,7 @@ final int TYPE_12 = 12;
 			holder6.textViewl4.setText("小时单价："+list.get(position).getOneprice()+"元/时");
 			break; 
 		case TYPE_7: 
-			holder7.textViewt1.setText("D"+list.get(position).getR_id()); 
+			holder7.textViewt1.setText("订单号：  D"+list.get(position).getR_id()); 
 			holder7.textViewl1.setText("学生姓名："+list.get(position).getName()); 
 			holder7.textViewl2.setText("学生年级："+list.get(position).getGrade());
 			holder7.textViewl3.setText("辅导科目："+String_unite.unite(list.get(position).getWeaksubject(),"、"));
@@ -644,7 +646,46 @@ final int TYPE_12 = 12;
 				
 				@Override
 				public void onClick(View v) {
-					// TODO 弹窗设置授课时长
+					final int hour[] = new int[1];
+					hour[0] = 2;
+					LayoutInflater layoutInflater = LayoutInflater.from(context); 
+					View convertView = layoutInflater.inflate(R.layout.number_picker, null, false); 
+					
+					
+					AlertDialog dlg = new AlertDialog.Builder(context).create();
+				
+					NumberPicker np = (NumberPicker) convertView.findViewById(R.id.np_np);
+					np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+					np.setMinValue(1);
+					np.setMaxValue(24);
+					np.setValue(2);
+					np.setOnValueChangedListener(new OnValueChangeListener(){
+
+						@Override
+						public void onValueChange(NumberPicker picker, int oldVal,
+								int newVal) {
+							// TODO Auto-generated method stub
+							hour[0] = newVal;
+						}
+					});
+					dlg.setView(convertView);
+					dlg.setTitle("请选择授课时长");
+					dlg.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", new OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							//DONOTING
+						}
+					});
+					dlg.setButton(DialogInterface.BUTTON_POSITIVE,"确定", new OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							//beginToTeach rid hour
+							PostData8(list.get(position).getR_id(),hour[0]);
+						}
+					});
+					dlg.show();
 				}
 			});
 			break; 
@@ -677,7 +718,24 @@ final int TYPE_12 = 12;
 				
 				@Override
 				public void onClick(View v) {
-					// TODO 设置撤销放弃
+					// TODO 设置撤销放弃					
+					AlertDialog alert = new AlertDialog.Builder(context).create();
+					alert.setMessage("您将要进行试听授课，请确认！");
+					alert.setButton(DialogInterface.BUTTON_POSITIVE,"确认", new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+						//TODO
+							PostData10(list.get(position).getR_id());
+						}
+					});
+					alert.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+						//DONOTHING
+						}
+					});	
+					alert.show();
+					
 				}
 			});
 			break; 
@@ -702,6 +760,7 @@ final int TYPE_12 = 12;
 		return convertView;
 	}
 
+	/* 接单 */
 	private void PostData1_1(String rid){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("rid", rid);
@@ -709,7 +768,6 @@ final int TYPE_12 = 12;
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					//send message
@@ -724,6 +782,7 @@ final int TYPE_12 = 12;
 		}, NewMyPath.getOrder_path, map, DB.getSessionid(context));		
 	}
 	
+	/* 拒绝 */
 	private void PostData1_2(final String rid){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("rid", rid);
@@ -731,7 +790,6 @@ final int TYPE_12 = 12;
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					//send message
@@ -746,6 +804,7 @@ final int TYPE_12 = 12;
 		}, NewMyPath.refuseOrder_path, map, DB.getSessionid(context));		
 	}
 
+	/* 去试教 */
 	private void PostData3(final String rid){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("rid", rid);
@@ -776,7 +835,52 @@ final int TYPE_12 = 12;
 			}
 		}, NewMyPath.beginToTeach_path, map, DB.getSessionid(context));
 	}
+
 	
+	/* 去授课 */
+	private void PostData8(final String rid, final int hour){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		map.put("hour", String.valueOf(hour));
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//send message
+					sm.send_msg();
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_SHORT).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.beginToTeach_path, map, DB.getSessionid(context));		
+	}	
+	
+	/* 撤销放弃 */
+	private void PostData10(String rid){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//send message
+					sm.send_msg();
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_SHORT).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.revokeOrder_path, map, DB.getSessionid(context));		
+	}	
 	
 	private static Switch_pager mSwitch=null;
 	public static void setCallback(Switch_pager callback){

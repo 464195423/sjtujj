@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 class T3_2viewHolder1{
+	public LinearLayout ll;
 	public TextView textView1;
 }
 
@@ -101,11 +102,18 @@ private LayoutInflater layoutInflater;
 			convertView = layoutInflater.inflate(R.layout.t3_list, parent, false);
 			holder = new T3_2viewHolder1(); 
 			holder.textView1 = (TextView)convertView.findViewById(R.id.t3_list_tv); 
+			holder.ll = (LinearLayout)convertView.findViewById(R.id.t3_list_ll);
+
 			convertView.setTag(holder); 
 		}
 		else
 			holder = (T3_2viewHolder1) convertView.getTag(); 
-
+		
+		if (groupPosition != 0){
+			LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT); 
+			lp.setMargins(0, 10, 0, 0);
+			holder.ll.setLayoutParams(lp);
+		}
 		holder.textView1.setText("订单号："+list.get(groupPosition).getR_id());
         
         return convertView;
@@ -136,6 +144,7 @@ private LayoutInflater layoutInflater;
 		else
 			holder = (T3_2viewHolder2) convertView.getTag(); 
         
+		holder.textViewTitle1.setText(list.get(groupPosition).getClasslist()[childPosition].getH_status().equals("0") ? "常规授课" : "试听授课");
 		holder.textViewTitle2.setText("课程号："+list.get(groupPosition).getClasslist()[childPosition].getH_id());
 		if (!list.get(groupPosition).getPicture().equals(""))
 			LoadImage.setImageView(context, list.get(groupPosition).getPicture(), holder.imageView1);
@@ -150,11 +159,13 @@ private LayoutInflater layoutInflater;
 		else{
 			holder.textViewtv2.setText("查看评价");
 			holder.textViewtv2.setBackground(context.getResources().getDrawable(R.drawable.t3_button));
-			holder.textViewTitle2.setTextColor(0xff36a5df);
+			holder.textViewtv2.setTextColor(0xff36a5df);
 		}
 		
 		if (isLastChild)
 			holder.imageView2.setVisibility(View.GONE);
+		else
+			holder.imageView2.setVisibility(View.VISIBLE);
 		
         return convertView;
 	}

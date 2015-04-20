@@ -116,9 +116,11 @@ private static boolean flag = true;
 				switch (type){
 				case 1:
 					bundle.putCharSequence("rid", Order_net_Items1.get(position).getR_id());
+					bundle.putCharSequence("phone", Order_net_Items1.get(position).getPhone());
 					break;
 				case 2:
 					bundle.putCharSequence("rid", Order_net_Items2.get(position).getR_id());
+					bundle.putCharSequence("phone", Order_net_Items2.get(position).getPhone());
 					break;
 				}
 				
@@ -163,13 +165,17 @@ private static boolean flag = true;
 					break;
 				case 8:
 					intent = new Intent(getActivity(), T2_nksskActivity.class);
-					//bundle.putSerializable("interface", sp);
 					intent.putExtras(bundle);
 					//startActivity(intent);
 					startActivityForResult(intent, 0);
 					break;
 				case 9:
 				case 10:
+					intent = new Intent(getActivity(), T2_nt10Activity.class);
+					intent.putExtras(bundle);
+					//startActivity(intent);
+					startActivityForResult(intent, 0);
+					break;
 				case 11:
 				case 12:
 					break;
@@ -286,6 +292,29 @@ private static boolean flag = true;
 		}, NewMyPath.order_path, map, DB.getSessionid(getActivity()));
 	}
 
+	private void updateDataResource(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		final String status = ((type == 1) ? "valid" : "invalid");
+		map.put("type", status);
+		MyHttpClient.doGet2(null, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				if (status.equals("valid")){
+					Order_net_Items1 = parseJsonOrder_netItem(json);
+					adapter1.notifyDataSetChanged();
+				}
+				else if (status.equals("invalid")){
+					Order_net_Items2 = parseJsonOrder_netItem(json);
+					adapter2.notifyDataSetChanged();
+				}
+				show(status);
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.order_path, map, DB.getSessionid(getActivity()));
+	}	
+	
 	private void show(int n){
 		switch (n){
 		case 1:
@@ -349,7 +378,7 @@ private static boolean flag = true;
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		//Log.v("T2","return");
-		//getDataResource();
+		updateDataResource();
 	}
 
 	

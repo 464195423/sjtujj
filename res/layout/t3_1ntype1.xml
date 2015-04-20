@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
 		android:background="@drawable/frame"
-        android:padding="1dp"
         android:layout_marginTop="10dp">
 	    <!-- title -->
 		<RelativeLayout 
@@ -21,7 +20,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
-		        android:textColor="@color/black"
+		        android:textColor="@color/t2_content"
 		        android:text="常规授课"/>
 		    <TextView 
 		        android:id="@+id/t3_1t1_title2"
@@ -29,7 +28,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp" 
 		        android:text="D100"
-		        android:textColor="@color/black"
+		        android:textColor="@color/t2_content"
 		        android:gravity="center"
 		        android:layout_alignParentRight="true"/>
 		</RelativeLayout>    
@@ -37,16 +36,16 @@
 		<View 
 			android:layout_width="fill_parent"
 			android:layout_height="1dp"
-			android:background="@drawable/grey_divider"/>
+			android:background="@drawable/divider1"/>
 		
 		<!-- content -->
 	    <RelativeLayout 
 	        android:layout_width="match_parent"
 	   		android:layout_height="wrap_content"
 	   		android:background="@drawable/t2_content"
-	   		android:paddingTop="@dimen/t2_content_padding"
+	   		android:paddingTop="20dp"
 	   		android:paddingLeft="@dimen/t2_content_padding"
-	   		android:paddingBottom="@dimen/t2_content_padding">
+	   		android:paddingBottom="20dp">
 	   		
 		    <LinearLayout 
 		        android:id="@+id/t3_1t1_ll"
@@ -64,7 +63,7 @@
 		            android:id="@+id/t3_1t1_tvl"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:text="周家长"/>	        
 		    </LinearLayout>
 		    
@@ -81,7 +80,7 @@
 		            android:id="@+id/t3_1t1_tv1"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
 		    		android:text="授课时长：2小时"/>
@@ -89,7 +88,7 @@
 		            android:id="@+id/t3_1t1_tv2"
 		            android:layout_width="wrap_content"
 		    		android:layout_height="wrap_content"
-		    		android:textColor="@color/black"
+		    		android:textColor="@color/t2_content"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
 		    		android:text="剩余课时包：0小时"/>
@@ -99,6 +98,7 @@
 
 	    <!-- warning -->
 	    <TextView 
+	        android:id="@+id/t3_1t1_warning"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:text="注意：剩余课时包不足2小时，请确认是否满足授课需求"
@@ -124,8 +124,12 @@
 	       		android:paddingBottom="5dp"
 	        	android:gravity="center"
 	        	android:text="修改授课时长"
-	        	android:textColor="@color/white"
-	        	android:background="#66ccff"/>
+	        	android:textColor="#36a5df"
+	        	android:background="#d9d9d9"/>
+	        <View 
+	            android:layout_width="1dp"
+	            android:layout_height="fill_parent"
+	            android:background="@color/white"/>
 	        <TextView
 	            android:id="@+id/t3_1t1_bt2"
 	            android:layout_width="0dp"
@@ -135,8 +139,8 @@
 	       		android:paddingBottom="5dp"
 	            android:gravity="center"
 	            android:text="取消授课"
-	            android:textColor="@color/white"
-				android:background="#66ccff"/>
+	            android:textColor="#36a5df"
+	        	android:background="#d9d9d9"/>
 	        <TextView
 	            android:id="@+id/t3_1t1_bt3"
 	            android:layout_width="0dp"
@@ -147,7 +151,7 @@
 	            android:gravity="center"
 	            android:text="确认结课"
 	            android:textColor="@color/white"
-				android:background="#66ccff"/>
+				android:background="#36a5df"/>
 	    </LinearLayout>
 	    
 	</LinearLayout>

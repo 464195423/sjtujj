@@ -103,22 +103,7 @@ private static boolean flag = true;
 		lv2.setOnRefreshListener(this);
 		lv2.setDividerPadding(10);
 		lv2.getRefreshableView().setDividerHeight(0);
-		
-		final AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				position--;
-				Intent intent = null;
-				Bundle bundle = new Bundle();
 				
-			}
-		};
-		
-		lv1.setOnItemClickListener(listener);
-		
 		if (adapter1 != null)
 			lv1.setAdapter(adapter1);
 		if (adapter2 != null)
@@ -129,7 +114,7 @@ private static boolean flag = true;
 			getDataResource("wait");
 			flag = false;
 		}
-			
+		
 		show(type);
 		return rootView;
 	}
@@ -159,15 +144,17 @@ private static boolean flag = true;
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					if (status.equals("wait")){
-//						T3_1net_Items1 = parseJsonT3_1netItem(json);
-//	    				adapter1 = new T3_1adapter(getActivity(), T3_1net_Items1);
-//	    				lv1.setAdapter(adapter1);
-//	    				lv1.onRefreshComplete();
+						T3_1net_Items1 = parseJsonT3_1netItem(json);
+	    				adapter1 = new T3_1adapter(getActivity(), T3_1net_Items1);
+	    				lv1.setAdapter(adapter1);
+	    				lv1.onRefreshComplete();
 					}
 					else{
 						T3_2net_Items2 = parseJsonT3_2netItem(json);
 	    				adapter2 = new T3_2adapter(getActivity(), T3_2net_Items2);
 	    				lv2.getRefreshableView().setAdapter(adapter2);
+	    				if (lv2.getRefreshableView().getCount() != 0)
+	    					lv2.getRefreshableView().expandGroup(0);
 	    				lv2.onRefreshComplete();
 					}
 				}

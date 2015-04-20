@@ -49,6 +49,7 @@ private Fragment fourthFragment;
 		T2_adapter.setCallback(sp);
 		T2_nskzActivity.setCallback(sp);
 		T2_nstskzActivity.setCallback(sp);
+		T2_nksskActivity.setCallback(sp);
 		
 		Intent intent1 = getIntent();
 		Bundle bundle = intent1.getExtras();

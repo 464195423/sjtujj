@@ -7,6 +7,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -123,6 +124,6 @@ private String rid = "";
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.updateTeachHours_path, map, DB.getSessionid(T2_xgsksjActivity.this));	
+		}, NewMyPath.updateTeachHours_path, map, DB.getSessionid(T2_xgsksjActivity.this));	
 	}
 }

@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -214,6 +214,10 @@
         <activity
             android:name=".T2_nddxqActivity"
             android:label="@string/title_activity_t2_nddxq" >
+        </activity>
+        <activity
+            android:name=".T2_nt10Activity"
+            android:label="@string/title_activity_t2_nt10" >
         </activity>
     </application>
 

@@ -13,11 +13,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yousi.net.Nddxx2_net;
+import com.yousi.net.Special;
 import com.yousi.net.T2_ddxx_net;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
+import com.yousi.util.String_unite;
 
 /* 订单详情 */
 public class Nddxx2Fragment extends Fragment {
@@ -29,7 +33,7 @@ public class Nddxx2Fragment extends Fragment {
 	// TODO: Rename and change types of parameters
 
 	private String rid;
-	private T2_ddxx_net T2_ddxx_netItems;
+	private Nddxx2_net Nddxx2_netItems;
 	private String add_price;
 	
 	
@@ -82,29 +86,29 @@ public class Nddxx2Fragment extends Fragment {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("rid", rid);
 		//map.put("pwd", passwd.getText().toString());
-		MyHttpClient.doPost2(null, new NetRespondPost() {
+		MyHttpClient.doGet2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
-					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
-					//Log.v("data1",data1.get("additional_price").toString());
-					if (data1.get("additional_price") == null)
-						add_price = null;
-					else
-						add_price = data1.get("additional_price").toString();
+					Nddxx2_netItems = JSONObject.parseObject(data1.toString(), Nddxx2_net.class);	
 					setData();
 				}
 			}
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.ddxx_path, map, DB.getSessionid(getActivity()));
+		}, NewMyPath.showOrder_path, map, DB.getSessionid(getActivity()));
 	}	
 	
 	private void setData(){
+		TextView l0_tv1 = (TextView)getView().findViewById(R.id.ddxx2_l0_tv1);
+		TextView l0_tv2 = (TextView)getView().findViewById(R.id.ddxx2_l0_tv2);
+		TextView l0_tv3 = (TextView)getView().findViewById(R.id.ddxx2_l0_tv3);
+		TextView l0_tv4 = (TextView)getView().findViewById(R.id.ddxx2_l0_tv4);
+		
 		TextView l1_tv1 = (TextView)getView().findViewById(R.id.ddxx2_l1_tv1);
 		TextView l1_tv2 = (TextView)getView().findViewById(R.id.ddxx2_l1_tv2);
 		TextView l1_tv3 = (TextView)getView().findViewById(R.id.ddxx2_l1_tv3);
@@ -121,15 +125,20 @@ public class Nddxx2Fragment extends Fragment {
 		TextView l3_tv1 = (TextView)getView().findViewById(R.id.ddxx2_l3_tv1);
 		TextView l3_tv2 = (TextView)getView().findViewById(R.id.ddxx2_l3_tv2);
 		
-		//l1_tv1.setText(T2_ddxx_netItems.get);//TODO
-		l1_tv2.setText(T2_ddxx_netItems.getS_gradename());
-		l1_tv3.setText(T2_ddxx_netItems.getS_sexname());
-		l1_tv4.setText(T2_ddxx_netItems.getParentname());
-		l1_tv5.setText(T2_ddxx_netItems.getPhone());
+		l0_tv1.setText("D" + Nddxx2_netItems.getR_id());
+		l0_tv2.setText(Nddxx2_netItems.getOrder_status_info());
+		l0_tv3.setText(Nddxx2_netItems.getOrder_status_point());	
+		l0_tv4.setText(Nddxx2_netItems.getTime());
+		
+		l1_tv1.setText(Nddxx2_netItems.getS_name());
+		l1_tv2.setText(Nddxx2_netItems.getS_gradename());
+		l1_tv3.setText(Nddxx2_netItems.getS_sexname());	
+		l1_tv4.setText(Nddxx2_netItems.getS_parentname());
+		l1_tv5.setText(Nddxx2_netItems.getPhone());	
 		l1_tv6.setText(Html.fromHtml("<font color=#738ffe>"
-				+T2_ddxx_netItems.getAddress()
+				+Nddxx2_netItems.getAddress()
 				+"</font>"
-				+"<font color=#AAAAAA>(点击可查看地图)</font>"));
+				+"<font color=#AAAAAA>(点击可查看地图)</font>"));	
 		l1_tv6.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -137,36 +146,37 @@ public class Nddxx2Fragment extends Fragment {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getActivity(), MapActivity.class);
 				Bundle bundle = new Bundle();
-				bundle.putCharSequence("place", T2_ddxx_netItems.getAddress());
+				bundle.putCharSequence("place", Nddxx2_netItems.getAddress());
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
-		});
+		});		
 		
-		//l2_tv1.setText(T2_ddxx_netItems.get);//TODO
-		l2_tv2.setText(T2_ddxx_netItems.getR_weaksubjectname());
-		if (!T2_ddxx_netItems.getAdditional_subject().equals(""))
-			l2_tv3.setText(T2_ddxx_netItems.getAdditional_subject());
-		if (!T2_ddxx_netItems.getPeople_count().equals("1"))
-			l2_tv4.setText(T2_ddxx_netItems.getPeople_count()+"人");
-		//l2_tv5.setText(T2_ddxx_netItems.get);//TODO
-		
-		l3_tv1.setText(T2_ddxx_netItems.getAdd_price()+"元/时");
+		l2_tv1.setText(Nddxx2_netItems.getT_sexname());
+		l2_tv2.setText(String_unite.unite(Nddxx2_netItems.getWeaksubject(), ", "));
 		String str = "";
-		if (add_price != null)
+		Special tmp1[] = Nddxx2_netItems.getSpecial();
+		for (int i = 0; i < tmp1.length; i++)
+			str += tmp1[i].getName() + " ";
+		l2_tv3.setText(str.equals("") ? "无" : str);
+		l2_tv4.setText(Nddxx2_netItems.getPeople_count());
+		l2_tv5.setText(Nddxx2_netItems.getQualification());
+		
+		l3_tv1.setText(Nddxx2_netItems.getAdd_price()+"元/时");
+		str = "";
+		for (int i = 0; i < tmp1.length; i++)
 		{
-			JSONObject data2 = JSONObject.parseObject(add_price);
-			if (data2.get("外语授课") != null)
-				str += "  外语授课:"+data2.get("外语授课").toString()+"元/时";
-			if (data2.get("外语教材汉语授课") != null)
-				str += "  外语教材汉语授课:"+data2.get("外语教材汉语授课").toString()+"元/时";
-			if (data2.get("竞赛辅导") != null)
-				str += "  竞赛辅导:"+data2.get("竞赛辅导").toString()+"元/时";
+			str += "  ";
+			str += tmp1[i].getName();
+			str += tmp1[i].getPrice();
+			str += "元/时";
 		}
-		l3_tv2.setText(T2_ddxx_netItems.getHalf_price()+"元/时"+"\n"
-				+"("+T2_ddxx_netItems.getS_gradename()+":"+T2_ddxx_netItems.getGrade_price()+"元/时"
-				+(T2_ddxx_netItems.getAdd_price().equals("0") ? "" : ("  加价:"+T2_ddxx_netItems.getAdd_price()+"元/时"))
+	
+		l3_tv2.setText(Nddxx2_netItems.getOne_price()+"元/时"+"\n"
+				+"("+Nddxx2_netItems.getS_gradename()+":"+Nddxx2_netItems.getGrade_price()+"元/时"
+				+(Nddxx2_netItems.getAdd_price().equals("0") ? "" : ("  加价:"+Nddxx2_netItems.getAdd_price()+"元/时"))
 				+ str + ")");
+
 	}
 	
 }

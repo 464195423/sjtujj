@@ -7,6 +7,13 @@ private String r_id;
 private String picture;
 private String parentname;
 private String discount;
+private String hours;
+public String getHours() {
+	return hours;
+}
+public void setHours(String hours) {
+	this.hours = hours;
+}
 public String getClass_type() {
 	return class_type;
 }
@@ -43,8 +50,9 @@ public String getDiscount() {
 public void setDiscount(String discount) {
 	this.discount = discount;
 }
+
 public T3_1net(String class_type, String class_id, String r_id, String picture,
-		String parentname, String discount) {
+		String parentname, String discount, String hours) {
 	super();
 	this.class_type = class_type;
 	this.class_id = class_id;
@@ -52,6 +60,7 @@ public T3_1net(String class_type, String class_id, String r_id, String picture,
 	this.picture = picture;
 	this.parentname = parentname;
 	this.discount = discount;
+	this.hours = hours;
 }
 public T3_1net() {
 	super();

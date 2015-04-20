@@ -42,6 +42,7 @@
 	    android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/appcancoursepic5"
+        android:adjustViewBounds="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 	    

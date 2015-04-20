@@ -8,6 +8,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,6 +31,7 @@ import android.widget.Toast;
 
 public class T2_nstwcActivity extends FragmentActivity {
 private String rid = "";
+private String phone = "";
 private Nddxx2Fragment fragment1;
 private FragmentManager fragmentManager;
 private T2_ddxx_net T2_ddxx_netItems;
@@ -39,9 +41,10 @@ private T2_ddxx_net T2_ddxx_netItems;
 		setContentView(R.layout.activity_t2_nstwc);
 		
 		rid = getIntent().getExtras().getString("rid");
+		phone = getIntent().getExtras().getString("phone");
 		
 		//设置电话
-        getData();
+        setData();
 		
 		//fragment
 		fragmentManager = getSupportFragmentManager();
@@ -61,31 +64,7 @@ private T2_ddxx_net T2_ddxx_netItems;
 			}
 		});
 	}
-	
-	private void getData(){
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("rid", rid);
-		//map.put("pwd", passwd.getText().toString());
-		MyHttpClient.doPost2(null, new NetRespondPost() {
-			@Override
-			public void netWorkOk(String json) {
-				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
-				String code = jsonObject.getString("code");
-				if (code.equals("200")) {
-					JSONObject data1 = jsonObject.getJSONObject("data");
-					T2_ddxx_netItems = JSONObject.parseObject(data1.toString(), T2_ddxx_net.class);	
-					setData();
-				}
-				else
-					Toast.makeText(T2_nstwcActivity.this, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
-			}
-			@Override
-			public void netWorkError() {
-			}
-		}, MyPath.ddxx_path, map, DB.getSessionid(T2_nstwcActivity.this));
-	}
-	
+
 	private void setData(){
 		Button bt1 = (Button)findViewById(R.id.t2_nstwc_bt1);
 		bt1.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +73,7 @@ private T2_ddxx_net T2_ddxx_netItems;
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				//用intent启动拨打电话  
-                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+T2_ddxx_netItems.getPhone()));  
+                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:" + phone));  
                 startActivity(intent); 	
 			}
 		});

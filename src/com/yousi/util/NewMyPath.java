@@ -35,4 +35,16 @@ public static String giveupOrder_path = url + "giveupOrder";
 
 /*type*/
 public static String course_path = url + "course";
+
+/*rid*/
+public static String showOrder_path = url + "showOrder";
+
+/*rid*/
+public static String removeTeach_path = url + "removeTeach";
+
+/*rid*/
+public static String updateTeachHours_path = url + "updateTeachHours";
+
+/*rid*/
+public static String revokeOrder_path = url + "revokeOrder";
 }

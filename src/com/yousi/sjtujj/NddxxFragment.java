@@ -11,6 +11,7 @@ import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
 import com.yousi.util.NewMyPath;
+import com.yousi.util.String_unite;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -148,11 +149,7 @@ public class NddxxFragment extends Fragment {
 		});
 		
 		l2_tv1.setText(Nddxx_netItems.getT_sexname());
-		str = "";
-		String tmp[] = Nddxx_netItems.getWeaksubject();
-		for (int i = 0; i < tmp.length; i++)
-			str += tmp[i] + " ";
-		l2_tv2.setText(str);
+		l2_tv2.setText(String_unite.unite(Nddxx_netItems.getWeaksubject(), ","));
 		
 		str = "";
 		Special tmp1[] = Nddxx_netItems.getSpecial();
