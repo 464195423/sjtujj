@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/finishedteach_tv"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="授课时长：2小时"
+        android:textColor="#36a5df"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="请输入您的6位安全码"
+        android:textColor="#999999"
+        android:gravity="center"/>
+    <EditText 
+        android:id="@+id/finishedteach_et"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:password="true"
+        android:background="@drawable/safecode"
+        android:textColor="#323232"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+</LinearLayout>

@@ -499,7 +499,7 @@ final int TYPE_12 = 12;
 			holder2.textViewl2.setText("学生年级："+list.get(position).getGrade());
 			holder2.textViewl3.setText("辅导科目："+String_unite.unite(list.get(position).getWeaksubject(),"、"));
 			holder2.textViewl4.setText("小时单价："+list.get(position).getOneprice()+"元/时");
-			holder2.textViewl5.setText("剩余联系时间：11:59:59");//TODO
+			holder2.textViewl5.setText("剩余联系时间："+"11:59:59");//TODO
 			if (!list.get(position).getPicture().equals(""))
 			LoadImage.setImageView(context, list.get(position).getPicture(), holder2.ImageView);
 			holder2.textViewtv1.setText(list.get(position).getParentname());
@@ -534,7 +534,7 @@ final int TYPE_12 = 12;
 			holder3.textViewl2.setText("学生年级："+list.get(position).getGrade());
 			holder3.textViewl3.setText("辅导科目："+String_unite.unite(list.get(position).getWeaksubject(),"、"));
 			holder3.textViewl4.setText("小时单价："+list.get(position).getOneprice()+"元/时");
-			holder3.textViewl5.setText("确认试教时间：2015-1-1 10:00:00");//TODO
+			holder3.textViewl5.setText("确认试教时间："+list.get(position).getListentime());
 			if (!list.get(position).getPicture().equals(""))
 			LoadImage.setImageView(context, list.get(position).getPicture(), holder3.ImageView);
 			holder3.textViewtv1.setText(list.get(position).getParentname());
@@ -699,7 +699,24 @@ final int TYPE_12 = 12;
 				
 				@Override
 				public void onClick(View v) {
-					// TODO 放弃等待
+					// TODO 拒绝
+					AlertDialog alert = new AlertDialog.Builder(context).create();
+					alert.setTitle("注意");
+					alert.setMessage("您将要拒绝订单，请确认！");
+					alert.setButton(DialogInterface.BUTTON_POSITIVE,"确认", new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+						//TODO
+							PostData1_2(list.get(position).getR_id());
+						}
+					});
+					alert.setButton(DialogInterface.BUTTON_NEGATIVE,"取消", new OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+						//DONOTHING
+						}
+					});	
+					alert.show();
 				}
 			});
 			break; 

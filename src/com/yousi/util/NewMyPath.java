@@ -42,9 +42,12 @@ public static String showOrder_path = url + "showOrder";
 /*rid*/
 public static String removeTeach_path = url + "removeTeach";
 
-/*rid*/
+/*rid, hours*/
 public static String updateTeachHours_path = url + "updateTeachHours";
 
 /*rid*/
 public static String revokeOrder_path = url + "revokeOrder";
+
+/*rid, [hours], safe_code*/
+public static String finishedTeach_path = url + "finishedTeach";
 }

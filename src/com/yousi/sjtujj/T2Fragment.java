@@ -170,6 +170,11 @@ private static boolean flag = true;
 					startActivityForResult(intent, 0);
 					break;
 				case 9:
+					intent = new Intent(getActivity(), T2_nt9Activity.class);
+					intent.putExtras(bundle);
+					//startActivity(intent);
+					startActivityForResult(intent, 0);
+					break;
 				case 10:
 					intent = new Intent(getActivity(), T2_nt10Activity.class);
 					intent.putExtras(bundle);

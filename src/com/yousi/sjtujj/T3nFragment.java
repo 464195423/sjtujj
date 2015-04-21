@@ -25,6 +25,7 @@ import com.yousi.util.NewMyPath;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ private static boolean flag = true;
 			}		
 		});	
 		
+		
 		lv1 = (PullToRefreshListView)rootView.findViewById(R.id.t3_lv1);  
 		  
         lv1.setMode(Mode.PULL_DOWN_TO_REFRESH);
@@ -104,20 +106,67 @@ private static boolean flag = true;
 		lv2.setDividerPadding(10);
 		lv2.getRefreshableView().setDividerHeight(0);
 				
-		if (adapter1 != null)
-			lv1.setAdapter(adapter1);
-		if (adapter2 != null)
-			lv2.getRefreshableView().setAdapter(adapter2);
+		
+//		if (flag){
+//			getDataResource("wait");
+//			flag = false;
+//		}
 
-	
-		if (flag){
-			getDataResource("wait");
-			flag = false;
-		}
+		
+//		if (adapter1 != null){
+//			lv1.getRefreshableView().setAdapter(adapter1);
+//		}
+//		if (adapter2 != null){
+//			lv2.getRefreshableView().setAdapter(adapter2);
+//		}
+		getDataResource("wait");
 		
 		show(type);
 		return rootView;
 	}
+	
+	@Override
+		public void onResume() {
+			// TODO Auto-generated method stub
+			
+			super.onResume();
+			Log.v("233","========onResume");
+		}
+	
+	@Override
+		public void onPause() {
+			// TODO Auto-generated method stub
+			super.onPause();
+			Log.v("233","========onPause");
+		}
+
+	@Override
+		public void onActivityCreated(Bundle savedInstanceState) {
+			// TODO Auto-generated method stub
+			super.onActivityCreated(savedInstanceState);
+			Log.v("233","========onActivityCreated");
+		}
+	
+	@Override
+		public void onStop() {
+			// TODO Auto-generated method stub
+			super.onStop();
+			Log.v("233","========onStop");
+		}
+	
+	@Override
+		public void onStart() {
+			// TODO Auto-generated method stub
+			super.onStart();
+			Log.v("233","========onStart");
+		}
+	
+	@Override
+		public void onDestroyView() {
+			// TODO Auto-generated method stub
+			super.onDestroyView();
+			Log.v("233","========onDestroyView");
+		}
 	
 	
 	//getDataResourse
@@ -146,13 +195,15 @@ private static boolean flag = true;
 					if (status.equals("wait")){
 						T3_1net_Items1 = parseJsonT3_1netItem(json);
 	    				adapter1 = new T3_1adapter(getActivity(), T3_1net_Items1);
-	    				lv1.setAdapter(adapter1);
+	    				lv1.getRefreshableView().setAdapter(adapter1);
+	    				adapter1.notifyDataSetChanged();
 	    				lv1.onRefreshComplete();
 					}
 					else{
 						T3_2net_Items2 = parseJsonT3_2netItem(json);
 	    				adapter2 = new T3_2adapter(getActivity(), T3_2net_Items2);
 	    				lv2.getRefreshableView().setAdapter(adapter2);
+	    				adapter2.notifyDataSetChanged();
 	    				if (lv2.getRefreshableView().getCount() != 0)
 	    					lv2.getRefreshableView().expandGroup(0);
 	    				lv2.onRefreshComplete();
@@ -218,14 +269,15 @@ private static boolean flag = true;
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
 			lv2.setVisibility(View.GONE);
-			lv1.onRefreshComplete();	
+			//lv1.onRefreshComplete();	
+			Log.v("===", "======s======");
 		}
 		else if (status.equals("list")){
 			if (lv2.getRefreshableView().getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);
 			lv1.setVisibility(View.GONE);
-			lv2.onRefreshComplete();		
+			//lv2.onRefreshComplete();		
 		}
 	}
 
@@ -247,6 +299,6 @@ private static boolean flag = true;
 	@Override
 	public void onRefresh(PullToRefreshBase<ExpandableListView> refreshView) {
 		// TODO Auto-generated method stub
-		
+		getDataResource();
 	}
 }

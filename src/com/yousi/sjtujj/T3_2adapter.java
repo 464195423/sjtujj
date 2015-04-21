@@ -1,10 +1,16 @@
 package com.yousi.sjtujj;
 
+import java.util.HashMap;
 import java.util.List;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yousi.net.Classlist;
 import com.yousi.net.T3_2net;
+import com.yousi.util.DB;
 import com.yousi.util.LoadImage;
+import com.yousi.util.MyHttpClient;
+import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,6 +24,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 class T3_2viewHolder1{
 	public LinearLayout ll;
@@ -155,6 +162,8 @@ private LayoutInflater layoutInflater;
 		
 		if (list.get(groupPosition).getClasslist()[childPosition].getA_status() == null){
 			holder.textViewtv2.setText("等待评价");
+			holder.textViewtv2.setBackground(null);
+			holder.textViewtv2.setTextColor(0xff646464);
 		}
 		else{
 			holder.textViewtv2.setText("查看评价");

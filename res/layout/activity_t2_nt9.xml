@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<!-- Title -->
+	<RelativeLayout 
+	    android:id="@+id/t2_nt9_title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="订单详情"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/t2_nt9_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+	
+	<!-- 确认试教时间、放弃订单 -->
+    <LinearLayout 
+        android:id="@+id/t2_nt9_below"
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding">
+	    <Button
+	        android:id="@+id/t2_nt9_bt1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/t2_nbutton"
+	        android:textColor="@color/white"
+	        android:text="拒绝" 
+	        android:layout_weight="1"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginRight="5dp">
+	    </Button>
+    </LinearLayout>
+    
+    <!-- 订单信息fragment -->
+	<LinearLayout
+        android:id="@+id/t2_nt9_container"
+        android:layout_below="@id/t2_nt9_title"
+        android:layout_above="@id/t2_nt9_below"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content" >
+    </LinearLayout>
+</RelativeLayout>	
