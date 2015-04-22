@@ -42,7 +42,7 @@ private TextView tv1;
 private TextView tv2;
 private int type = 1;
 private PullToRefreshListView lv1; 
-private PullToRefreshExpandableListView lv2; 
+private ExpandableListView lv2; 
 private List<T3_1net> T3_1net_Items1;
 private List<T3_2net> T3_2net_Items2;
 private T3_1adapter adapter1 = null;
@@ -97,76 +97,32 @@ private static boolean flag = true;
 		lv1.setDividerPadding(10);
 		lv1.getRefreshableView().setDividerHeight(0);
 
-		lv2 = (PullToRefreshExpandableListView)rootView.findViewById(R.id.t3_lv2);  
-        lv2.setMode(Mode.PULL_DOWN_TO_REFRESH);
-		lv2.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
-		lv2.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
-		lv2.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
-		lv2.setOnRefreshListener(this);
-		lv2.setDividerPadding(10);
-		lv2.getRefreshableView().setDividerHeight(0);
+		lv2 = (ExpandableListView)rootView.findViewById(R.id.t3_lv2);  
+//        lv2.setMode(Mode.PULL_DOWN_TO_REFRESH);
+//		lv2.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+//		lv2.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
+//		lv2.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+//		lv2.setOnRefreshListener(this);
+//		lv2.setDividerPadding(10);
+//		lv2.getRefreshableView().setDividerHeight(0);
 				
 		
-//		if (flag){
-//			getDataResource("wait");
-//			flag = false;
-//		}
+		if (flag){
+			getDataResource("wait");
+			flag = false;
+		}
 
 		
-//		if (adapter1 != null){
-//			lv1.getRefreshableView().setAdapter(adapter1);
-//		}
-//		if (adapter2 != null){
-//			lv2.getRefreshableView().setAdapter(adapter2);
-//		}
-		getDataResource("wait");
+		if (adapter1 != null){
+			lv1.getRefreshableView().setAdapter(adapter1);
+		}
+		if (adapter2 != null){
+			lv2.setAdapter(adapter2);
+		}
 		
 		show(type);
 		return rootView;
 	}
-	
-	@Override
-		public void onResume() {
-			// TODO Auto-generated method stub
-			
-			super.onResume();
-			Log.v("233","========onResume");
-		}
-	
-	@Override
-		public void onPause() {
-			// TODO Auto-generated method stub
-			super.onPause();
-			Log.v("233","========onPause");
-		}
-
-	@Override
-		public void onActivityCreated(Bundle savedInstanceState) {
-			// TODO Auto-generated method stub
-			super.onActivityCreated(savedInstanceState);
-			Log.v("233","========onActivityCreated");
-		}
-	
-	@Override
-		public void onStop() {
-			// TODO Auto-generated method stub
-			super.onStop();
-			Log.v("233","========onStop");
-		}
-	
-	@Override
-		public void onStart() {
-			// TODO Auto-generated method stub
-			super.onStart();
-			Log.v("233","========onStart");
-		}
-	
-	@Override
-		public void onDestroyView() {
-			// TODO Auto-generated method stub
-			super.onDestroyView();
-			Log.v("233","========onDestroyView");
-		}
 	
 	
 	//getDataResourse
@@ -202,11 +158,11 @@ private static boolean flag = true;
 					else{
 						T3_2net_Items2 = parseJsonT3_2netItem(json);
 	    				adapter2 = new T3_2adapter(getActivity(), T3_2net_Items2);
-	    				lv2.getRefreshableView().setAdapter(adapter2);
+	    				lv2.setAdapter(adapter2);
 	    				adapter2.notifyDataSetChanged();
-	    				if (lv2.getRefreshableView().getCount() != 0)
-	    					lv2.getRefreshableView().expandGroup(0);
-	    				lv2.onRefreshComplete();
+	    				if (lv2.getCount() != 0)
+	    					lv2.expandGroup(0);
+//	    				lv2.onRefreshComplete();
 					}
 				}
 				else
@@ -269,15 +225,12 @@ private static boolean flag = true;
 				getDataResource(status);
 			lv1.setVisibility(View.VISIBLE);
 			lv2.setVisibility(View.GONE);
-			//lv1.onRefreshComplete();	
-			Log.v("===", "======s======");
 		}
 		else if (status.equals("list")){
-			if (lv2.getRefreshableView().getAdapter() == null)
+			if (lv2.getAdapter() == null)
 				getDataResource(status);
 			lv2.setVisibility(View.VISIBLE);
-			lv1.setVisibility(View.GONE);
-			//lv2.onRefreshComplete();		
+			lv1.setVisibility(View.GONE);	
 		}
 	}
 

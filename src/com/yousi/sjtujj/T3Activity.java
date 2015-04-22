@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yousi.net.T3_net;
+import com.yousi.expired.T3_net;
 import com.yousi.util.DB;
 import com.yousi.util.LoadImage;
 import com.yousi.util.MyHttpClient;

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical" >
 
 	<!-- Title -->
@@ -48,27 +49,32 @@
 		    android:orientation="horizontal"
 		    android:layout_gravity="center_vertical"
 		    android:layout_weight="1">
-	        <ImageView
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:src="@drawable/t3_grsz1"/>
-			<TextView 
+	        <TextView 
+	            android:padding="5dp"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:text="允许按用户名搜索我"/>
+			    android:text="允许家长搜索我"
+			    android:textColor="#323232"/>
         </LinearLayout>			
 		<LinearLayout 
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical"
+		    android:layout_gravity="center_vertical"
 		    android:layout_weight="1">
-			<com.yousi.util.SwitchButton
+			<ImageView
+			    android:padding="5dp"
 			    android:id="@+id/t3_grsz_b1"
-			    android:layout_width="wrap_content"  
-	        	android:layout_height="wrap_content"
-	        	android:layout_gravity="right"/>	     		    
+			    android:layout_width="40dp"  
+	        	android:layout_height="20dp"
+	        	android:layout_gravity="right|center_horizontal"/>	     		    
 		</LinearLayout>
     </LinearLayout>
+    
+    <View 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/grey_divider"/>
     
     <!-- Line2 -->
     <LinearLayout
@@ -82,49 +88,12 @@
 		    android:orientation="horizontal"
 		    android:layout_gravity="center_vertical"
 		    android:layout_weight="1">
-	        <ImageView
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:src="@drawable/t3_grsz1"/>
 			<TextView 
+			    android:padding="5dp"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:text="新消息通知"/>
-        </LinearLayout>			
-		<LinearLayout 
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:orientation="vertical"
-		    android:layout_weight="1">
-			<com.yousi.util.SwitchButton
-			    android:id="@+id/t3_grsz_b2"
-			    android:layout_width="wrap_content"  
-	        	android:layout_height="wrap_content"
-	        	android:layout_gravity="right"/>	        		    
-		</LinearLayout>
-    </LinearLayout>    
-    
-    <!-- Line3 -->
-    <LinearLayout
-        android:id="@+id/t3_grsz_l3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/t3_grsz"
-        android:orientation="horizontal">
-        <LinearLayout 
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:orientation="horizontal"
-		    android:layout_gravity="center_vertical"
-		    android:layout_weight="1">
-	        <ImageView
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:src="@drawable/t3_grsz1"/>
-			<TextView 
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="意见反馈"/>
+			    android:text="新消息通知"
+			    android:textColor="#323232"/>
         </LinearLayout>			
 		<LinearLayout 
 		    android:layout_width="fill_parent"
@@ -132,11 +101,16 @@
 		    android:orientation="vertical"
 		    android:layout_weight="1">
 			<ImageView
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_gravity="right"
-	            android:src="@drawable/t3_grsz1"/>	        		    
+			    android:padding="5dp"
+			    android:id="@+id/t3_grsz_b2"
+			    android:layout_width="40dp"  
+	        	android:layout_height="20dp"
+	        	android:layout_gravity="right|center_horizontal"/>	        		    
 		</LinearLayout>
-    </LinearLayout>   
+    </LinearLayout>    
     
+    <View 
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/grey_divider"/>
 </LinearLayout>

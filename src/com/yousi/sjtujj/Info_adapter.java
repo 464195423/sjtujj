@@ -4,7 +4,9 @@ import java.util.List;
 
 
 
-import com.yousi.net.Info_net;
+
+
+import com.yousi.net.Letter_net;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,9 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 class viewHolder{
+	public ImageView imageView;
 	public TextView textView1;
 	public TextView textView2;
 	public TextView textView3;
@@ -23,9 +27,9 @@ class viewHolder{
 public class Info_adapter extends BaseAdapter {
 private Context context;
 private LayoutInflater layoutInflater;	
-private List<Info_net> list;
+private List<Letter_net> list;
 
-	public Info_adapter(Context context, List<Info_net> list){
+	public Info_adapter(Context context, List<Letter_net> list){
 		this.context = context;       
 		layoutInflater = LayoutInflater.from(context);        
 		this.list = list;
@@ -58,6 +62,7 @@ private List<Info_net> list;
 		{
 			convertView = layoutInflater.inflate(R.layout.info_type, parent, false);
 			holder = new viewHolder(); 
+			holder.imageView = (ImageView)convertView.findViewById(R.id.info_iv);
 			holder.textView1 = (TextView)convertView.findViewById(R.id.info_tv1); 
 			holder.textView2 = (TextView)convertView.findViewById(R.id.info_tv2); 
 			holder.textView3 = (TextView)convertView.findViewById(R.id.info_tv3); 
@@ -66,11 +71,15 @@ private List<Info_net> list;
 		else
 			holder = (viewHolder) convertView.getTag(); 
 		
-		holder.textView1.setText(list.get(position).getTitle());
+		if (list.get(position).getType().equals("ϵͳ֪ͨ"))
+			holder.imageView.setBackgroundResource(R.drawable.broadcast);
+		else
+			holder.imageView.setBackgroundResource(R.drawable.letter);
+		holder.textView1.setText(list.get(position).getType());
 		if (list.get(position).getTitle().equals(""))
 			holder.textView1.setVisibility(View.GONE);
-		holder.textView2.setText(list.get(position).getContent());
-		holder.textView3.setText(list.get(position).getTime());
+		holder.textView2.setText(list.get(position).getTime());
+		holder.textView3.setText(list.get(position).getTitle());
 		return convertView;
 	}
 

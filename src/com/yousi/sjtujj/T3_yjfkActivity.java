@@ -7,6 +7,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,7 +31,7 @@ public class T3_yjfkActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t3_yjfk);
 		
-		//意见反馈（未完成）
+		//意见反馈
 		Button bt = (Button)findViewById(R.id.t3_yjfk_submit);
 		bt.setOnClickListener(new View.OnClickListener() {
 			
@@ -57,17 +58,13 @@ public class T3_yjfkActivity extends Activity {
 	private void PostData(){
 		EditText et = (EditText)findViewById(R.id.t3_yjfk_et);
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("member", DB.getTid(T3_yjfkActivity.this));
-		map.put("type", "teacher");
 		map.put("content", et.getText().toString());
 		MyHttpClient.doPost2(T3_yjfkActivity.this, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
-					//end this activity
 					AlertDialog alert = new AlertDialog.Builder(T3_yjfkActivity.this).create();
 					alert.setTitle("提示");
 					alert.setMessage("意见反馈成功，将返回上一级页面");
@@ -85,6 +82,6 @@ public class T3_yjfkActivity extends Activity {
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.makeUserFeedback_path, map, DB.getSessionid(T3_yjfkActivity.this));		
+		}, NewMyPath.makeUserFeedback_path, map, DB.getSessionid(T3_yjfkActivity.this));		
 	}
 }

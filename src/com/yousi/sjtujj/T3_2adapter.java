@@ -126,7 +126,6 @@ private LayoutInflater layoutInflater;
         return convertView;
 	}
 
-	@SuppressLint("NewApi")
 	@Override
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
@@ -162,12 +161,12 @@ private LayoutInflater layoutInflater;
 		
 		if (list.get(groupPosition).getClasslist()[childPosition].getA_status() == null){
 			holder.textViewtv2.setText("等待评价");
-			holder.textViewtv2.setBackground(null);
+			holder.textViewtv2.setBackgroundDrawable(null);
 			holder.textViewtv2.setTextColor(0xff646464);
 		}
 		else{
 			holder.textViewtv2.setText("查看评价");
-			holder.textViewtv2.setBackground(context.getResources().getDrawable(R.drawable.t3_button));
+			holder.textViewtv2.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.t3_button));
 			holder.textViewtv2.setTextColor(0xff36a5df);
 		}
 		

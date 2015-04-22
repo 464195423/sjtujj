@@ -50,4 +50,31 @@ public static String revokeOrder_path = url + "revokeOrder";
 
 /*rid, [hours], safe_code*/
 public static String finishedTeach_path = url + "finishedTeach";
+
+/*null*/
+public static String personalCenter_path = url + "personalCenter";
+
+/*content*/
+public static String makeUserFeedback_path = url + "makeUserFeedback";
+
+/*null*/
+public static String quit_path = url + "quit";
+
+/*before, after*/
+public static String personalLetters_path = url + "personalLetters";
+
+/*id*/
+public static String personalLettersInfo_path = url + "personalLettersInfo";
+
+/*null*/
+public static String personalSet_path = url + "personalSet";
+
+/*searchShow*/
+public static String changeTeacherSearch_path = url + "changeTeacherSearch";
+
+/*null*/
+public static String applyinfo_path = url + "applyinfo";
+
+/*id*/
+public static String applylist_path = url + "applylist";
 }

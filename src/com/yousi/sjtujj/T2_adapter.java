@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.yousi.expired.T2_stskzActivity;
 import com.yousi.net.Order_net;
 import com.yousi.net.T2_net;
+import com.yousi.util.Countdown;
 import com.yousi.util.DB;
 import com.yousi.util.LoadImage;
 import com.yousi.util.MyHttpClient;
@@ -499,7 +500,8 @@ final int TYPE_12 = 12;
 			holder2.textViewl2.setText("学生年级："+list.get(position).getGrade());
 			holder2.textViewl3.setText("辅导科目："+String_unite.unite(list.get(position).getWeaksubject(),"、"));
 			holder2.textViewl4.setText("小时单价："+list.get(position).getOneprice()+"元/时");
-			holder2.textViewl5.setText("剩余联系时间："+"11:59:59");//TODO
+			//holder2.textViewl5.setText("剩余联系时间："+"11:59:59");//TODO
+			Countdown.setCountTime(list.get(position).getServertime(), list.get(position).getEndtime(), holder2.textViewl5);
 			if (!list.get(position).getPicture().equals(""))
 			LoadImage.setImageView(context, list.get(position).getPicture(), holder2.ImageView);
 			holder2.textViewtv1.setText(list.get(position).getParentname());

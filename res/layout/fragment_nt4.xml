@@ -26,14 +26,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/white_bg_with_frame"
         android:orientation="horizontal">
-        <ImageView
+       <com.yousi.util.RoundImageView
 	        android:id="@+id/t4_pic"
 	        android:layout_width="0dp"
 	        android:layout_height="50dp"
 	        android:layout_weight="1"
 	        android:layout_gravity="center"
-	        android:src="@drawable/accuser">       
-	    </ImageView>
+	        android:src="@drawable/accuser"/>       
+
 	    
 	   	<!-- 3 col -->
 	    <LinearLayout 
@@ -54,17 +54,17 @@
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="已授课："
-				        android:textColor="@color/black"/>
+				        android:textColor="#646464"/>
 		        <TextView 
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="总收入："
-				        android:textColor="@color/black"/>
+				        android:textColor="#646464"/>
 		        <TextView 
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="账户余额："
-				        android:textColor="@color/black"/>
+				        android:textColor="#646464"/>
 	        </LinearLayout>  
 	    </LinearLayout>
 	 
@@ -88,19 +88,19 @@
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="136小时"
-				        android:textColor="@color/black"/>
+				        android:textColor="#36a5df"/>
 		        <TextView 
 		            	android:id="@+id/t4_col2"
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="1881.00元"
-				        android:textColor="@color/black"/>
+				        android:textColor="#36a5df"/>
 		        <TextView 
 		           		android:id="@+id/t4_col3"
 			            android:layout_width="wrap_content"
 				        android:layout_height="wrap_content"
 				        android:text="1881.00元"
-				        android:textColor="@color/black"/>
+				        android:textColor="#36a5df"/>
 	        </LinearLayout>  
 	    </LinearLayout>	    
 	    
@@ -122,16 +122,17 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
-	        android:padding="5dp"
+	        android:padding="10dp"
 	        android:text="我的消息"
-	        android:textColor="@color/black"/>
+	        android:textColor="#323232"/>
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
 	        android:layout_alignParentRight="true"
-	        android:padding="5dp"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/t1_lst"/>
+	        android:src="@drawable/arrow_right"/>
 	</RelativeLayout>
 	
 	<!-- 个人设置 -->
@@ -144,16 +145,17 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
-	        android:padding="5dp"
+	        android:padding="10dp"
 	        android:text="个人设置"
-	        android:textColor="@color/black"/>
+	        android:textColor="#323232"/>
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
 	        android:layout_alignParentRight="true"
-	        android:padding="5dp"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/t1_lst"/>
+	        android:src="@drawable/arrow_right"/>
 	</RelativeLayout>
 	
 	<!-- 使用帮助 -->
@@ -166,18 +168,45 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
-	        android:padding="5dp"
+	        android:padding="10dp"
 	        android:text="使用帮助"
-	        android:textColor="@color/black"/>
+	        android:textColor="#323232"/>
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
 	        android:layout_alignParentRight="true"
-	        android:padding="5dp"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/t1_lst"/>
+	        android:src="@drawable/arrow_right"/>
 	</RelativeLayout>
 
+	<View 
+	    android:layout_width="fill_parent"
+	    android:layout_height="10dp"/>
+	
+	<!-- 财务 -->
+	<RelativeLayout 
+	    android:id="@+id/t4_rl4"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="10dp"
+	        android:text="提取记录"
+	        android:textColor="#323232"/>
+	    <ImageView 
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/arrow_right"/>
+	</RelativeLayout>
 	<View 
 	    android:layout_width="fill_parent"
 	    android:layout_height="10dp"/>
@@ -192,16 +221,17 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
-	        android:padding="5dp"
+	        android:padding="10dp"
 	        android:text="意见反馈"
-	        android:textColor="@color/black"/>
+	        android:textColor="#323232"/>
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
 	        android:layout_alignParentRight="true"
-	        android:padding="5dp"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/t1_lst"/>
+	        android:src="@drawable/arrow_right"/>
 	</RelativeLayout>
 		
 	<!-- 退出登录 -->
@@ -214,15 +244,16 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_centerVertical="true"
-	        android:padding="5dp"
+	        android:padding="10dp"
 	        android:text="退出登录"
-	        android:textColor="@color/black"/>
+	        android:textColor="#323232"/>
 	    <ImageView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
 	        android:layout_alignParentRight="true"
-	        android:padding="5dp"
 	        android:layout_centerVertical="true"
-	        android:src="@drawable/t1_lst"/>
+	        android:src="@drawable/arrow_right"/>
 	</RelativeLayout>			
 </LinearLayout>

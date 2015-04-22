@@ -43,33 +43,85 @@
     	android:paddingLeft="10dp"
     	android:paddingRight="10dp">
 	
-		<TextView 
-		    android:id="@+id/t4_xxxq_tv1"
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:textColor="@color/black"
-		    android:textStyle="bold"
-		    android:paddingLeft="5dp"
-		    android:paddingTop="5dp"/>
-		<TextView 
-		    android:id="@+id/t4_xxxq_tv2"
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:gravity="right"
-		    android:textColor="@color/hint"/>	
+	    <!-- 来源 -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+		    <TextView 
+		        android:padding="10dp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="来源："
+		        android:textColor="#323232"/>
+			<TextView 
+			    android:id="@+id/t4_xxxq_tv1"
+			    android:padding="10dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="系统广播"
+			    android:textColor="#36a5df"/>
+			<LinearLayout 
+			    android:padding="10dp"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:gravity="right">
+			    <TextView 
+			        android:id="@+id/t4_xxxq_tv2"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="time"/>
+			</LinearLayout>  
+	    </LinearLayout>
+
+	    <View  
+			android:layout_width="fill_parent"  
+			android:layout_height="1px" 
+			android:background="@drawable/grey_divider"/>
+	    
+	    <!-- 主题 -->
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+		    <TextView 
+		        android:padding="10dp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="主题："
+		        android:textColor="#323232"/>
+			<TextView 
+			    android:id="@+id/t4_xxxq_tv3"
+			    android:padding="10dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="家长用户"
+			    android:textColor="#323232"/>
+		</LinearLayout>
 		
 		<View  
 			android:layout_width="fill_parent"  
 			android:layout_height="1px" 
-			android:background="@drawable/divider"/>  
+			android:background="@drawable/grey_divider"/>  
 			
-		<TextView 
-		    android:id="@+id/t4_xxxq_tv3"
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:paddingLeft="5dp"
-		    android:paddingRight="5dp"
-		    android:paddingTop="5dp"
-		    android:textColor="@color/black"/>	
+		<!-- 内容 -->
+		<LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+		    <TextView 
+		        android:padding="10dp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="内容："
+		        android:textColor="#323232"/>
+			<TextView 
+			    android:id="@+id/t4_xxxq_tv4"
+			    android:padding="10dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="家长用户"
+			    android:textColor="#323232"/>
+		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>

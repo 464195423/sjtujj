@@ -36,14 +36,14 @@
 		</LinearLayout>
 	</RelativeLayout>
 	
-	<ListView 
+	<com.handmark.pulltorefresh.library.PullToRefreshListView
 	    android:id="@+id/t3_grtz_lv"
 	    android:layout_width="fill_parent"
-	    android:layout_height="wrap_content"
-	    android:divider="@color/black"
+	    android:layout_height="fill_parent"
+	    android:divider="@color/grey"
 	    android:dividerHeight="1dp"
 	    android:listSelector="@color/touming">
 	    
-	</ListView>
+	</com.handmark.pulltorefresh.library.PullToRefreshListView>
 	
 </LinearLayout>	

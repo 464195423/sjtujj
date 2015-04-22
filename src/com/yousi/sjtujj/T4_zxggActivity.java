@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.yousi.net.Info_net;
+import com.yousi.net.Letter_net;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
@@ -29,7 +29,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 
 public class T4_zxggActivity extends Activity {
 private String tid = "";
-private List<Info_net> Info_netitems;
+private List<Letter_net> Letter_netitems;
 private Info_adapter adapter;
 private ListView lv; 
 
@@ -61,8 +61,8 @@ private ListView lv;
 		MyHttpClient.doPost2(null, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
-				Info_netitems = parseJsonInfo_netItem(json);
-				adapter = new Info_adapter(T4_zxggActivity.this, Info_netitems);
+				Letter_netitems = parseJsonLetter_netItem(json);
+				adapter = new Info_adapter(T4_zxggActivity.this, Letter_netitems);
 				//adapter.notifyDataSetChanged();
 				lv = (ListView)findViewById(R.id.t4_zxgg_lv);
 				lv.setAdapter(adapter);
@@ -75,7 +75,7 @@ private ListView lv;
 							int position, long id) {
 						// TODO Auto-generated method stub
 						Bundle bundle = new Bundle();
-						bundle.putCharSequence("id", Info_netitems.get(position).getId());
+						bundle.putCharSequence("id", Letter_netitems.get(position).getId());
 						Intent intent = new Intent(T4_zxggActivity.this, T4_xxxqActivity.class);
 						intent.putExtras(bundle);
 						startActivity(intent);
@@ -95,7 +95,7 @@ private ListView lv;
 						alert.setButton(DialogInterface.BUTTON_POSITIVE,"确定", new OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
-								PostData(Info_netitems.get(position).getId());
+								PostData(Letter_netitems.get(position).getId());
 								//刷新列表
 							}
 							
@@ -118,20 +118,20 @@ private ListView lv;
 		}, MyPath.getAnnouncementList_path, map, DB.getSessionid(T4_zxggActivity.this));
 	}
 	
-	public List<Info_net> parseJsonInfo_netItem(String json) {
-		List<Info_net> Info_netItems = null;
+	public List<Letter_net> parseJsonLetter_netItem(String json) {
+		List<Letter_net> Letter_netItems = null;
 		JSONObject jsonObject = JSONObject.parseObject(json);
 		String code = jsonObject.getString("code");
 		if (code.equals("200")) {
 			JSONArray dataArray = jsonObject.getJSONArray("data");
 			if (dataArray != null) {
-				Info_netItems = JSONArray.parseArray(dataArray.toString(),
-						Info_net.class);
+				Letter_netItems = JSONArray.parseArray(dataArray.toString(),
+						Letter_net.class);
 			}else{
 				return null;
 			}
 		}
-		return Info_netItems;
+		return Letter_netItems;
 	}	
 	
 	private void PostData(String id){

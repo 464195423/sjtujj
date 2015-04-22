@@ -142,6 +142,7 @@ public class NddxxFragment extends Fragment {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getActivity(), MapActivity.class);
 				Bundle bundle = new Bundle();
+				bundle.putCharSequence("coordinate",Nddxx_netItems.getCoordinate());
 				bundle.putCharSequence("place", Nddxx_netItems.getAddress());
 				intent.putExtras(bundle);
 				startActivity(intent);

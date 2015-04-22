@@ -18,6 +18,7 @@ import com.yousi.map.*;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -29,20 +30,31 @@ private AMap aMap;
 private MapView mapView;
 private Marker geoMarker;
 private Marker regeoMarker;
-private LatLonPoint latLonPoint = new LatLonPoint(40.003662, 116.465271);
+private LatLonPoint latLonPoint;
 private String place;
+private String coordinate;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
 		
 		place = getIntent().getExtras().getString("place");
+		coordinate = getIntent().getExtras().getString("coordinate");
+		
 		
 		mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);// 必须要写
+
+
+        String str[] = new String[2];
+        str = coordinate.split(",");
+        double d1 = Double.parseDouble(str[0]);
+        double d2 = Double.parseDouble(str[1]);
+
+        latLonPoint = new LatLonPoint(d1, d2);
+        
         init();
-        //getLatlon("上海市普陀区新村路301号 我爱我家（新村店）");
-        getLatlon(place);
+        getAddress(latLonPoint);
         
         TextView tv = (TextView)findViewById(R.id.map_title);
         tv.setText(place);

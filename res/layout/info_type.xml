@@ -1,45 +1,60 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/info_iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_vertical"/>
     
     <LinearLayout 
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView 
+		        android:id="@+id/info_tv1"
+	    	    android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"
+	        	android:text="type"
+	        	android:padding="5dp"
+	        	android:textStyle="bold"
+	        	android:textColor="#36a5df"/>
+            <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+		        <TextView 
+			        android:id="@+id/info_tv2"
+		    	    android:layout_width="wrap_content"
+		        	android:layout_height="wrap_content"
+		        	android:layout_alignParentRight="true"
+		        	android:padding="5dp"
+		        	android:paddingBottom="5dp"
+		        	android:text="date"
+		        	android:textColor="#b2b2b2"/>               
+            </LinearLayout>
+
+        </LinearLayout>
         
         <TextView 
-	        android:id="@+id/info_tv1"
-    	    android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_alignParentRight="true"
-        	android:paddingTop="5dp"
-        	android:paddingLeft="5dp"
-        	android:text="title"
-        	android:textStyle="bold"
-        	android:textColor="@color/black"/>
-        <TextView 
-	        android:id="@+id/info_tv2"
-    	    android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_alignParentRight="true"
-        	android:paddingTop="5dp"
-        	android:paddingLeft="5dp"
-        	android:paddingBottom="5dp"
-        	android:text="content"
-        	android:textColor="@color/hint"/>        
+	        android:id="@+id/info_tv3"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:padding="5dp"
+	        android:text="title"
+	        android:textColor="#808080"/>
+       
     </LinearLayout>
 
-    <TextView 
-        android:id="@+id/info_tv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:text="date"
-        android:textColor="#00aa00"/>
+
     
-</RelativeLayout>
+</LinearLayout>

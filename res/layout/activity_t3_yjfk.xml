@@ -1,11 +1,11 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
 	<!-- Title -->
 	<RelativeLayout 
+	    android:id="@+id/t3_yjfk_title"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content">
 	    <TextView
@@ -34,19 +34,8 @@
 		        android:layout_height="wrap_content"
 		        android:src="@drawable/up"/>
 		</LinearLayout>
+
 	</RelativeLayout>
-    
-    <EditText
-        android:id="@+id/t3_yjfk_et"
-        android:layout_width="fill_parent"
-        android:layout_height="400dp"
-        android:inputType="textMultiLine"
-   		android:gravity="left|top"
-        android:textColorHint="#AAAAAA"
-        android:hint="请输入您的反馈意见"
-        android:background="@drawable/t3_yjfk_bg"
-        android:layout_margin="10dp"
-        />
     
 	<Button 
 	    android:id="@+id/t3_yjfk_submit"
@@ -58,7 +47,22 @@
         android:layout_marginTop="10dp"
 	    android:text="提交反馈意见"
 	    android:textColor="@color/white"
+	    android:layout_alignParentBottom="true"
 	    android:gravity="center"
 	    android:padding="10dp"
 	    android:background="@drawable/t2_qushouke_bg"/>
-</LinearLayout>
+	
+    <EditText
+        android:id="@+id/t3_yjfk_et"
+        android:layout_below="@id/t3_yjfk_title"
+        android:layout_above="@id/t3_yjfk_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+   		android:gravity="left|top"
+        android:textColorHint="#646464"
+        android:hint="请输入您的宝贵意见"
+        android:background="@drawable/t3_yjfk_bg"
+        android:layout_margin="10dp"
+        />
+</RelativeLayout>

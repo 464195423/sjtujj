@@ -223,6 +223,10 @@
             android:name=".T2_nt9Activity"
             android:label="@string/title_activity_t2_nt9" >
         </activity>
+        <activity
+            android:name=".MianActivity"
+            android:label="@string/title_activity_t2_nt9" >
+        </activity>
     </application>
 
 </manifest>

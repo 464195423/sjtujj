@@ -8,6 +8,7 @@ import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
 import com.yousi.util.MyPath;
 import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -47,11 +48,10 @@ private Xxxq_net Xxxq_netItems;
 	private void getData(){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("id", mid);
-		MyHttpClient.doPost2(T4_xxxqActivity.this, new NetRespondPost() {
+		MyHttpClient.doGet2(T4_xxxqActivity.this, new NetRespondPost() {
 			@Override
 			public void netWorkOk(String json) {
 				JSONObject jsonObject = JSONObject.parseObject(json);
-//				JSONObject jsonObject = (JSONObject) JSONObject.parse(json);
 				String code = jsonObject.getString("code");
 				if (code.equals("200")) {
 					JSONObject data1 = jsonObject.getJSONObject("data");
@@ -64,17 +64,19 @@ private Xxxq_net Xxxq_netItems;
 			@Override
 			public void netWorkError() {
 			}
-		}, MyPath.getMessageInfo_path, map, DB.getSessionid(T4_xxxqActivity.this));		
+		}, NewMyPath.personalLettersInfo_path, map, DB.getSessionid(T4_xxxqActivity.this));		
 		
 	}
 	
 	private void setData(){
 		TextView tv1 = (TextView)findViewById(R.id.t4_xxxq_tv1);
-		tv1.setText(Xxxq_netItems.getTitle());
+		tv1.setText(Xxxq_netItems.getType());
 		TextView tv2 = (TextView)findViewById(R.id.t4_xxxq_tv2);
 		tv2.setText(Xxxq_netItems.getTime());
 		TextView tv3 = (TextView)findViewById(R.id.t4_xxxq_tv3);
-		tv3.setText(Html.fromHtml(Xxxq_netItems.getContent()));
+		tv3.setText(Xxxq_netItems.getTitle());
+		TextView tv4 = (TextView)findViewById(R.id.t4_xxxq_tv4);
+		tv4.setText(Html.fromHtml(Xxxq_netItems.getContent()));
 		
 	}
 }
