@@ -187,7 +187,28 @@
 	
 	<!-- 财务 -->
 	<RelativeLayout 
-	    android:id="@+id/t4_rl4"
+	    android:id="@+id/t4_rl4_1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/white_bg_with_frame">
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerVertical="true"
+	        android:padding="10dp"
+	        android:text="财务记录"
+	        android:textColor="#323232"/>
+	    <ImageView 
+	        android:layout_width="10dp"
+	        android:layout_height="20dp"
+	        android:layout_margin="10dp"
+	        android:scaleType="fitXY"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:src="@drawable/arrow_right"/>
+	</RelativeLayout>
+	<RelativeLayout 
+	    android:id="@+id/t4_rl4_2"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:background="@drawable/white_bg_with_frame">

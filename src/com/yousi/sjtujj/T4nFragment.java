@@ -89,7 +89,8 @@ private static boolean flag = true;
 		RelativeLayout rl2 = (RelativeLayout)rootView.findViewById(R.id.t4_rl2);
 		RelativeLayout rl3 = (RelativeLayout)rootView.findViewById(R.id.t4_rl3);
 		
-		RelativeLayout rl4 = (RelativeLayout)rootView.findViewById(R.id.t4_rl4);
+		RelativeLayout rl4_1 = (RelativeLayout)rootView.findViewById(R.id.t4_rl4_1);
+		RelativeLayout rl4_2 = (RelativeLayout)rootView.findViewById(R.id.t4_rl4_2);
 		
 		RelativeLayout rl5 = (RelativeLayout)rootView.findViewById(R.id.t4_rl5);
 		RelativeLayout rl6 = (RelativeLayout)rootView.findViewById(R.id.t4_rl6);
@@ -125,12 +126,22 @@ private static boolean flag = true;
 			}
 		});
 
-		rl4.setOnClickListener(new View.OnClickListener() {
+		rl4_1.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(getActivity(), MianActivity.class);
+				Intent intent = new Intent(getActivity(), T4_cwActivity.class);
+				startActivity(intent);
+			}
+		});	
+		
+		rl4_2.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getActivity(), T4_txActivity.class);
 				startActivity(intent);
 			}
 		});	

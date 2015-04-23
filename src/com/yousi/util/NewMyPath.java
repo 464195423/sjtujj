@@ -60,7 +60,7 @@ public static String makeUserFeedback_path = url + "makeUserFeedback";
 /*null*/
 public static String quit_path = url + "quit";
 
-/*before, after*/
+/*[before, after]*/
 public static String personalLetters_path = url + "personalLetters";
 
 /*id*/
@@ -77,4 +77,7 @@ public static String applyinfo_path = url + "applyinfo";
 
 /*id*/
 public static String applylist_path = url + "applylist";
+
+/*[before, after]*/
+public static String financial_path = url + "financial";
 }

@@ -62,5 +62,7 @@
     <string name="title_activity_t2_nddxq">T2_nddxqActivity</string>
     <string name="title_activity_t2_nt10">T2_nt10Activity</string>
     <string name="title_activity_t2_nt9">T2_nt9Activity</string>
+    <string name="title_activity_t4_tx">T4_txActivity</string>
+    <string name="title_activity_t4_cw">T4_cwActivity</string>
 
 </resources>

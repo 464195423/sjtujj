@@ -20,23 +20,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MianActivity extends Activity {
+public class T4_txActivity extends Activity {
 	private ListView ll_tixian;
 	private List<ApplyRecord> datas;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main2);
+		setContentView(R.layout.activity_t4_tx);
 
 		ll_tixian = (ListView) findViewById(R.id.ll_tixian);
 		
 		GetData();
 		
-		
+		//×óÉÏ·µ»Ø¼ü
+        LinearLayout lv_up = (LinearLayout)findViewById(R.id.t4_tx_up);
+        lv_up.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 		
 	
@@ -58,7 +68,7 @@ public class MianActivity extends Activity {
 			@Override
 			public void netWorkOk(String json) {
 				datas = paserJson(json);
-				ll_tixian.setAdapter(new MyAdapter(MianActivity.this,datas));
+				ll_tixian.setAdapter(new MyAdapter(T4_txActivity.this,datas));
 			}
 			@Override
 			public void netWorkError() {
@@ -78,17 +88,17 @@ class MyAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return datas.size();
+		return datas == null ? 0 : datas.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		return null;
+		return datas.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		return 0;
+		return arg0;
 	}
 
 	@Override
@@ -116,7 +126,11 @@ class MyAdapter extends BaseAdapter {
 		}
 		holder.tv_txdh_dh.setText(record.getId());
 		holder.tv_txdh_time.setText(record.getTime());
-		holder.tv_txje.setText(record.getAmount());
+		
+		java.text.DecimalFormat df = new java.text.DecimalFormat("#.00");   
+		double d1 = Double.parseDouble(record.getAmount());
+		holder.tv_txje.setText(df.format(d1));
+		
 		holder.tv_txzh_acc.setText(record.getAccount());
 		holder.tv_txzh_name.setText(record.getName());
 		String bankName = record.getBankname();

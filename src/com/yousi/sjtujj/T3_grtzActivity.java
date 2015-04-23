@@ -32,7 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class T3_grtzActivity extends Activity implements OnRefreshListener2<ListView> {
-private String tid = "";
 private List<Letter_net> Letter_netitems;
 private Info_adapter adapter;
 private PullToRefreshListView lv;
