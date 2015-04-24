@@ -17,7 +17,6 @@ class MyHolder{
 	public TextView tv1;
 	public TextView tv2;
 	public TextView tv3;
-	public boolean isClicked;
 }
 
 public class T4_cw_adapter extends BaseAdapter{
@@ -71,32 +70,9 @@ private MyHolder holder;
 		
 		holder.tv1.setText(list.get(position).getCreate_time());
 		holder.tv2.setText(list.get(position).getDesc());
-		holder.tv3.setText((list.get(position).getStatus().equals("1") ? "+" : "-") + list.get(position).getGold());
+		holder.tv3.setText((list.get(position).getStatus().equals("1") ? "+" : "") + list.get(position).getGold());
 		holder.tv3.setTextColor(list.get(position).getStatus().equals("1") ? 0xff57caa0 : 0xffef6767 );
-		
-		//设置点击事件
-		holder.isClicked = false;
-		holder.tv2.setSingleLine();
-		holder.tv2.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-		
-		convertView.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Log.v("===","======");
-				
-				holder.isClicked = ! holder.isClicked;
-				if (holder.isClicked){
-					holder.tv2.setMaxLines(10);
-				}
-				else{
-					holder.tv2.setSingleLine();
-					holder.tv2.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-				}
-			}
-		});
-			
+	
 		return convertView;
 	}
 }

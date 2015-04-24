@@ -64,5 +64,7 @@
     <string name="title_activity_t2_nt9">T2_nt9Activity</string>
     <string name="title_activity_t4_tx">T4_txActivity</string>
     <string name="title_activity_t4_cw">T4_cwActivity</string>
+    <string name="title_activity_t4_cwxq">T4_cwxqActivity</string>
+    <string name="title_activity_t4_txjl">T4_txjlActivity</string>
 
 </resources>

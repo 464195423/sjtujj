@@ -80,4 +80,7 @@ public static String applylist_path = url + "applylist";
 
 /*[before, after]*/
 public static String financial_path = url + "financial";
+
+/*null*/
+public static String applyBegin_path = url + "applyBegin";
 }

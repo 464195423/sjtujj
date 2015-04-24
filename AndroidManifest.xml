@@ -231,6 +231,33 @@
             android:name=".T4_cwActivity"
             android:label="@string/title_activity_t4_cw" >
         </activity>
+        <activity
+            android:name=".T4_cwxqActivity"
+            android:label="@string/title_activity_t4_cwxq" >
+        </activity>
+        <activity
+            android:name=".T4_txxqActivity"
+            android:label="@string/title_activity_t4_txjl" >
+        </activity>
+        <activity android:name="com.yousi.bank.MianActivity" >
+            <intent-filter>
+                <action android:name="account" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.yousi.bank.AccountManagerActivity"
+            android:label="@string/title_activity_t4_txjl">
+        </activity>
+        <activity
+            android:name="com.yousi.bank.AddAccountActivity"
+            android:label="@string/title_activity_t4_txjl">
+        </activity>
+        <activity
+            android:name="com.yousi.bank.ChooseBankActivity"
+            android:label="@string/title_activity_t4_txjl">
+        </activity>        
     </application>
 
 </manifest>

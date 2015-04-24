@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 import com.yousi.net.ApplyRecord;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
@@ -25,15 +29,25 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class T4_txActivity extends Activity {
-	private ListView ll_tixian;
-	private List<ApplyRecord> datas;
+public class T4_txActivity extends Activity implements OnRefreshListener2<ListView>{
+private PullToRefreshListView ll_tixian;
+private MyAdapter adapter;
+private List<ApplyRecord> datas;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_t4_tx);
 
-		ll_tixian = (ListView) findViewById(R.id.ll_tixian);
+		ll_tixian = (PullToRefreshListView) findViewById(R.id.ll_tixian);
+		
+		ll_tixian.setMode(Mode.BOTH);
+		ll_tixian.getLoadingLayoutProxy(true, false).setPullLabel("下拉刷新");
+		ll_tixian.getLoadingLayoutProxy(true, false).setReleaseLabel("放开以刷新");
+		ll_tixian.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+		ll_tixian.getLoadingLayoutProxy(false, true).setPullLabel("上拉加载更多");
+		ll_tixian.getLoadingLayoutProxy(false, true).setReleaseLabel("放开以加载");
+		ll_tixian.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
+		ll_tixian.setOnRefreshListener(this);
 		
 		GetData();
 		
@@ -68,12 +82,63 @@ public class T4_txActivity extends Activity {
 			@Override
 			public void netWorkOk(String json) {
 				datas = paserJson(json);
-				ll_tixian.setAdapter(new MyAdapter(T4_txActivity.this,datas));
+				adapter = new MyAdapter(T4_txActivity.this,datas);
+				ll_tixian.setAdapter(adapter);
 			}
 			@Override
 			public void netWorkError() {
 			}
 		}, NewMyPath.applylist_path, map, DB.getSessionid(this));		
+	}
+
+	private void updateData1(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		if (!datas.isEmpty())
+			map.put("after", datas.get(0).getId());
+		MyHttpClient.doGet2(this, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				List<ApplyRecord> tmp = paserJson(json);
+				if (tmp != null)
+					datas.addAll(0, tmp);
+				adapter.notifyDataSetChanged();
+				ll_tixian.onRefreshComplete();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.applylist_path, map, DB.getSessionid(this));		
+	}
+	
+	private void updateData2(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("before", datas.get(datas.size()-1).getId());
+		MyHttpClient.doGet2(this, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				List<ApplyRecord> tmp = paserJson(json);
+				if (tmp != null)
+					datas.addAll(tmp);
+				adapter.notifyDataSetChanged();
+				ll_tixian.onRefreshComplete();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.applylist_path, map, DB.getSessionid(this));		
+	}
+
+	@Override
+	public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+		// TODO Auto-generated method stub
+		updateData1();
+	}
+
+
+	@Override
+	public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+		// TODO Auto-generated method stub
+		updateData2();
 	}
 }
 

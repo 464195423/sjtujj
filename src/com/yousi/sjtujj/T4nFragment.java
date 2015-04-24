@@ -3,6 +3,7 @@ package com.yousi.sjtujj;
 import java.util.HashMap;
 
 import com.alibaba.fastjson.JSONObject;
+import com.yousi.bank.MianActivity;
 import com.yousi.net.T4_net;
 import com.yousi.util.DB;
 import com.yousi.util.LoadImage;
@@ -46,6 +47,20 @@ private static boolean flag = true;
 		}
 		
 		GetData();
+		
+		//设置账户管理和申请提现
+		TextView tv1 = (TextView)rootView.findViewById(R.id.t4_bt1);
+		TextView tv2 = (TextView)rootView.findViewById(R.id.t4_bt2);		
+		
+		tv1.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getActivity(), MianActivity.class);
+				startActivity(intent);
+			}
+		});
 		
 		return rootView;
 	}

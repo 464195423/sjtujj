@@ -114,7 +114,8 @@ private PullToRefreshListView lv;
 			@Override
 			public void netWorkOk(String json) {
 				List<Letter_net> tmp = parseJsonLetter_netItem(json);
-				Letter_netitems.addAll(0, tmp);
+				if (tmp != null)
+					Letter_netitems.addAll(0, tmp);
 				adapter.notifyDataSetChanged();  
 				lv.onRefreshComplete();
 			}
@@ -131,7 +132,8 @@ private PullToRefreshListView lv;
 			@Override
 			public void netWorkOk(String json) {
 				List<Letter_net> tmp = parseJsonLetter_netItem(json);
-				Letter_netitems.addAll(tmp);
+				if (tmp != null)
+					Letter_netitems.addAll(tmp);
 				adapter.notifyDataSetChanged();
 				lv.onRefreshComplete();
 			}
