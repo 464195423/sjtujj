@@ -5,7 +5,42 @@
     android:background="#e6e6e6"
     android:orientation="vertical" >
 
+    <!-- Title -->
+	<RelativeLayout 
+	    android:id="@+id/account_info_title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="账户详情"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/account_info_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+    
+    
     <RelativeLayout
+        android:layout_below="@id/account_info_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -16,8 +51,8 @@
 
         <ImageView
             android:id="@+id/iv_banktype_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="25dp"
@@ -37,8 +72,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="招商银行"
-                android:textSize="18sp" />
+                android:text="招商银行"/>
 
             <TextView
                 android:id="@+id/tv_account_info"
@@ -47,8 +81,7 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="1234564775852475 胡玉"
-                android:textColor="#646464"
-                android:textSize="17sp" />
+                android:textColor="#646464"/>
         </LinearLayout>
 
     </RelativeLayout>
@@ -64,11 +97,10 @@
         android:layout_marginRight="15dp"
         android:background="@drawable/corner"
         android:gravity="center"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:text="取消"
-        android:textColor="#2227fa"
-        android:textSize="22sp" />
+        android:textColor="#2227fa"/>
 
     <TextView
         android:id="@+id/tv_del"
@@ -81,10 +113,9 @@
         android:layout_marginRight="15dp"
         android:background="@drawable/corner"
         android:gravity="center"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:text="删除"
-        android:textColor="#e0283a"
-        android:textSize="22sp" />
+        android:textColor="#e0283a"/>
 
 </RelativeLayout>

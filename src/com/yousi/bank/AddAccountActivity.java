@@ -3,8 +3,12 @@ package com.yousi.bank;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yousi.sjtujj.R;
+import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
+import com.yousi.util.NetRespondPost;
+import com.yousi.util.NewMyPath;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +45,17 @@ public class AddAccountActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_account);
 		init();
+		
+		//左上返回键
+        LinearLayout lv_up = (LinearLayout)findViewById(R.id.add_account_up);
+        lv_up.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 	
 	private void init(){
@@ -88,18 +104,7 @@ public class AddAccountActivity extends Activity {
 						map.put("account_city", account_city);
 						map.put("account_brance", account_brance);
 					}
-//					MyHttpClient.doPost2(AddAccountActivity.this,
-//							new NetRespondPost() {
-//								@Override
-//								public void netWorkOk(String json) {
-//
-//								}
-//
-//								@Override
-//								public void netWorkError() {
-//
-//								}
-//							}, " path   addBankAccount", map, "SessionID");
+					PostData();
 				} else {
 					Toast.makeText(AddAccountActivity.this,
 							"你输入的信息不全，请补全后再添加！", Toast.LENGTH_LONG).show();
@@ -120,6 +125,9 @@ public class AddAccountActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		if (data == null) 
+			return;
+		
 		if (requestCode == 0 && resultCode == 0) {
 			String type = data.getStringExtra("type");
 			banktype = type;
@@ -132,5 +140,31 @@ public class AddAccountActivity extends Activity {
 				relativeLayout5.setVisibility(View.GONE);
 			}
 		}
+	}
+	
+	
+	private void PostData(){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("banktype", banktype);
+		map.put("account_no", account_no);
+		map.put("account_name", account_name);
+		map.put("account_city", account_city);
+		map.put("account_brance", account_brance);
+		MyHttpClient.doPost2(AddAccountActivity.this, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					Toast.makeText(AddAccountActivity.this, "添加成功！", Toast.LENGTH_SHORT).show();
+					finish();
+				}
+				else
+					Toast.makeText(AddAccountActivity.this, jsonObject.getString("desc"), Toast.LENGTH_SHORT).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.addBankAccount_path, map, DB.getSessionid(AddAccountActivity.this));
 	}
 }

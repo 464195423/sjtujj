@@ -22,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,19 +36,33 @@ public class MianActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main2);
 		ll_zhgl = (ListView) findViewById(R.id.ll_zhgl);
-		// ll_tixian.setAdapter(new MyAdapter2(this,datas));
-		
-//		datas = new ArrayList<AccountInfo>();
-//		AccountInfo accountInfo = new AccountInfo();
-//		accountInfo.setAccount_name("jiojkjj");
-//		datas.add(accountInfo);
-//		datas.add(accountInfo);
-//		datas.add(accountInfo);
-		
-		GetData();
-		
-		//ll_zhgl.setAdapter(new MyAdapter2(this));
 
+		//获取数据
+		GetData();
+
+		//添加银行
+		TextView tv = (TextView)findViewById(R.id.main2_add);
+		tv.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MianActivity.this,
+						AddAccountActivity.class);
+				startActivity(intent);
+			}
+		});
+
+		//左上返回键
+        LinearLayout lv_up = (LinearLayout)findViewById(R.id.main2_up);
+        lv_up.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 
 	private void GetData(){
@@ -69,7 +84,6 @@ public class MianActivity extends Activity {
 							Intent intent = new Intent(MianActivity.this,
 									AccountManagerActivity.class);
 							intent.putExtra("data", applyBeginInfo.getAccount().get(arg2));
-							Log.v("==","====="+applyBeginInfo.getAccount().get(arg2).getBanktype()+"");
 							startActivity(intent);
 						}
 					});

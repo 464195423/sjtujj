@@ -22,8 +22,7 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
 private EditText user;
 private EditText passwd;
-private static Login_net Login_netItems;
-	@Override
+@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);

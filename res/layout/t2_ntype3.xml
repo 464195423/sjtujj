@@ -30,7 +30,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
 		        android:textColor="@color/t2_lv_title"
-		        android:text="已确认时间，待试教"/>
+		        android:text="待试教"/>
 		    <TextView 
 		        android:id="@+id/t2_t3_title2"
 		        android:layout_width="wrap_content"

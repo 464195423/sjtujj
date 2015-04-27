@@ -1,8 +1,9 @@
 package com.yousi.bank;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ApplyBeginInfo {
+public class ApplyBeginInfo implements Serializable {
 	private String gold;
 	private List<AccountInfo> account;
 	public ApplyBeginInfo() {

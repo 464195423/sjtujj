@@ -6,23 +6,25 @@ public class ApplyRecord {
 	private String amount;
 	private String name;
 	private String account;
-	private String bankname;
+	private String banktype;
 
 	public ApplyRecord() {
 		super();
 		// TODO 自动生成的构造函数存根
 	}
 
+
 	public ApplyRecord(String id, String time, String amount, String name,
-			String account, String bankname) {
+			String account, String banktype) {
 		super();
 		this.id = id;
 		this.time = time;
 		this.amount = amount;
 		this.name = name;
 		this.account = account;
-		this.bankname = bankname;
+		this.banktype = banktype;
 	}
+
 
 	public String getId() {
 		return id;
@@ -64,11 +66,14 @@ public class ApplyRecord {
 		this.account = account;
 	}
 
-	public String getBankname() {
-		return bankname;
+
+	public String getBanktype() {
+		return banktype;
 	}
 
-	public void setBankname(String bankname) {
-		this.bankname = bankname;
+
+	public void setBanktype(String banktype) {
+		this.banktype = banktype;
 	}
+
 }

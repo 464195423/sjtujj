@@ -42,7 +42,7 @@ private FragmentManager fragmentManager;
 			}
 		});
 		
-		//查看课程
+		//确认结课
 		Button bt1 = (Button)findViewById(R.id.t2_nstskz_bt1);
 		bt1.setOnClickListener(new View.OnClickListener() {
 							
@@ -55,6 +55,9 @@ private FragmentManager fragmentManager;
 				finish();
 			}
 		});
+		
+		//取消试教
+		Button bt2 = (Button)findViewById(R.id.t2_nstskz_bt1);
 		
 		
 	}

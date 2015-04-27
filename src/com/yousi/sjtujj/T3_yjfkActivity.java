@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class T3_yjfkActivity extends Activity {
@@ -32,7 +33,7 @@ public class T3_yjfkActivity extends Activity {
 		setContentView(R.layout.activity_t3_yjfk);
 		
 		//Òâ¼û·´À¡
-		Button bt = (Button)findViewById(R.id.t3_yjfk_submit);
+		TextView bt = (TextView)findViewById(R.id.t3_yjfk_submit);
 		bt.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

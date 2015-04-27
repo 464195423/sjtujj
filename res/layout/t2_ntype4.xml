@@ -30,7 +30,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
 		        android:textColor="@color/t2_lv_title"
-		        android:text="试教中，待结束试教"/>
+		        android:text="待结束试教"/>
 		    <TextView 
 		        android:id="@+id/t2_t4_title2"
 		        android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
 		    		android:background="@drawable/t2_nbutton"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
-		    		android:text="操作"/>
+		    		android:text="确认结课"/>
 		    </LinearLayout>
 		    
 		</RelativeLayout>	

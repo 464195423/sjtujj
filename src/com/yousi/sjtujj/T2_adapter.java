@@ -33,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -580,8 +581,7 @@ final int TYPE_12 = 12;
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					if (mSwitch != null)
-						mSwitch.switch_pager(2);
+
 				}
 			});
 			break;
@@ -900,6 +900,102 @@ final int TYPE_12 = 12;
 			}
 		}, NewMyPath.revokeOrder_path, map, DB.getSessionid(context));		
 	}	
+	
+	
+	//取消授课
+	private void PostDatan1(String rid){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.removeTeach_path, map, DB.getSessionid(context));		
+		
+	}
+	
+	//修改授课时间
+	private void PostDatan2(String rid, String hours){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		map.put("hours", hours);
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.updateTeachHours_path, map, DB.getSessionid(context));		
+		
+	}
+	
+	//结束上课
+	private void PostDatan3(String rid, String hours, String safe_code){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		map.put("hours", hours);
+		map.put("safe_code", safe_code);
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+					Toast.makeText(context, "结课成功", Toast.LENGTH_LONG).show();
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.finishedTeach_path, map, DB.getSessionid(context));		
+		
+	}
+	
+	//结束上课
+	private void PostDatan3(String rid, String safe_code){
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("rid", rid);
+		map.put("safe_code", safe_code);
+		MyHttpClient.doPost2(context, new NetRespondPost() {
+			@Override
+			public void netWorkOk(String json) {
+				JSONObject jsonObject = JSONObject.parseObject(json);
+				String code = jsonObject.getString("code");
+				if (code.equals("200")) {
+					//end this activity
+					Toast.makeText(context, "结课成功", Toast.LENGTH_LONG).show();
+				}
+				else
+					Toast.makeText(context, jsonObject.getString("desc"), Toast.LENGTH_LONG).show();
+			}
+			@Override
+			public void netWorkError() {
+			}
+		}, NewMyPath.finishedTeach_path, map, DB.getSessionid(context));		
+		
+	}
+	
 	
 	private static Switch_pager mSwitch=null;
 	public static void setCallback(Switch_pager callback){

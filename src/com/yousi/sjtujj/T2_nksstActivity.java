@@ -25,6 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class T2_nksstActivity extends FragmentActivity {
 private String rid = "";
@@ -149,6 +150,8 @@ private FragmentManager fragmentManager;
 					JSONObject data1 = jsonObject.getJSONObject("data");
 					time = data1.getString("listen_time");
 				}
+				else
+					Toast.makeText(T2_nksstActivity.this, jsonObject.getString("desc"), Toast.LENGTH_SHORT).show();
 			}
 			@Override
 			public void netWorkError() {

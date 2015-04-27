@@ -5,18 +5,51 @@
     android:background="#e6e6e6"
     android:orientation="vertical" >
 
+    <!-- Title -->
+	<RelativeLayout 
+	    android:id="@+id/add_account_title"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="账户详情"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/add_account_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+	</RelativeLayout>
+    
     <RelativeLayout
+        android:layout_below="@id/add_account_title"
         android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
         android:background="#ffffff" >
 
         <ImageView
             android:id="@+id/iv_khh_icon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@+id/textView1"
@@ -29,8 +62,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:text="帐户类型"
-            android:textSize="18sp" />
+            android:text="帐户类型"/>
 
         <ImageView
             android:id="@+id/imageView2"
@@ -76,8 +108,7 @@
             android:layout_toRightOf="@+id/textView2"
             android:background="@null"
             android:ems="10"
-            android:hint="请输入你的帐户"
-            android:textSize="16sp" >
+            android:hint="请输入你的帐户">
 
             <requestFocus />
         </EditText>
@@ -90,8 +121,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
-            android:text="账        户"
-            android:textSize="18sp" />
+            android:text="账         户"/>
 
         <View
             android:layout_width="match_parent"
@@ -126,8 +156,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
-            android:text="帐户姓名"
-            android:textSize="18sp" />
+            android:text="帐户姓名"/>
 
         <EditText
             android:id="@+id/et_account_name"
@@ -137,8 +166,7 @@
             android:layout_toRightOf="@+id/textView3"
             android:background="@null"
             android:ems="10"
-            android:hint="请输入你的账户姓名"
-            android:textSize="16sp" />
+            android:hint="请输入你的账户姓名"/>
 
         <View
             android:layout_width="match_parent"
@@ -175,8 +203,7 @@
             android:layout_toRightOf="@+id/textView2_a"
             android:background="@null"
             android:ems="10"
-            android:hint="请输入你的开户城市"
-            android:textSize="16sp" >
+            android:hint="请输入你的开户城市">
         </EditText>
 
         <TextView
@@ -187,8 +214,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
-            android:text="开户城市"
-            android:textSize="18sp" />
+            android:text="开户城市"/>
 
         <View
             android:layout_width="match_parent"
@@ -224,8 +250,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
-            android:text="开户支行"
-            android:textSize="18sp" />
+            android:text="开户支行"/>
 
         <EditText
             android:id="@+id/et_account_bank"
@@ -235,8 +260,7 @@
             android:layout_toRightOf="@+id/textView3_a"
             android:background="@null"
             android:ems="10"
-            android:hint="请输入你的开户支行"
-            android:textSize="16sp" />
+            android:hint="请输入你的开户支行"/>
 
         <View
             android:layout_width="match_parent"
@@ -266,10 +290,9 @@
         android:layout_marginRight="40dp"
         android:background="@drawable/corner2"
         android:gravity="center"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
         android:text="添加"
-        android:textColor="#ffffff"
-        android:textSize="18sp" />
+        android:textColor="#ffffff"/>
 
 </RelativeLayout>

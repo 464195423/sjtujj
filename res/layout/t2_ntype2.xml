@@ -30,7 +30,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
 		        android:textColor="@color/t2_lv_title"
-		        android:text="已接单，待联系"/>
+		        android:text="待联系"/>
 		    <TextView 
 		        android:id="@+id/t2_t2_title2"
 		        android:layout_width="wrap_content"

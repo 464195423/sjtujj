@@ -257,7 +257,15 @@
         <activity
             android:name="com.yousi.bank.ChooseBankActivity"
             android:label="@string/title_activity_t4_txjl">
-        </activity>        
+        </activity>      
+        <activity
+            android:name="com.yousi.bank.ApplyToCashActivity"
+            android:label="@string/title_activity_t4_txjl">
+        </activity>  
+        <activity
+            android:name="com.yousi.bank.ChooseAccountActivity"
+            android:label="@string/title_activity_t4_txjl">
+        </activity>    
     </application>
 
 </manifest>

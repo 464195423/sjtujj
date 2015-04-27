@@ -83,4 +83,16 @@ public static String financial_path = url + "financial";
 
 /*null*/
 public static String applyBegin_path = url + "applyBegin";
+
+/*null*/
+public static String getCashVerify_path = url + "getCashVerify";
+
+/*account, amount, verify*/
+public static String getMoney_path = url + "getMoney";
+
+/*banktype, account_no, account_name, account_city, account_brance*/
+public static String addBankAccount_path = url + "addBankAccount";
+
+/*bank*/
+public static String deleteBankAccount_path = url + "deleteBankAccount";
 }

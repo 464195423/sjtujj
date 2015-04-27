@@ -9,6 +9,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
+import com.yousi.bank.BankName;
 import com.yousi.net.ApplyRecord;
 import com.yousi.util.DB;
 import com.yousi.util.MyHttpClient;
@@ -22,6 +23,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,6 +53,22 @@ private List<ApplyRecord> datas;
 		ll_tixian.setOnRefreshListener(this);
 		
 		GetData();
+		
+		ll_tixian.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				position--;
+				Intent intent = new Intent(T4_txActivity.this, T4_txxqActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putString("id", datas.get(position).getId());
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
+		});
+		
 		
 		//×óÉÏ·µ»Ø¼ü
         LinearLayout lv_up = (LinearLayout)findViewById(R.id.t4_tx_up);
@@ -198,21 +217,13 @@ class MyAdapter extends BaseAdapter {
 		
 		holder.tv_txzh_acc.setText(record.getAccount());
 		holder.tv_txzh_name.setText(record.getName());
-		String bankName = record.getBankname();
+		String banktype = record.getBanktype();
 		int resourceId;
-		if (bankName != null)
-		
-			switch (bankName) {
-			case "Ö§¸¶±¦":
-				resourceId = R.drawable.ic_launcher;
-				break;
-	
-			default:
-				resourceId = R.drawable.ic_launcher;
-				break;
+		if (banktype != null){
+				resourceId = BankName.getBankImageId(banktype);
 			}
 		else
-			resourceId = R.drawable.ic_launcher;
+			resourceId = R.drawable.alipay;
 		holder.iv_txzh_icon.setImageResource(resourceId);;
 		return convertView;
 	}

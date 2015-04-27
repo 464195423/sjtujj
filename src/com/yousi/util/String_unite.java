@@ -17,7 +17,7 @@ public static String unite(String[] str, String c){
 	String tmp = "";
 	for (int i = 0; i < str.length; i++)
 		tmp += str[i] + c;
-	tmp = tmp.substring(0, tmp.length() - 1);	
+	tmp = tmp.substring(0, tmp.length() - c.length());	
 	return tmp;
 }
 }

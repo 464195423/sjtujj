@@ -30,7 +30,7 @@
 		        android:layout_height="wrap_content"
 		        android:padding="5dp"
 		        android:textColor="@color/t2_lv_title"
-		        android:text="已被他人接单，请等待"/>
+		        android:text="失效订单"/>
 		    <TextView 
 		        android:id="@+id/t2_t11_title2"
 		        android:layout_width="wrap_content"

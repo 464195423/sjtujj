@@ -13,7 +13,7 @@
 	        android:layout_height="wrap_content"
 	        android:textColor="@color/white"
 	        android:background="@color/background1"
-	        android:text="消息详情"
+	        android:text="提现详情"
 	        android:gravity="center"
 	        android:paddingTop="@dimen/padding"
 	        android:paddingBottom="@dimen/padding"
@@ -55,12 +55,12 @@
 	        android:textColor="#646464" />
 	
 	    <TextView
-	        android:id="@+id/tv_txdh_time"
+	        android:id="@+id/tv_txdh_amount"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentRight="true"
 	        android:layout_alignParentTop="true"
-	        android:text="2015-04-02  15:23:45"
+	        android:text="提现金额：￥180"
 	        android:textColor="#646464" />
 
 	    <TextView
@@ -84,6 +84,7 @@
 	    android:background="#d7edf9" />
 	
 	<TextView 
+	    android:id="@+id/t4_txxq_hint"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_marginTop="10dp"
@@ -93,6 +94,7 @@
 	    android:textSize="20sp"
 	    android:textColor="#57caa0"/>
 	
+	<!-- Image+3tv -->
 	<LinearLayout 
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
@@ -100,10 +102,73 @@
 	    android:paddingRight="20dp"
 	    android:orientation="horizontal">
 	    <ImageView 
+	        android:id="@+id/t4_txxq_iv"
 	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
+	        android:layout_height="300dp"
 	        android:layout_weight="1"
 	        android:src="@drawable/step1"/>
+	    <View 
+	        android:layout_width="20dp"
+	        android:layout_height="300dp"/>
+	    <LinearLayout 
+	        android:layout_width="0dp"
+	        android:layout_height="300dp"
+	        android:layout_weight="3"
+	        android:orientation="vertical">
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:orientation="vertical">
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv1_1"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="提交申请"
+	                android:textColor="#36a5df"/>
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv1_2"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="2015-01-01 10:00"
+	                android:textColor="#646464"/>
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:orientation="vertical">
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv2_1"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="优思处理完成"/>
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv2_2"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="2015-01-01 10:00"/>
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:gravity="center"
+	            android:orientation="vertical">
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv3_1"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="支付平台处理完成"/>
+	            <TextView 
+	                android:id="@+id/t4_txxq_tv3_2"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="2015-01-01 10:00"/>
+	        </LinearLayout>
+	    </LinearLayout>
 	</LinearLayout>
 
 </LinearLayout>

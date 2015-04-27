@@ -106,7 +106,7 @@
 		    		android:background="@drawable/t2_nbutton"
 		    		android:layout_gravity="center"
 		    		android:gravity="center"
-		    		android:text="拒绝"/>
+		    		android:text="放弃等待"/>
 		    </LinearLayout>
 		    
 		</RelativeLayout>	

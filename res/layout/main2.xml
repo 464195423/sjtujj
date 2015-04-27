@@ -5,6 +5,53 @@
     android:background="#cfcecd"
     android:orientation="vertical" >
 
+    <!-- Title -->
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="账户管理"
+	        android:gravity="center"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	    <LinearLayout
+	        android:id="@+id/main2_up"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerHorizontal="true"
+	        android:paddingLeft="@dimen/up_left_padding"
+	        android:paddingRight="@dimen/up_right_padding"
+	        android:paddingTop="@dimen/padding"
+		    android:paddingBottom="@dimen/padding"
+		    android:gravity="center">
+		    <ImageView 
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:src="@drawable/up"/>
+		</LinearLayout>
+		<TextView
+		    android:id="@+id/main2_add"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/white"
+	        android:background="@color/background1"
+	        android:text="添加"
+	        android:layout_alignParentRight="true"
+	        android:paddingRight="10dp"
+	        android:paddingLeft="10dp"
+	        android:paddingTop="@dimen/padding"
+	        android:paddingBottom="@dimen/padding"
+	        />
+	</RelativeLayout>
+    
+    
+    
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -36,7 +83,6 @@
         android:layout_height="wrap_content"
         android:text="目前支持: 支付宝、招行、建行、工行、广发。"
         android:textColor="#999999"
-        android:layout_marginLeft="25dp"
-        android:textSize="16sp" />
+        android:layout_marginLeft="25dp"/>
 
 </LinearLayout>
